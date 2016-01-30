@@ -1,1 +1,3 @@
-# amandavilela.github.io
+# Amanda's portfolio
+
+Welcome to my portfolio! :)
