@@ -42,17 +42,19 @@ header {
 	}
 
 	.perfil {
+
 		@include border-radius(50%);
 		margin: 5vh auto;
 		display: block;
 		width: 46%;
 		height: auto;
-		max-width: 202px;
 
 		@include tablet {
 			width: 100%;
+			max-width: 202px;
 			margin: 7vh auto;
 		}
+		
 	}
 
 	.social {
