@@ -21,7 +21,7 @@ $(document).ready(function() {
 
 		$.ajax({
 			type: "POST",
-			url: "includes/envia.php",
+			url: "//formspree.io/amandavilelaalmeida@gmail.com",
 			data: "nome=" + nome + "&email=" + email + "&mensagem=" + mensagem,
 			success: function(data){
 				$('#retorno').html(data);
