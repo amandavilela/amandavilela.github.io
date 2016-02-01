@@ -33,8 +33,11 @@ header {
 	}
 
 	p{
+
+		width: 90%;
+
 		@include desktop {
-			padding: 0 18vw;
+			width: 58%;
 		}
 	}
 
