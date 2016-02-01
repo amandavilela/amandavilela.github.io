@@ -78,4 +78,21 @@
 
 	}
 
+	.loading {
+	  display: none;
+	  margin: 0 auto;
+	  background: url(../imgs/layout/loading.gif) 0 0 no-repeat;
+	  width: 130px;
+	  height: 98px;
+	}
+
+	.success {
+	  display: inline-block;
+	  background: #daffd6;
+	  color: #39a32e;
+	  border: solid 1px #39a32e;
+	  text-align: center;
+	  padding: 2vh 5vw;
+	}
+
 }
