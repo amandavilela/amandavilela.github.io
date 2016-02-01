@@ -1,0 +1,54 @@
+@import url(http://fonts.googleapis.com/css?family=Lato:400,700,900);
+
+html{
+	font-size: 16px;
+}
+
+body {
+	font-family: 'Lato', sans-serif;
+}
+
+h1 {
+	font-size: 10vw;
+
+	@include tablet {
+		font-size: 6vw;
+	}
+
+	@include desktop {
+		font-size: 3vw;
+	}
+
+}
+
+h2 {
+	font-size: 6vw;
+
+	@include tablet {
+		font-size: 3vw;
+	}
+
+	@include desktop {
+		font-size: 1.5vw;
+	}
+
+}
+
+p {
+	font-size: 3vw;
+	line-height: 5vw;
+
+	@include tablet {
+
+		@include landscape {
+			font-size: 2.5vw;
+		}
+
+	}
+
+	@include desktop {
+		font-size: 1.1vw;
+		line-height: 1.8vw;
+	}
+
+}
