@@ -2,4 +2,4 @@
 
 Welcome to my portfolio! :)
 
-[amandavilela.com.br](http://amandavilela.com.br/)
+<a href="http://amandavilela.com.br/" target="_blank">amandavilela.com.br</a>
