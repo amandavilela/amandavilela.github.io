@@ -1,75 +1,71 @@
 header {
 
-	padding: 3em 1.2rem;
-	text-align: center;
+	height: 100vh;
+	padding: 3rem 2rem;
+	background: url(../imgs/layout/bg.jpg) 0 0 no-repeat;
+	background-size: cover;
+	background-attachment: fixed;
 	display: flex;
-	align-items: center;
-  justify-content: center;
-	flex-flow: column;
 
 	@include desktop {
 		padding: 3em 10rem;
 	}
 
-	.name {
-
-		margin: 0 auto;
+	.desc {
+		margin: auto 0;
+		display: flex;
+		flex-flow: column;
 		text-align: center;
 
-		h1 {
-			letter-spacing: -2px;
-			font-weight: 900;
-			margin: 0;
-			text-transform: uppercase;
-			color: $primary;
-		}
-
-		h2 {
-			margin: 10px 0;
-			text-transform: uppercase;
-			color: $primary;
+		@include desktop {
+			flex-flow: row;
+			text-align: left;
 		}
 
 	}
 
-	p{
+	div {
+		display: flex;
+		margin: auto 0;
+		flex-flow: column;
+	}
 
-		width: 90%;
+	h1 {
+		margin: 4vh 0 2vh 0;
 
 		@include desktop {
-			width: 58%;
+			margin-top: 0;
 		}
+
+	}
+
+	p {
+
+		&:after {
+			content: ' ';
+			animation: blink 1s infinite;
+			border-right: solid 1px #000;
+		}
+
 	}
 
 	.perfil {
-
-		@include border-radius(50%);
-		margin: 5vh auto;
-		display: block;
-		width: 46%;
-		height: auto;
-
-		@include tablet {
-			width: 100%;
-			max-width: 202px;
-			margin: 7vh auto;
-		}
+		margin: auto;
+		@include border-radius(10px);
 		
+		@include desktop {
+			margin: auto 3vw auto 0;
+		}
 	}
 
 	.social {
 
-		text-align: center;
-		margin: 7vh 0;
-
-		@include desktop {
-			margin: 10vh 0;
-		}
+		margin: 3vh 0 0;
 
 		li {
 
 			display: inline-block;
-			margin: 0 0.6vw;
+			margin: 0 1vw 0 0;
 
 			a {
 				display: block;
@@ -84,10 +80,6 @@ header {
 
 				&.linkedin {
 					background-image: url(../imgs/layout/linkedin.png);
-				}
-
-				&.behance {
-				  background-image: url(../imgs/layout/behance.png);
 				}
 
 				&.github {
@@ -122,24 +114,6 @@ header {
 
 		}
 
-	}
-
-	.arrow{
-		background: url(../imgs/layout/arrow.png) 0 0 no-repeat;
-		background-size: 100% 100%;
-		width: 32px;
-		height: 19px;
-		display: inline-block;
-
-		@include tablet {
-			width: 55px;
-			height: 32px;
-		}
-
-		@include desktop {
-			width: 69px;
-			height: 44px;
-		}
 	}
 
 }
