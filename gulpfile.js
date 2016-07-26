@@ -8,9 +8,6 @@ gulp.task('dependencies', function(){
   gulp.src('bower_components/normalize-css/normalize.css')
   .pipe(rename('_normalize.scss'))
   .pipe(gulp.dest('scss/libs'));
-
-  gulp.src('bower_components/jquery/dist/jquery.min.js')
-  .pipe(gulp.dest('js/libs'));
 });
 
 gulp.task('sass', function() {
