@@ -23,11 +23,13 @@
   },
   "homepage": "https://github.com/amandavilela/amandavilela.github.io#readme",
   "dependencies": {
-    "gulp": "^3.9.0",
     "gulp-autoprefixer": "^3.1.0",
     "gulp-minify-css": "^1.2.3",
     "gulp-rename": "^1.2.2",
     "gulp-sass": "^2.1.1",
     "node-sass": "^3.4.2"
+  },
+  "devDependencies": {
+    "gulp": "^3.9.1"
   }
 }
