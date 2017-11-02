@@ -11,27 +11,23 @@ header {
 		padding: 3em 10rem;
 	}
 
-	.desc {
-		margin: auto 0;
+	div {
+		margin: auto auto;
 		display: flex;
 		flex-flow: column;
-		text-align: center;
+		text-align: justify;
+		width: 88%;
 
 		@include desktop {
-			flex-flow: row;
+			flex-flow: column;
 			text-align: left;
+			width: 81%;
 		}
 
 	}
 
-	div {
-		display: flex;
-		margin: auto 0;
-		flex-flow: column;
-	}
-
 	h1 {
-		margin: 4vh 0 2vh 0;
+		margin: 4vh 0 2.5vh 0;
 
 		@include desktop {
 			margin-top: 0;
@@ -39,28 +35,21 @@ header {
 
 	}
 
-	p {
-
+	p.type {
 		&:after {
 			content: ' ';
 			animation: blink 1s infinite;
 			border-right: solid 1px #000;
 		}
-
-	}
-
-	.perfil {
-		margin: auto;
-		@include border-radius(10px);
-		
-		@include desktop {
-			margin: auto 3vw auto 0;
-		}
 	}
 
 	.social {
 
-		margin: 3vh 0 0;
+		margin: 25px auto;
+
+		@include desktop {
+			margin: 25px 0 0 0;
+		}
 
 		li {
 
@@ -83,35 +72,31 @@ header {
 				}
 
 				&.github {
-				  background-image: url(../imgs/layout/github.png);
-				}
-
-				&.pinterest {
-				  background-image: url(../imgs/layout/pinterest.png);
+					background-image: url(../imgs/layout/github.png);
 				}
 
 				&.medium {
-				  background-image: url(../imgs/layout/medium.png);
+					background-image: url(../imgs/layout/medium.png);
 				}
 
 				&.behance {
-				  background-image:url(../imgs/layout/behance.png);
+					background-image:url(../imgs/layout/behance.png);
 				}
 
 				&.codepen {
-				  background-image: url(../imgs/layout/codepen.png);
+					background-image: url(../imgs/layout/codepen.png);
 				}
-				
+
 				&.speakerdeck {
-				  background-image: url(../imgs/layout/speakerdeck.png);
+					background-image: url(../imgs/layout/speakerdeck.png);
 				}
 
 				&.mail {
-				  background-image: url(../imgs/layout/mail.png);
+					background-image: url(../imgs/layout/mail.png);
 				}
 
 				&:hover {
-				  opacity: 0.7
+					opacity: 0.7
 				}
 
 			}
