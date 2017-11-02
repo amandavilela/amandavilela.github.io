@@ -1,24 +1,24 @@
-var gulp = require('gulp'),
-    sass = require('gulp-sass'),
-    rename = require('gulp-rename'),
-    prefixer = require('gulp-autoprefixer'),
-    minify = require('gulp-minify-css');
+const gulp = require('gulp'),
+      autoprefixer = require('gulp-autoprefixer'),
+      sass = require('gulp-sass'),
+      browserSync = require('browser-sync').create(),
+      minify = require('gulp-minify-css');
 
-gulp.task('dependencies', function(){
-  gulp.src('bower_components/normalize-css/normalize.css')
-  .pipe(rename('_normalize.scss'))
-  .pipe(gulp.dest('scss/libs'));
+
+gulp.task('dependencies', () => {
+  gulp.src('node_modules/normalize-scss/_normalize.scss')
+  .pipe(gulp.dest('./scss/libs/'));
 });
 
-gulp.task('sass', function() {
-    gulp.src('scss/style.scss')
-    .pipe(sass().on('error', sass.logError))
-    .pipe(gulp.dest('css/'))
-    .pipe(minify({compatibility: 'ie8'}))
-    .pipe(rename('style.min.css'))
-    .pipe(gulp.dest('css/'))
+gulp.task('styles', () => {
+  gulp.src('scss/style.scss')
+  .pipe(sass({outputStyle: 'compressed'}).on('error', sass.logError))
+  .pipe(autoprefixer({browsers: ['last 10 versions'], cascade: false}))
+  .pipe(gulp.dest('css/'));
 });
 
-gulp.task('watch', function(){
-  gulp.watch('scss/**/*.scss', ['sass']);
-})
+gulp.task('default', () => {
+  browserSync.init({server: "./"});
+  gulp.watch("scss/**/*.scss", ['styles']);
+  gulp.watch(["index.html", "css/*.css"]).on('change', browserSync.reload);
+});
