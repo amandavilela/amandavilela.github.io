@@ -1,0 +1,50 @@
+@import url(https://fonts.googleapis.com/css?family=Inconsolata:400,700);
+
+html{
+	font-size: 16px;
+}
+
+body {
+	font-family: 'Inconsolata', Consolas;
+}
+
+h1 {
+	font-size: 6vw;
+
+	@include desktop {
+		font-size: 3vw;
+	}
+
+}
+
+h2 {
+	font-size: 6vw;
+
+	@include tablet {
+		font-size: 3vw;
+	}
+
+	@include desktop {
+		font-size: 1.5vw;
+	}
+
+}
+
+p {
+	font-size: 3vw;
+	line-height: 5vw;
+
+	@include tablet {
+
+		@include landscape {
+			font-size: 2.5vw;
+		}
+
+	}
+
+	@include desktop {
+		font-size: 1.1vw;
+		line-height: 1.8vw;
+	}
+
+}
