@@ -6,17 +6,13 @@ body {
 	font-family: 'Inconsolata', Consolas;
 }
 
-h1, h2, h3, h4, h5, h6 {
-	font-family: 'Merriweather', serif;
-}
-
 h1 {
+	font-family: 'Merriweather', serif;
 	font-size: 1.5rem;
 
 	@include desktop {
 		font-size: 2.5rem;
 	}
-
 }
 
 p {
