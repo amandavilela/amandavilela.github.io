@@ -2,26 +2,10 @@
   background: $primary;
 	color: $secondary;
 }
+
 ::-moz-selection {
   background: $primary;
 	color: $secondary;
-}
-
-::-webkit-scrollbar {
-	width: 5px;
-}
-
-::-webkit-scrollbar-track {
-	@include border-radius(5px);
-}
-
-::-webkit-scrollbar-thumb {
-	@include border-radius(5px);
-	background: $primary;
-}
-
-::-webkit-scrollbar-thumb:window-inactive {
-	background: $primary;
 }
 
 * {
