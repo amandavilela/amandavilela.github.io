@@ -1,0 +1,30 @@
+.social {
+	display: flex;
+	margin: 1.5rem 0;
+
+	&__item {
+		margin-right: 1rem;
+	}
+
+	&__item-link {
+		background: $primary;
+		border-radius: 50%;
+		display: block;
+		height: 2.5rem;
+		padding: .5rem;
+		transition: all 0.3s linear;
+		width: 2.5rem;
+
+		&:hover {
+			opacity: 0.7
+		}
+	}
+
+	&__svg-fill {
+		fill: $tertiary;
+	}
+
+	&__svg-stroke {
+		stroke: $tertiary;
+	}
+}

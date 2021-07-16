@@ -1,4 +1,4 @@
-main {
+.home {
 	align-items: center;
 	background: url(../imgs/layout/bg.jpg) 0 0 no-repeat;
 	background-size: cover;
@@ -8,7 +8,7 @@ main {
     justify-content: center;
     height: 100vh;
 
-	.container {
+	&__container {
 		display: flex;
 		flex-direction: column;
 		justify-content: center;
@@ -19,49 +19,16 @@ main {
 		}
 	}
 
-	h1 {
+	&__title {
 		margin: 0 0 1rem 0;
 	}
 
-	p.type {
+	&__type {
+
 		&:after {
 			content: ' ';
 			animation: blink 1s infinite;
 			border-right: solid 1px #000;
 		}
-	}
-
-	.social {
-		display: flex;
-		margin: 1.5rem 0;
-
-		li {
-			margin-right: 1rem;
-
-			a {
-				background: $primary;
-				border-radius: 50%;
-				display: block;
-				height: 2.5rem;
-				padding: .5rem;
-				transition: all 0.3s linear;
-				width: 2.5rem;
-
-				&:hover {
-					opacity: 0.7
-				}
-
-			}
-
-		}
-
-	}
-
-	.svg-fill {
-		fill: $tertiary;
-	}
-
-	.svg-stroke {
-		stroke: $tertiary;
 	}
 }
