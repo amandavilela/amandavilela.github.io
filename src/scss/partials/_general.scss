@@ -11,7 +11,7 @@
 * {
 	margin: 0;
   padding: 0;
-	@include box-sizing(border-box);
+	box-sizing: border-box;
 }
 
 html {
@@ -62,16 +62,16 @@ h1, h2, h3, h4, h5, h6 {
 	overflow: hidden;
 }
 
-@keyframes type{
+@keyframes type {
   from { width: 0; }
 }
 
-@keyframes type2{
+@keyframes type2 {
   0%{width: 0;}
   50%{width: 0;}
   100%{ width: 100; }
 }
 
-@keyframes blink{
+@keyframes blink {
   to{opacity: .0;}
 }

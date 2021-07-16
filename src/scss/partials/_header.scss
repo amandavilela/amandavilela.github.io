@@ -65,7 +65,7 @@ header {
 				background-size: 100% 100%;
 				background-position: 0 0;
 				background-repeat: no-repeat;
-				@include transition(all 0.3s linear);
+				transition: all 0.3s linear;
 
 				&.linkedin {
 					background-image: url(../imgs/layout/linkedin.png);
