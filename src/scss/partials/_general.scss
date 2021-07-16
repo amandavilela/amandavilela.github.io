@@ -1,11 +1,11 @@
 ::selection {
   background: $primary;
-	color: $secondary;
+	color: $tertiary;
 }
 
 ::-moz-selection {
   background: $primary;
-	color: $secondary;
+	color: $tertiary;
 }
 
 * {
@@ -16,7 +16,7 @@
 
 html {
 	overflow-x: hidden;
-	color: $text;
+	color: $secondary;
 }
 
 ul {
@@ -34,7 +34,7 @@ a {
 }
 
 h1, h2, h3, h4, h5, h6 {
-	color: $title;
+	color: $primary;
 }
 
 @keyframes type {
