@@ -1,9 +1,17 @@
 .social {
   display: flex;
-  margin: 1.5rem 0;
+  justify-content: space-between;
+  margin-top: 1.5rem;
+
+  @include tablet {
+    justify-content: flex-start;
+  }
 
   &__item {
-    margin-right: 1rem;
+
+    @include tablet {
+      margin-right: 1rem;
+    }
   }
 
   &__item-link {
