@@ -1,0 +1,98 @@
+.contato {
+
+	background-image: url(../imgs/layout/bg-contato.jpg);
+	text-align: center;
+	display: flex;
+	align-items: center;
+  justify-content: center;
+	flex-flow: column;
+
+	h3 {
+
+		margin: 2rem 0;
+		@include skew(20deg);
+		background: $primary;
+		display: inline-block;
+		padding: 4vh 16vw;
+
+		@include desktop {
+			margin: 4rem 0;
+			padding: 3vh 6vw;
+		}
+
+		span {
+			text-transform: uppercase;
+			color: $secondary;
+			font-size: 8vw;
+			display: block;
+			font-weight: 400;
+			@include skew(-20deg);
+
+			@include tablet {
+				font-size: 6vw;
+			}
+
+			@include desktop {
+				font-size: 2.5vw;
+			}
+
+		}
+
+	}
+
+	form {
+
+		width: 75%;
+		max-width: 500px;
+
+		input, textarea {
+			opacity: 0.9;
+			margin: 1.2rem auto;
+			padding: 5vw;
+			display: block;
+			width: 100%;
+			border: solid 1px #9c9c9c;
+
+			@include desktop {
+				padding: 1.5vw;
+			}
+		}
+
+		textarea {
+			min-height: 160px;
+		}
+
+		input[type="submit"] {
+			text-transform: uppercase;
+			text-align: center;
+			background: $primary;
+			color: $secondary;
+			border: none;
+			@include transition(all 0.3s linear);
+
+			&:hover {
+				opacity: 1;
+			}
+
+		}
+
+	}
+
+	.loading {
+	  display: none;
+	  margin: 0 auto;
+	  background: url(../imgs/layout/loading.gif) 0 0 no-repeat;
+	  width: 130px;
+	  height: 98px;
+	}
+
+	.success {
+	  display: inline-block;
+	  background: #daffd6;
+	  color: #39a32e;
+	  border: solid 1px #39a32e;
+	  text-align: center;
+	  padding: 2vh 5vw;
+	}
+
+}
