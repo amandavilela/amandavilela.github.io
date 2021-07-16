@@ -33,45 +33,32 @@ a {
 	text-decoration: none;
 }
 
-input[type=submit] {
-	cursor: pointer;
-	border: none;
-}
-
-header, section {
-	width: 100vw;
-	min-height: 100vh;
-	height: auto;
-	position: relative;
-}
-
-section {
-	background-size: cover;
-	background-attachment: fixed;
-	background-repeat: no-repeat;
-	background-position: top center;
-}
-
 h1, h2, h3, h4, h5, h6 {
 	color: $title;
 }
 
-.imgreplace {
-	text-indent: -9999px;
-	display: block;
-	overflow: hidden;
-}
-
 @keyframes type {
-  from { width: 0; }
+  from {
+  	width: 0;
+  }
 }
 
 @keyframes type2 {
-  0%{width: 0;}
-  50%{width: 0;}
-  100%{ width: 100; }
+  0% {
+  	width: 0;
+  }
+
+  50% {
+  	width: 0;
+  }
+
+  100% {
+  	width: 100;
+  }
 }
 
 @keyframes blink {
-  to{opacity: .0;}
+  to {
+  	opacity: .0;
+  }
 }
