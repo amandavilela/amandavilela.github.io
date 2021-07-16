@@ -67,38 +67,6 @@ header {
 				background-repeat: no-repeat;
 				transition: all 0.3s linear;
 
-				&.linkedin {
-					background-image: url(../imgs/layout/linkedin.png);
-				}
-
-				&.timeline {
-					background-image: url(../imgs/layout/timeline.png);
-				}
-
-				&.github {
-					background-image: url(../imgs/layout/github.png);
-				}
-
-				&.medium {
-					background-image: url(../imgs/layout/medium.png);
-				}
-
-				&.behance {
-					background-image:url(../imgs/layout/behance.png);
-				}
-
-				&.codepen {
-					background-image: url(../imgs/layout/codepen.png);
-				}
-
-				&.speakerdeck {
-					background-image: url(../imgs/layout/speakerdeck.png);
-				}
-
-				&.mail {
-					background-image: url(../imgs/layout/mail.png);
-				}
-
 				&:hover {
 					opacity: 0.7
 				}
