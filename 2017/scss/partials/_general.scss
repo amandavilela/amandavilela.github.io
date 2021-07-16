@@ -1,0 +1,98 @@
+$primary: #313131;
+$title: #363636;
+$text: #5f5f5f;
+$secondary: #f9f9fa;
+
+::selection {
+  background: $primary;
+	color: $secondary;
+}
+::-moz-selection {
+  background: $primary;
+	color: $secondary;
+}
+
+::-webkit-scrollbar {
+	width: 5px;
+}
+
+::-webkit-scrollbar-track {
+	@include border-radius(5px);
+}
+
+::-webkit-scrollbar-thumb {
+	@include border-radius(5px);
+	background: $primary;
+}
+
+::-webkit-scrollbar-thumb:window-inactive {
+	background: $primary;
+}
+
+* {
+	margin: 0;
+  padding: 0;
+	@include box-sizing(border-box);
+}
+
+html {
+	overflow-x: hidden;
+	color: $text;
+}
+
+ul {
+	padding: 0;
+	margin: 0;
+	list-style: none;
+}
+
+img {
+	border: 0;
+}
+
+a {
+	text-decoration: none;
+}
+
+input[type=submit] {
+	cursor: pointer;
+	border: none;
+}
+
+header, section {
+	width: 100vw;
+	min-height: 100vh;
+	height: auto;
+	position: relative;
+}
+
+section {
+	background-size: cover;
+	background-attachment: fixed;
+	background-repeat: no-repeat;
+	background-position: top center;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	color: $title;
+}
+
+.imgreplace {
+	text-indent: -9999px;
+	display: block;
+	overflow: hidden;
+}
+
+@keyframes type{
+  from { width: 0; }
+}
+
+@keyframes type2{
+  0%{width: 0;}
+  50%{width: 0;}
+  100%{ width: 100; }
+}
+
+@keyframes blink{
+  to{opacity: .0;}
+}
