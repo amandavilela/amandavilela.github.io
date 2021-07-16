@@ -1,29 +1,15 @@
-header {
-
-	height: 100vh;
-	padding: 3rem 2rem;
+main {
 	background: url(../imgs/layout/bg.jpg) 0 0 no-repeat;
 	background-size: cover;
 	background-attachment: fixed;
 	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	height: 100vh;
+	padding: 3rem 2rem;
 
 	@include desktop {
 		padding: 3em 10rem;
-	}
-
-	div {
-		margin: auto auto;
-		display: flex;
-		flex-flow: column;
-		text-align: justify;
-		width: 88%;
-
-		@include desktop {
-			flex-flow: column;
-			text-align: left;
-			width: 81%;
-		}
-
 	}
 
 	h1 {
@@ -44,17 +30,11 @@ header {
 	}
 
 	.social {
-
-		margin: 25px auto;
-
-		@include desktop {
-			margin: 25px 0 0 0;
-		}
+		display: flex;
+		justify-content: space-between;
+		margin: 1.5rem 0;
 
 		li {
-
-			display: inline-block;
-			margin: 0 1vw 0 0;
 
 			a {
 				display: block;
@@ -62,9 +42,6 @@ header {
 				height: 8vw;
 				max-width: 42px;
 				max-height: 42px;
-				background-size: 100% 100%;
-				background-position: 0 0;
-				background-repeat: no-repeat;
 				transition: all 0.3s linear;
 
 				&:hover {
