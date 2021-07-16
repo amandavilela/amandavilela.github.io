@@ -1,34 +1,35 @@
 .home {
-	align-items: center;
-	background: url(../imgs/layout/bg.jpg) 0 0 no-repeat;
-	background-size: cover;
-	background-attachment: fixed;
-	display: flex;
-	flex-direction: column;
+  align-items: center;
+  background: url(../imgs/layout/bg.jpg) 0 0 no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100vh;
+
+  &__container {
+    display: flex;
+    flex-direction: column;
     justify-content: center;
-    height: 100vh;
+    width: 75%;
 
-	&__container {
-		display: flex;
-		flex-direction: column;
-		justify-content: center;
-		width: 75%;
+    @include desktop {
+      max-width: 60em;
+    }
+  }
 
-		@include desktop {
-			max-width: 60em;
-		}
-	}
+  &__title {
+    margin: 0 0 1rem 0;
+  }
 
-	&__title {
-		margin: 0 0 1rem 0;
-	}
+  &__type {
 
-	&__type {
+    &:after {
+      content: ' ';
+      animation: blink 1s infinite;
+      border-right: solid 1px #000;
+    }
+  }
 
-		&:after {
-			content: ' ';
-			animation: blink 1s infinite;
-			border-right: solid 1px #000;
-		}
-	}
 }

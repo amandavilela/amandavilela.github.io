@@ -2,19 +2,19 @@ $tablet-width: 768px;
 $desktop-width: 1024px;
 
 @mixin landscape {
-    @media screen and (orientation: landscape) {
-        @content;
-    }
+  @media screen and (orientation: landscape) {
+    @content;
+  }
 }
 
 @mixin tablet {
-    @media (min-width: #{$tablet-width}) {
-        @content;
-    }
+  @media (min-width: #{$tablet-width}) {
+    @content;
+  }
 }
 
 @mixin desktop {
-    @media (min-width: #{$desktop-width}) {
-        @content;
-    }
+  @media (min-width: #{$desktop-width}) {
+    @content;
+  }
 }

@@ -1,64 +1,64 @@
 ::selection {
   background: $primary;
-	color: $tertiary;
+  color: $tertiary;
 }
 
 ::-moz-selection {
   background: $primary;
-	color: $tertiary;
+  color: $tertiary;
 }
 
 * {
-	margin: 0;
+  margin: 0;
   padding: 0;
-	box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 html {
-	overflow-x: hidden;
-	color: $secondary;
+  overflow-x: hidden;
+  color: $secondary;
 }
 
 ul {
-	padding: 0;
-	margin: 0;
-	list-style: none;
+  padding: 0;
+  margin: 0;
+  list-style: none;
 }
 
 img {
-	border: 0;
+  border: 0;
 }
 
 a {
-	text-decoration: none;
+  text-decoration: none;
 }
 
 h1, h2, h3, h4, h5, h6 {
-	color: $primary;
+  color: $primary;
 }
 
 @keyframes type {
   from {
-  	width: 0;
+    width: 0;
   }
 }
 
 @keyframes type2 {
   0% {
-  	width: 0;
+    width: 0;
   }
 
   50% {
-  	width: 0;
+    width: 0;
   }
 
   100% {
-  	width: 100;
+    width: 100;
   }
 }
 
 @keyframes blink {
   to {
-  	opacity: .0;
+    opacity: .0;
   }
 }
