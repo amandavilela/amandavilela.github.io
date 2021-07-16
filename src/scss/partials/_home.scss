@@ -1,24 +1,26 @@
 main {
+	align-items: center;
 	background: url(../imgs/layout/bg.jpg) 0 0 no-repeat;
 	background-size: cover;
 	background-attachment: fixed;
 	display: flex;
 	flex-direction: column;
-	justify-content: center;
-	height: 100vh;
-	padding: 3rem 2rem;
+    justify-content: center;
+    height: 100vh;
 
-	@include desktop {
-		padding: 3em 10rem;
+	.container {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		width: 75%;
+
+		@include desktop {
+			max-width: 60em;
+		}
 	}
 
 	h1 {
-		margin: 4vh 0 2.5vh 0;
-
-		@include desktop {
-			margin-top: 0;
-		}
-
+		margin: 0 0 1rem 0;
 	}
 
 	p.type {
@@ -31,18 +33,19 @@ main {
 
 	.social {
 		display: flex;
-		justify-content: space-between;
 		margin: 1.5rem 0;
 
 		li {
+			margin-right: 1rem;
 
 			a {
+				background: $primary;
+				border-radius: 50%;
 				display: block;
-				width: 8vw;
-				height: 8vw;
-				max-width: 42px;
-				max-height: 42px;
+				height: 2.5rem;
+				padding: .5rem;
 				transition: all 0.3s linear;
+				width: 2.5rem;
 
 				&:hover {
 					opacity: 0.7
@@ -54,4 +57,11 @@ main {
 
 	}
 
+	.svg-fill {
+		fill: $tertiary;
+	}
+
+	.svg-stroke {
+		stroke: $tertiary;
+	}
 }
