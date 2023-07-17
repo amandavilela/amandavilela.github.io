@@ -2,4 +2,4 @@
 
 Welcome to my portfolio! :)
 
-<a href="http://amandavilela.com" target="_blank">amandavilela.com</a>
+<a href="https://amandavilela.github.io" target="_blank">amandavilela.github.io</a>
