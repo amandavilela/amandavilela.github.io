@@ -1,0 +1,27 @@
+{
+  "name": "portfolio",
+  "description": "Amanda's portfolio",
+  "main": "index.js",
+  "authors": [
+    "Amanda Vilela"
+  ],
+  "license": "ISC",
+  "keywords": [
+    "portfolio",
+    "front-end",
+    "ui",
+    "designer"
+  ],
+  "moduleType": [],
+  "homepage": "http://www.amandavilela.com.br",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "normalize-css": "~3.0.3"
+  }
+}

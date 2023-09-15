@@ -1,0 +1,112 @@
+header {
+
+	height: 100vh;
+	padding: 3rem 2rem;
+	background: url(../imgs/layout/bg.jpg) 0 0 no-repeat;
+	background-size: cover;
+	background-attachment: fixed;
+	display: flex;
+
+	@include desktop {
+		padding: 3em 10rem;
+	}
+
+	div {
+		margin: auto auto;
+		display: flex;
+		flex-flow: column;
+		text-align: justify;
+		width: 88%;
+
+		@include desktop {
+			flex-flow: column;
+			text-align: left;
+			width: 81%;
+		}
+
+	}
+
+	h1 {
+		margin: 4vh 0 2.5vh 0;
+
+		@include desktop {
+			margin-top: 0;
+		}
+
+	}
+
+	p.type {
+		&:after {
+			content: ' ';
+			animation: blink 1s infinite;
+			border-right: solid 1px #000;
+		}
+	}
+
+	.social {
+
+		margin: 25px auto;
+
+		@include desktop {
+			margin: 25px 0 0 0;
+		}
+
+		li {
+
+			display: inline-block;
+			margin: 0 1vw 0 0;
+
+			a {
+				display: block;
+				width: 8vw;
+				height: 8vw;
+				max-width: 42px;
+				max-height: 42px;
+				background-size: 100% 100%;
+				background-position: 0 0;
+				background-repeat: no-repeat;
+				@include transition(all 0.3s linear);
+
+				&.linkedin {
+					background-image: url(../imgs/layout/linkedin.png);
+				}
+
+				&.timeline {
+					background-image: url(../imgs/layout/timeline.png);
+				}
+
+				&.github {
+					background-image: url(../imgs/layout/github.png);
+				}
+
+				&.medium {
+					background-image: url(../imgs/layout/medium.png);
+				}
+
+				&.behance {
+					background-image:url(../imgs/layout/behance.png);
+				}
+
+				&.codepen {
+					background-image: url(../imgs/layout/codepen.png);
+				}
+
+				&.speakerdeck {
+					background-image: url(../imgs/layout/speakerdeck.png);
+				}
+
+				&.mail {
+					background-image: url(../imgs/layout/mail.png);
+				}
+
+				&:hover {
+					opacity: 0.7
+				}
+
+			}
+
+		}
+
+	}
+
+}
