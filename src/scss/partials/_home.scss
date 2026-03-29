@@ -1,6 +1,8 @@
+@use "breakpoints" as *;
+
 .home {
   align-items: center;
-  background: url(../imgs/layout/bg.jpg) 0 0 no-repeat;
+  background: url("imgs/layout/bg.jpg") 0 0 no-repeat;
   background-size: cover;
   background-attachment: fixed;
   display: flex;
