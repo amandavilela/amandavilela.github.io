@@ -35,6 +35,7 @@ The build writes:
 | `src/imgs/` | Images referenced by the build |
 | `dist/` | **Build output** — generated locally; see [Deploy to GitHub Pages](#deploy-to-github-pages) |
 | `scripts/minify-html.cjs` | HTML minification step |
+| `scripts/deploy.cjs` | Build, commit to `gh-pages` with a fresh message, push |
 
 ## Deploy to GitHub Pages (`gh-pages` branch)
 
@@ -53,13 +54,15 @@ GitHub Pages serves files from the **root** of the published source. The `gh-pag
 2. Under **Build and deployment → Source**, choose **Deploy from a branch**.
 3. Branch: **`gh-pages`**, folder: **`/` (root)**.
 
-**Publish** (builds, then pushes the contents of `dist/` to `gh-pages`):
+**Publish** — runs `npm run build`, then commits the contents of `dist/` to `gh-pages` with a new message each time (`Deploy site (<short-sha>) <ISO-timestamp>`), and pushes to `origin`:
 
 ```bash
 npm run deploy
 ```
 
-First run creates the `gh-pages` branch if it does not exist. You need a clean working tree or the tool will warn you; commit or stash changes on your working branch first.
+Implemented in `scripts/deploy.cjs`. The short SHA is the current `HEAD` on your working branch (what you are deploying from).
+
+First run creates the `gh-pages` branch if it does not exist. If `gh-pages` warns about an unclean tree, commit or stash changes on your working branch first.
 
 **Optional:** add `dist/` to `.gitignore` on `main` if you no longer want build artifacts in source control—keep deploying with `npm run deploy` only.
 
