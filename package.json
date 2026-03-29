@@ -4,7 +4,8 @@
   "description": "Amanda's portfolio",
   "private": true,
   "scripts": {
-    "build": "sass src/scss/style.scss dist/style.css --style=compressed --no-source-map && rm -rf dist/imgs && cp -R src/imgs dist/imgs && node scripts/minify-html.cjs && rm -f dist/main.js"
+    "build": "sass src/scss/style.scss dist/style.css --style=compressed --no-source-map && rm -rf dist/imgs && cp -R src/imgs dist/imgs && node scripts/minify-html.cjs && rm -f dist/main.js",
+    "deploy": "npm run build && gh-pages -d dist"
   },
   "repository": {
     "type": "git",
@@ -23,6 +24,7 @@
   },
   "homepage": "https://github.com/amandavilela/amandavilela.github.io#readme",
   "devDependencies": {
+    "gh-pages": "^6.3.0",
     "html-minifier": "^4.0.0",
     "sass": "^1.86.0"
   }
