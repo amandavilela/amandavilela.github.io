@@ -60,7 +60,7 @@ GitHub Pages serves files from the **root** of the published source. The `gh-pag
 npm run deploy
 ```
 
-Implemented in `scripts/deploy.cjs`. The short SHA is the current `HEAD` on your working branch (what you are deploying from).
+Implemented in `scripts/deploy.cjs`. The short SHA is the current `HEAD` on your working branch (what you are deploying from). Anything under `dist/node_modules/` is removed by `npm run build` and is excluded from the gh-pages publish step so dependencies are never deployed.
 
 First run creates the `gh-pages` branch if it does not exist. If `gh-pages` warns about an unclean tree, commit or stash changes on your working branch first.
 

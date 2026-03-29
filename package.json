@@ -4,7 +4,7 @@
   "description": "Amanda's portfolio",
   "private": true,
   "scripts": {
-    "build": "sass src/scss/style.scss dist/style.css --style=compressed --no-source-map && rm -rf dist/imgs && cp -R src/imgs dist/imgs && node scripts/minify-html.cjs && rm -f dist/main.js",
+    "build": "sass src/scss/style.scss dist/style.css --style=compressed --no-source-map && rm -rf dist/imgs && cp -R src/imgs dist/imgs && node scripts/minify-html.cjs && rm -f dist/main.js && rm -rf dist/node_modules",
     "deploy": "node scripts/deploy.cjs"
   },
   "repository": {

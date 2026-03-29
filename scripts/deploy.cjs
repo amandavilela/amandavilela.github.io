@@ -17,6 +17,7 @@ ghpages.publish(
   {
     branch: "gh-pages",
     message,
+    src: ["**/*", "!node_modules/**"],
   },
   (err) => {
     if (err) {
