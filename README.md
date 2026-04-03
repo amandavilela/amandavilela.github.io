@@ -4,11 +4,11 @@ Static portfolio site for [amandavilela.me](https://amandavilela.me).
 
 ## Getting started
 
-1. Install [Node.js](https://nodejs.org/) LTS and npm.
+1. Install [Bun](https://bun.sh/docs/installation) (v1.0 or later).
 2. Install dependencies:
 
 ```bash
-npm install
+bun install
 ```
 
 ## Development
@@ -16,7 +16,7 @@ npm install
 Start the dev server:
 
 ```bash
-npm run dev
+bun run dev
 ```
 
 - Sass compiles `src/scss/style.scss` → `src/style.css` (with source maps, git-ignored)
@@ -29,7 +29,7 @@ npm run dev
 Compile and emit a production-ready `dist/`:
 
 ```bash
-npm run build
+bun run build
 ```
 
 The build writes:
@@ -90,10 +90,10 @@ GitHub Pages serves files from the **root** of the published branch. The `gh-pag
 
 **Publish**
 
-Runs `npm run build`, commits the contents of `dist/` to `gh-pages` with an auto-generated message (`Deploy site (<short-sha>) <ISO-timestamp>`), and pushes to `origin`:
+Runs `bun run build`, commits the contents of `dist/` to `gh-pages` with an auto-generated message (`Deploy site (<short-sha>) <ISO-timestamp>`), and pushes to `origin`:
 
 ```bash
-npm run deploy
+bun run deploy
 ```
 
 The first run creates the `gh-pages` branch if it does not exist. If the command warns about an unclean working tree, commit or stash any pending changes first.

@@ -1,7 +1,7 @@
 const { execSync } = require("child_process");
 const ghpages = require("gh-pages");
 
-execSync("npm run build", { stdio: "inherit" });
+execSync("bun run build", { stdio: "inherit" });
 
 let sha = "unknown";
 try {

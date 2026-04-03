@@ -3,10 +3,11 @@
   "version": "1.0.0",
   "description": "Amanda's portfolio",
   "private": true,
+  "packageManager": "bun@1.3.11",
   "scripts": {
-    "dev": "node scripts/dev.cjs",
-    "build": "sass src/scss/style.scss dist/style.css --style=compressed --no-source-map && rm -rf dist/imgs && cp -R src/imgs dist/imgs && node scripts/minify-html.cjs && rm -f dist/main.js && rm -rf dist/node_modules",
-    "deploy": "node scripts/deploy.cjs"
+    "dev": "bun scripts/dev.cjs",
+    "build": "bun scripts/build.cjs",
+    "deploy": "bun scripts/deploy.cjs"
   },
   "repository": {
     "type": "git",
