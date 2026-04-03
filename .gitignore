@@ -1,3 +1,7 @@
 node_modules/
 dist
 .DS_Store
+
+# Dev server output (compiled by sass --watch into src/ during development)
+src/style.css
+src/style.css.map

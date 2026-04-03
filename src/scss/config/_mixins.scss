@@ -1,0 +1,8 @@
+@use "variables" as *;
+
+@mixin focus-ring($color: $color-green, $offset: 2px) {
+    &:focus-visible {
+        outline: 2px solid $color;
+        outline-offset: $offset;
+    }
+}

@@ -1,4 +1,9 @@
-@use "partials/typography";
-@use "partials/general";
-@use "partials/home";
-@use "partials/social";
+@use "base/reset";
+@use "base/typography";
+@use "components/buttons";
+@use "sections/hero";
+@use "sections/focus";
+@use "sections/how-i-work";
+@use "sections/engagement";
+@use "sections/contact";
+@use "sections/footer";

@@ -1,0 +1,39 @@
+@use "../config/variables" as *;
+@use "../config/breakpoints" as *;
+@use "../config/mixins" as *;
+
+.contact {
+    padding: 3rem 0;
+
+    @include tablet {
+        padding: 4rem 0;
+    }
+
+    p {
+        font-size: 0.875rem;
+        line-height: 1.7;
+        margin-bottom: 0.5rem;
+
+        @include tablet {
+            font-size: 0.9rem;
+        }
+    }
+
+    &__email {
+        font-weight: 700;
+        text-decoration: underline;
+        text-underline-offset: 3px;
+        color: $color-text;
+        transition: color 0.2s ease;
+
+        &:hover {
+            color: $color-green;
+        }
+
+        &:active {
+            color: $color-green-dark;
+        }
+
+        @include focus-ring();
+    }
+}

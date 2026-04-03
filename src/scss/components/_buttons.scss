@@ -1,0 +1,28 @@
+@use "../config/variables" as *;
+@use "../config/mixins" as *;
+
+.btn {
+    display: inline-block;
+    padding: 0.4rem 0.85rem;
+    border: 1px solid $color-salmon;
+    font-family: 'Inconsolata', monospace;
+    font-size: 0.8rem;
+    color: $color-text;
+    background: $color-light;
+    cursor: pointer;
+    transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+
+    &:hover {
+        background: $color-green;
+        color: $color-bg;
+        border-color: $color-green;
+    }
+
+    &:active {
+        background: $color-green-dark;
+        border-color: $color-green-dark;
+        color: $color-bg;
+    }
+
+    @include focus-ring();
+}

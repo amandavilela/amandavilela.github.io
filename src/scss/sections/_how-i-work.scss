@@ -1,0 +1,40 @@
+@use "../config/variables" as *;
+@use "../config/breakpoints" as *;
+
+.how-i-work {
+    padding: 3rem 0;
+
+    @include tablet {
+        padding: 4rem 0;
+    }
+
+    &__lead {
+        margin-bottom: 1.5rem;
+        font-size: 0.875rem;
+
+        @include tablet {
+            font-size: 0.9rem;
+        }
+    }
+
+    &__list {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    &__item {
+        display: flex;
+        align-items: center;
+        gap: 0.85rem;
+        font-size: 0.875rem;
+    }
+
+    &__bullet {
+        flex-shrink: 0;
+        width: 1.25rem;
+        height: 1.25rem;
+        background-color: $color-salmon;
+        display: block;
+    }
+}

@@ -1,0 +1,56 @@
+@use "sass:color";
+@use "../config/variables" as *;
+@use "../config/breakpoints" as *;
+@use "../config/mixins" as *;
+
+.site-footer {
+    background-color: $color-green;
+    padding: 3rem 0 2rem;
+
+    @include tablet {
+        padding: 4rem 0 2.5rem;
+    }
+
+    &__title {
+        color: $color-bg;
+        font-size: 1.75rem;
+        margin-bottom: 1.5rem;
+
+        @include tablet {
+            font-size: 2.25rem;
+        }
+    }
+
+    &__credit {
+        color: rgba($color-bg, 0.6);
+        font-size: 0.75rem;
+        margin-top: 2rem;
+        text-align: center;
+    }
+}
+
+.social {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+
+    &__link {
+        color: $color-bg;
+        font-size: 0.875rem;
+        text-decoration: underline;
+        text-underline-offset: 4px;
+        text-decoration-color: rgba($color-bg, 0.5);
+        transition: text-decoration-color 0.2s ease, color 0.2s ease;
+
+        &:hover {
+            text-decoration-color: $color-bg;
+            color: $color-salmon;
+        }
+
+        &:active {
+            color: color.adjust($color-salmon, $lightness: -10%);
+        }
+
+        @include focus-ring($color-bg, 3px);
+    }
+}

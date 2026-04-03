@@ -1,20 +1,32 @@
 # Amanda's portfolio
 
-Static portfolio site for [amandavilela.github.io](https://amandavilela.github.io).
+Static portfolio site for [amandavilela.me](https://amandavilela.me).
 
-## Requirements
+## Getting started
 
-- [Node.js](https://nodejs.org/) (LTS recommended) and npm
-
-## Setup and build
-
-Install dependencies:
+1. Install [Node.js](https://nodejs.org/) LTS and npm.
+2. Install dependencies:
 
 ```bash
 npm install
 ```
 
-Compile Sass, copy assets, and emit a minified `dist/index.html`:
+## Development
+
+Start the dev server:
+
+```bash
+npm run dev
+```
+
+- Sass compiles `src/scss/style.scss` → `src/style.css` (with source maps, git-ignored)
+- [browser-sync](https://browsersync.io/) serves `src/` at **http://localhost:3000**
+- CSS changes are injected without a page reload; HTML and JS changes trigger a full reload
+- `Ctrl+C` shuts both processes down cleanly
+
+## Build
+
+Compile and emit a production-ready `dist/`:
 
 ```bash
 npm run build
@@ -22,58 +34,66 @@ npm run build
 
 The build writes:
 
-- `dist/style.css` — compressed CSS from `src/scss/`
+- `dist/style.css` — compressed CSS, no source maps
 - `dist/imgs/` — copied from `src/imgs/`
 - `dist/index.html` — minified from `src/index.html`
 
 ## Project layout
 
-| Path | Purpose |
-|------|---------|
-| `src/index.html` | Page markup (source) |
-| `src/scss/` | Stylesheets (Sass modules) |
-| `src/imgs/` | Images referenced by the build |
-| `dist/` | **Build output** — generated locally; see [Deploy to GitHub Pages](#deploy-to-github-pages) |
-| `scripts/minify-html.cjs` | HTML minification step |
-| `scripts/deploy.cjs` | Build, commit to `gh-pages` with a fresh message, push |
+```
+src/
+  index.html          Page markup
+  imgs/               Images referenced by the page
+  scss/
+    style.scss        Entry point — imports all partials in order
+    config/           No CSS output; project-wide configuration
+      _variables.scss   Colour tokens and shared values
+      _breakpoints.scss Breakpoint variables and responsive mixins
+      _mixins.scss      Shared utility mixins (e.g. focus-ring)
+    base/             Element-level styles
+      _reset.scss       Global reset, accessibility base, shared layout utilities
+      _typography.scss  Font, heading, and body text rules
+    components/       Reusable UI pieces
+      _buttons.scss     .btn styles
+    sections/         One file per page section
+      _hero.scss
+      _focus.scss
+      _how-i-work.scss
+      _engagement.scss
+      _contact.scss
+      _footer.scss
 
-## Deploy to GitHub Pages (`gh-pages` branch)
+scripts/
+  dev.cjs             Orchestrates sass --watch + browser-sync for local development
+  minify-html.cjs     HTML minification step used by npm run build
+  deploy.cjs          Runs the build then publishes dist/ to the gh-pages branch
 
-GitHub Pages serves files from the **root** of the published source. The `gh-pages` branch should look like the **inside** of `dist/` (e.g. `index.html` and `style.css` at the top level), not a folder literally named `dist/`.
+dist/                 Build output — do not edit manually
+```
+
+## Deploy to GitHub Pages
+
+GitHub Pages serves files from the **root** of the published branch. The `gh-pages` branch contains only the built site (the contents of `dist/`), not the source.
 
 **Branch roles**
 
 | Branch | Contents |
 |--------|----------|
-| `main` / `dev` | Source: `src/`, `package.json`, build scripts. You can **omit committing `dist/`** here if you only publish via `gh-pages`. |
-| `gh-pages` | **Only** the built site: whatever `npm run build` writes into `dist/`, pushed so it sits at the branch root. |
+| `main` | Source: `src/`, `package.json`, build scripts |
+| `gh-pages` | Built site only — whatever `npm run build` writes into `dist/` |
 
 **One-time repo settings**
 
-1. Repository **Settings → Pages**.
+1. Go to repository **Settings → Pages**.
 2. Under **Build and deployment → Source**, choose **Deploy from a branch**.
-3. Branch: **`gh-pages`**, folder: **`/` (root)**.
+3. Set branch to **`gh-pages`**, folder **`/ (root)`**.
 
-**Publish** — runs `npm run build`, then commits the contents of `dist/` to `gh-pages` with a new message each time (`Deploy site (<short-sha>) <ISO-timestamp>`), and pushes to `origin`:
+**Publish**
+
+Runs `npm run build`, commits the contents of `dist/` to `gh-pages` with an auto-generated message (`Deploy site (<short-sha>) <ISO-timestamp>`), and pushes to `origin`:
 
 ```bash
 npm run deploy
 ```
 
-Implemented in `scripts/deploy.cjs`. The short SHA is the current `HEAD` on your working branch (what you are deploying from). Anything under `dist/node_modules/` is removed by `npm run build` and is excluded from the gh-pages publish step so dependencies are never deployed.
-
-First run creates the `gh-pages` branch if it does not exist. If `gh-pages` warns about an unclean tree, commit or stash changes on your working branch first.
-
-**Optional:** add `dist/` to `.gitignore` on `main` if you no longer want build artifacts in source control—keep deploying with `npm run deploy` only.
-
-## Local preview
-
-After a build, serve `dist/` from a static server, for example:
-
-```bash
-npx --yes serve dist
-```
-
-Or open `dist/index.html` via any local static file server so asset paths resolve correctly.
-
-
+The first run creates the `gh-pages` branch if it does not exist. If the command warns about an unclean working tree, commit or stash any pending changes first.
