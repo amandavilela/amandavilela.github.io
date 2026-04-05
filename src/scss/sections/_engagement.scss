@@ -56,13 +56,12 @@
 
     &__cta-link {
         font-size: 0.8rem;
-        color: $color-text;
-        text-decoration: underline;
-        text-underline-offset: 3px;
+        color: $color-green;
+        text-decoration: none;
         transition: color 0.2s ease;
 
         &:hover {
-            color: $color-green;
+            background: $color-salmon;
         }
 
         &:active {
