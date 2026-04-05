@@ -28,13 +28,14 @@
         align-items: center;
         gap: 0.85rem;
         font-size: 0.875rem;
-    }
 
-    &__bullet {
-        flex-shrink: 0;
-        width: 1.25rem;
-        height: 1.25rem;
-        background-color: $color-salmon;
-        display: block;
+        &::before {
+            content: "";
+            flex-shrink: 0;
+            width: 1.25rem;
+            height: 1.25rem;
+            background-color: $color-salmon;
+            display: block;
+        }
     }
 }
