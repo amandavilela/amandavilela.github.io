@@ -1,6 +1,7 @@
 @use "../config/variables" as *;
 @use "../config/breakpoints" as *;
 @use "../config/mixins" as *;
+@use "sass:color";
 
 .contact {
     padding: 3rem 0;
@@ -21,17 +22,11 @@
 
     &__email {
         font-weight: 700;
-        text-decoration: underline;
-        text-underline-offset: 3px;
         color: $color-text;
-        transition: color 0.2s ease;
-
-        &:hover {
-            color: $color-green;
-        }
+        @include slide-bg-hover($hover-text-color: $color-green);
 
         &:active {
-            color: $color-green-dark;
+            color: color.adjust($color-green, $lightness: -10%);
         }
 
         @include focus-ring();
