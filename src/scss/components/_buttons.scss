@@ -2,20 +2,20 @@
 @use "../config/mixins" as *;
 
 .btn {
-    display: inline-block;
-    padding: 0.4rem 0.85rem;
+    background: $color-light;
     border: 1px solid $color-salmon;
+    color: $color-green;
+    cursor: pointer;
+    display: inline-block;
     font-family: 'Inconsolata', monospace;
     font-size: 0.8rem;
-    color: $color-green;
-    background: $color-light;
-    cursor: pointer;
+    padding: 0.4rem 0.85rem;
     transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
 
     &:hover {
         background: $color-green;
-        color: $color-bg;
         border-color: $color-green;
+        color: $color-bg;
     }
 
     &:active {

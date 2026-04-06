@@ -15,10 +15,10 @@
     }
 
     &__grid {
+        border-left: 1px solid $color-salmon;
+        border-top: 1px solid $color-salmon;
         display: grid;
         grid-template-columns: 1fr;
-        border-top: 1px solid $color-salmon;
-        border-left: 1px solid $color-salmon;
 
         @include tablet {
             grid-template-columns: repeat(3, 1fr);
@@ -28,18 +28,17 @@
     &__cell {
         border-bottom: 1px solid $color-salmon;
         border-right: 1px solid $color-salmon;
-        padding: 1.5rem 1.25rem;
         display: flex;
         flex-direction: column;
         gap: 0.5rem;
+        padding: 1.5rem 1.25rem;
     }
 
     &__term {
         font-family: 'Merriweather', serif;
+        font-size: 0.875rem;
         font-style: italic;
         font-weight: 700;
-        font-size: 0.875rem;
-        color: $color-text;
     }
 
     &__desc {
@@ -48,15 +47,15 @@
     }
 
     &__cell--cta {
-        display: flex;
         align-items: center;
-        justify-content: space-around;
         background-color: $color-light;
+        display: flex;
+        justify-content: space-around;
     }
 
     &__cta-link {
-        font-size: 0.8rem;
         color: $color-green;
+        font-size: 0.8rem;
         text-decoration: none;
         transition: color 0.2s ease;
 

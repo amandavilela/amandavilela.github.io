@@ -9,8 +9,8 @@
     }
 
     &__lead {
-        margin-bottom: 1.5rem;
         font-size: 0.875rem;
+        margin-bottom: 1.5rem;
 
         @include tablet {
             font-size: 0.9rem;
@@ -24,18 +24,18 @@
     }
 
     &__item {
-        display: flex;
         align-items: center;
-        gap: 0.85rem;
+        display: flex;
         font-size: 0.875rem;
+        gap: 0.85rem;
 
         &::before {
-            content: "";
-            flex-shrink: 0;
-            width: 1.25rem;
-            height: 1.25rem;
             background-color: $color-salmon;
+            content: "";
             display: block;
+            flex-shrink: 0;
+            height: 1.25rem;
+            width: 1.25rem;
         }
     }
 }

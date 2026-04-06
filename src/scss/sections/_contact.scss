@@ -11,18 +11,13 @@
     }
 
     p {
-        font-size: 0.875rem;
         line-height: 1.7;
         margin-bottom: 0.5rem;
-
-        @include tablet {
-            font-size: 0.9rem;
-        }
     }
 
     &__email {
-        font-weight: 700;
         color: $color-text;
+        font-weight: 700;
         @include slide-bg-hover($hover-text-color: $color-green);
 
         &:active {

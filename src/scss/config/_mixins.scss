@@ -12,10 +12,10 @@
     z-index: 0;
 
     &::before {
-        content: '';
-        position: absolute;
-        inset: 0;
         background: $bg-color;
+        content: '';
+        inset: 0;
+        position: absolute;
         transform: scaleX(0);
         transform-origin: right;
         transition: transform $duration ease-in-out;
