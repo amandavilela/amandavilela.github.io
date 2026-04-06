@@ -1,6 +1,11 @@
 @use "../config/variables" as *;
 @use "../config/breakpoints" as *;
 
+@keyframes mark-fill {
+    from { background-size: 0% 100%; }
+    to   { background-size: 100% 100%; }
+}
+
 .hero {
     padding: 3rem 0 2.5rem;
 
@@ -38,15 +43,30 @@
 
     &__lead {
         mark {
-            background-color: $color-salmon;
             color: $color-text;
-            -webkit-box-decoration-break: clone;
-            box-decoration-break: clone;
+            background-color: unset;
             padding: 0.15em 0.1em;
             display: inline;
             font-size: 0.9rem;
             font-weight: 700;
             line-height: 1.9;
+
+            border-radius: 1em 0 1em 0;
+            text-shadow: 1px 1px 1px white;
+            background-image:
+                linear-gradient(100deg,
+                    rgba($color-salmon, .15),
+                    rgba($color-salmon, .85) 100%,
+                    rgba($color-salmon, .35)
+                );
+            background-repeat: no-repeat;
+            background-position: left center;
+            background-size: 100% 100%;
+
+            @media (prefers-reduced-motion: no-preference) {
+                background-size: 0% 100%;
+                animation: mark-fill 0.8s ease-in-out 1s forwards;
+            }
 
             @include tablet {
                 font-size: 1rem;
