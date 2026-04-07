@@ -1,9 +1,12 @@
 @use "base/reset";
 @use "base/typography";
 @use "components/buttons";
+@use "components/bullet-list";
 @use "sections/hero";
+@use "sections/page-header";
 @use "sections/focus";
 @use "sections/how-i-work";
 @use "sections/engagement";
+@use "sections/services";
 @use "sections/contact";
 @use "sections/footer";

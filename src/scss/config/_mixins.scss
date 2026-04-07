@@ -1,4 +1,5 @@
 @use "variables" as *;
+@use "breakpoints" as *;
 
 @mixin focus-ring($color: $color-green, $offset: 2px) {
     &:focus-visible {
@@ -30,4 +31,20 @@
             transform-origin: left;
         }
     }
+}
+
+@mixin bordered-grid($cols-tablet: 2) {
+    border-left: 1px solid $color-salmon;
+    border-top: 1px solid $color-salmon;
+    display: grid;
+    grid-template-columns: 1fr;
+
+    @include tablet {
+        grid-template-columns: repeat(#{$cols-tablet}, 1fr);
+    }
+}
+
+@mixin bordered-grid-cell {
+    border-bottom: 1px solid $color-salmon;
+    border-right: 1px solid $color-salmon;
 }

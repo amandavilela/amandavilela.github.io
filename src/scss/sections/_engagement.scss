@@ -1,33 +1,19 @@
 @use "../config/variables" as *;
-@use "../config/breakpoints" as *;
+
 @use "../config/mixins" as *;
 
 .engagement {
-    padding: 3rem 0;
-
-    @include tablet {
-        padding: 4rem 0;
-    }
 
     &__subtitle {
-        font-size: 0.875rem;
         margin-bottom: 2rem;
     }
 
     &__grid {
-        border-left: 1px solid $color-salmon;
-        border-top: 1px solid $color-salmon;
-        display: grid;
-        grid-template-columns: 1fr;
-
-        @include tablet {
-            grid-template-columns: repeat(3, 1fr);
-        }
+        @include bordered-grid(3);
     }
 
     &__cell {
-        border-bottom: 1px solid $color-salmon;
-        border-right: 1px solid $color-salmon;
+        @include bordered-grid-cell;
         display: flex;
         flex-direction: column;
         gap: 0.5rem;
@@ -36,13 +22,11 @@
 
     &__term {
         font-family: 'Merriweather', serif;
-        font-size: 0.875rem;
         font-style: italic;
         font-weight: 700;
     }
 
     &__desc {
-        font-size: 0.825rem;
         line-height: 1.6;
     }
 
@@ -55,7 +39,6 @@
 
     &__cta-link {
         color: $color-green;
-        font-size: 0.8rem;
         text-decoration: none;
         transition: color 0.2s ease;
 

@@ -1,15 +1,9 @@
 @use "../config/variables" as *;
-@use "../config/breakpoints" as *;
+
 @use "../config/mixins" as *;
 @use "sass:color";
 
 .contact {
-    padding: 3rem 0;
-
-    @include tablet {
-        padding: 4rem 0;
-    }
-
     p {
         line-height: 1.7;
         margin-bottom: 0.5rem;

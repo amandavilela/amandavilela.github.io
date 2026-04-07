@@ -7,12 +7,6 @@
 }
 
 .hero {
-    padding: 3rem 0 2.5rem;
-
-    @include tablet {
-        padding: 4rem 0 3.5rem;
-    }
-
     &__inner {
         display: flex;
         flex-direction: column;
@@ -32,14 +26,6 @@
         gap: 1rem;
     }
 
-    &__title {
-        font-size: 2rem;
-
-        @include tablet {
-            font-size: 2.75rem;
-        }
-    }
-
     &__lead {
         mark {
             background-color: unset;
@@ -55,7 +41,7 @@
             border-radius: 1em 0 1em 0;
             color: $color-text;
             display: inline;
-            font-size: 0.9rem;
+            font-size: 1.15rem;
             font-weight: 700;
             line-height: 1.9;
             padding: 0.15em 0.1em;
@@ -65,19 +51,6 @@
                 animation: mark-fill 0.8s ease-in-out 1s forwards;
                 background-size: 0% 100%;
             }
-
-            @include tablet {
-                font-size: 1rem;
-            }
-        }
-    }
-
-    &__description {
-        font-size: 0.85rem;
-        line-height: 1.7;
-
-        @include tablet {
-            font-size: 0.9rem;
         }
     }
 
