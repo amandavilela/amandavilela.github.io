@@ -1,0 +1,24 @@
+@use "../config/breakpoints" as *;
+
+.core-areas {
+    padding: 0;
+}
+
+.core-area {
+    & + & {
+        margin-top: 3rem;
+    }
+
+    h3 {
+        font-size: 1.25rem;
+        margin-bottom: 0.75rem;
+
+        @include tablet {
+            font-size: 1.5rem;
+        }
+    }
+
+    .bullet-list {
+        margin-top: 1rem;
+    }
+}
