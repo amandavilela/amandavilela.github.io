@@ -21,26 +21,23 @@
     }
 
     &__term {
-        font-family: 'Merriweather', serif;
-        font-style: italic;
-        font-weight: 700;
-    }
-
-    &__desc {
-        line-height: 1.6;
+        margin-bottom: .5rem;
     }
 
     &__cell--cta {
-        align-items: center;
-        background-color: $color-light;
-        display: flex;
-        justify-content: space-around;
+        padding: 0;
     }
 
     &__cta-link {
+        align-items: center;
         color: $color-green;
+        display: flex;
+        justify-content: center;
+        height: 100%;
+        padding: 2.25rem 0;
         text-decoration: none;
         transition: color 0.2s ease;
+        width: 100%;
 
         &:hover {
             background: $color-salmon;
