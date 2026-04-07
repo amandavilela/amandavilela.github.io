@@ -2,6 +2,8 @@
 
 Static portfolio site for [amandavilela.me](https://amandavilela.me).
 
+Built with [Eleventy](https://www.11ty.dev/) (templates + routing) and [Sass](https://sass-lang.com/) (styles).
+
 ## Getting started
 
 1. Install [Bun](https://bun.sh/docs/installation) (v1.0 or later).
@@ -19,10 +21,10 @@ Start the dev server:
 bun run dev
 ```
 
-- Sass compiles `src/scss/style.scss` → `src/style.css` (with source maps, git-ignored)
-- [browser-sync](https://browsersync.io/) serves `src/` at **http://localhost:3000**
-- CSS changes are injected without a page reload; HTML and JS changes trigger a full reload
-- `Ctrl+C` shuts both processes down cleanly
+- Sass compiles `src/scss/style.scss` → `dist/style.css` (with source maps)
+- Eleventy processes templates from `src/` → `dist/` and serves `dist/` with live reload
+- Both processes run in parallel; `Ctrl+C` shuts them both down cleanly
+- Dev server runs at **http://localhost:8080** (Eleventy's default port)
 
 ## Build
 
@@ -35,27 +37,36 @@ bun run build
 The build writes:
 
 - `dist/style.css` — compressed CSS, no source maps
+- `dist/favicon.ico` — copied from `src/favicon.ico`
 - `dist/imgs/` — copied from `src/imgs/`
-- `dist/index.html` — minified from `src/index.html`
+- `dist/index.html` — homepage (minified)
+- `dist/services/index.html` — services page at the clean URL `/services/` (minified)
+
+HTML is minified via an Eleventy transform that runs when `NODE_ENV=production`.
 
 ## Project layout
 
 ```
 src/
-  index.html          Page markup
-  imgs/               Images referenced by the page
+  _includes/
+    layouts/
+      base.njk          Shared HTML layout: <head>, footer, and content slot
+  index.njk             Homepage — uses base.njk layout
+  services.njk          Services page — served at /services/
+  favicon.ico           Copied as-is to dist/
+  imgs/                 Images referenced by pages
   scss/
-    style.scss        Entry point — imports all partials in order
-    config/           No CSS output; project-wide configuration
-      _variables.scss   Colour tokens and shared values
-      _breakpoints.scss Breakpoint variables and responsive mixins
-      _mixins.scss      Shared utility mixins (e.g. focus-ring)
-    base/             Element-level styles
-      _reset.scss       Global reset, accessibility base, shared layout utilities
-      _typography.scss  Font, heading, and body text rules
-    components/       Reusable UI pieces
-      _buttons.scss     .btn styles
-    sections/         One file per page section
+    style.scss          Entry point — imports all partials in order
+    config/             No CSS output; project-wide configuration
+      _variables.scss     Colour tokens and shared values
+      _breakpoints.scss   Breakpoint variables and responsive mixins
+      _mixins.scss        Shared utility mixins (e.g. focus-ring)
+    base/               Element-level styles
+      _reset.scss         Global reset, accessibility base, shared layout utilities
+      _typography.scss    Font, heading, and body text rules
+    components/         Reusable UI pieces
+      _buttons.scss       .btn styles
+    sections/           One file per page section
       _hero.scss
       _focus.scss
       _how-i-work.scss
@@ -64,12 +75,29 @@ src/
       _footer.scss
 
 scripts/
-  dev.cjs             Orchestrates sass --watch + browser-sync for local development
-  minify-html.cjs     HTML minification step used by npm run build
-  deploy.cjs          Runs the build then publishes dist/ to the gh-pages branch
+  dev.cjs               Orchestrates sass --watch + eleventy --serve for local development
+  build.cjs             Compiles SCSS then builds with Eleventy (NODE_ENV=production)
+  deploy.cjs            Runs the build then publishes dist/ to the gh-pages branch
 
-dist/                 Build output — do not edit manually
+eleventy.config.js      Eleventy configuration: dirs, passthrough copy, minification transform
+
+dist/                   Build output — do not edit manually
 ```
+
+## Adding a new page
+
+1. Create `src/your-page.njk` with front matter pointing to the shared layout:
+
+```yaml
+---
+layout: layouts/base.njk
+title: "Page Title | Amanda Vilela"
+description: "Page description for SEO."
+---
+```
+
+2. Write the page body (everything between `<body>` and the footer) as the template content.
+3. Eleventy will output it to `dist/your-page/index.html`, giving the clean URL `/your-page/`.
 
 ## Deploy to GitHub Pages
 
@@ -79,8 +107,8 @@ GitHub Pages serves files from the **root** of the published branch. The `gh-pag
 
 | Branch | Contents |
 |--------|----------|
-| `main` | Source: `src/`, `package.json`, build scripts |
-| `gh-pages` | Built site only — whatever `npm run build` writes into `dist/` |
+| `main` | Source: `src/`, `eleventy.config.js`, `package.json`, build scripts |
+| `gh-pages` | Built site only — whatever `bun run build` writes into `dist/` |
 
 **One-time repo settings**
 

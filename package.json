@@ -26,6 +26,7 @@
   },
   "homepage": "https://github.com/amandavilela/amandavilela.github.io#readme",
   "devDependencies": {
+    "@11ty/eleventy": "^3.1.5",
     "browser-sync": "^2.29.3",
     "gh-pages": "^6.3.0",
     "html-minifier": "^4.0.0",
