@@ -20,24 +20,16 @@
         }
     }
 
-    p {
-        line-height: 1.7;
-        margin-bottom: 0.75rem;
-    }
-
     .bullet-list {
-        margin-top: 0.25rem;
+        margin-top: 1rem;
     }
 }
 
 .engagement-models {
     padding-bottom: 0;
 
-    &__intro {
-        margin-bottom: 2.5rem;
-    }
-
     &__grid {
+        margin-top: 2.5rem;
         @include bordered-grid(2);
     }
 
@@ -54,13 +46,8 @@
             }
         }
 
-        h3 {
-            font-weight: 700;
-        }
-
         ul {
             list-style: inside;
-            margin-top: 0.25rem;
         }
     }
 }
