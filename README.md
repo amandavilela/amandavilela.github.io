@@ -58,21 +58,9 @@ src/
   scss/
     style.scss          Entry point — imports all partials in order
     config/             No CSS output; project-wide configuration
-      _variables.scss     Colour tokens and shared values
-      _breakpoints.scss   Breakpoint variables and responsive mixins
-      _mixins.scss        Shared utility mixins (e.g. focus-ring)
     base/               Element-level styles
-      _reset.scss         Global reset, accessibility base, shared layout utilities
-      _typography.scss    Font, heading, and body text rules
     components/         Reusable UI pieces
-      _buttons.scss       .btn styles
     sections/           One file per page section
-      _hero.scss
-      _focus.scss
-      _how-i-work.scss
-      _engagement.scss
-      _contact.scss
-      _footer.scss
 
 scripts/
   dev.cjs               Orchestrates sass --watch + eleventy --serve for local development
