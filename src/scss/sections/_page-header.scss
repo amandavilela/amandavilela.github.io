@@ -1,0 +1,15 @@
+@use "../config/variables" as *;
+@use "../config/breakpoints" as *;
+@use "../config/mixins" as *;
+
+.page-header {
+    nav {
+        margin-bottom: 2rem;
+    }
+
+    &__back {
+        color: $color-green;
+        @include slide-bg-hover($hover-text-color: $color-green-dark);
+        @include focus-ring();
+    }
+}

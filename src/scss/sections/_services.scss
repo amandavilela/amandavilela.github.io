@@ -1,0 +1,66 @@
+@use "../config/variables" as *;
+@use "../config/breakpoints" as *;
+@use "../config/mixins" as *;
+
+.core-areas {
+    padding: 0;
+}
+
+.core-area {
+    & + & {
+        margin-top: 3rem;
+    }
+
+    h3 {
+        font-size: 1.25rem;
+        margin-bottom: 0.75rem;
+
+        @include tablet {
+            font-size: 1.5rem;
+        }
+    }
+
+    p {
+        line-height: 1.7;
+        margin-bottom: 0.75rem;
+    }
+
+    .bullet-list {
+        margin-top: 0.25rem;
+    }
+}
+
+.engagement-models {
+    padding-bottom: 0;
+
+    &__intro {
+        margin-bottom: 2.5rem;
+    }
+
+    &__grid {
+        @include bordered-grid(2);
+    }
+
+    &__card {
+        @include bordered-grid-cell();
+        display: flex;
+        flex-direction: column;
+        gap: 0.75rem;
+        padding: 2rem 1.5rem;
+
+        &:last-child:nth-child(odd) {
+            @include tablet {
+                grid-column: 1 / -1;
+            }
+        }
+
+        h3 {
+            font-weight: 700;
+        }
+
+        ul {
+            list-style: inside;
+            margin-top: 0.25rem;
+        }
+    }
+}
