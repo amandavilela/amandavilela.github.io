@@ -207,4 +207,25 @@ ogDescription: "Frontend specialist with 14+ years of experience helping product
             </p>
         </div>
     </section>
+
+    <section class="latest-post" aria-labelledby="latest-post-heading">
+        <div class="container">
+            <h2 class="section-title" id="latest-post-heading">Blog</h2>
+            {% set post = collections.posts[0] %}
+            {% if post %}
+            <article class="latest-post__card">
+                <h3>
+                    <a href="{{ post.url }}">{{ post.data.title }}</a>
+                </h3>
+                <time class="post__date" datetime="{{ post.date | htmlDateString }}">
+                    {{ post.date | readableDate }}
+                </time>
+                {% if post.data.description %}
+                <p>{{ post.data.description }}</p>
+                {% endif %}
+            </article>
+            <a href="/blog/">View all posts →</a>
+            {% endif %}
+        </div>
+    </section>
 </main>

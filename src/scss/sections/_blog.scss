@@ -23,3 +23,28 @@
         margin-top: 0.5rem;
     }
 }
+
+.latest-post {
+    padding-top: 0;
+}
+
+.latest-post__card {
+    background-color: $color-light;
+    border-left: 3px solid $color-salmon;
+    margin-top: 2rem;
+    margin-bottom: 1.5rem;
+    padding: 1.5rem;
+
+    h3 {
+        font-size: 1.25rem;
+        margin-bottom: 0.5rem;
+
+        a {
+            @include slide-bg-hover($hover-text-color: $color-green-dark);
+        }
+    }
+
+    p {
+        margin-top: 0.5rem;
+    }
+}
