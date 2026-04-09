@@ -7,11 +7,11 @@
     margin: 1rem auto;
     max-width: 800px;
     padding: 1.5rem;
-    width: 90%;
 
     @include tablet {
         margin: 2rem auto;
         padding: 2.5rem;
+        width: 90%;
     }
 }
 
@@ -25,6 +25,8 @@
 }
 
 .post__body {
+    padding: 1.5rem 0 0 0;
+
     p + p {
         margin-top: 1.5rem;
     }
