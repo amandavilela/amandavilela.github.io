@@ -17,15 +17,11 @@ In my latest role, I had the opportunity to influence how products were built, a
 
 In 2025, I took a step back from work. Not as a break from the industry, but as an intentional pause to reflect, study, and rethink what I want to build and contribute next.
 
-I studied piano, traveled, and maybe most importantly, **learned how to do nothing**. It was an important moment.
+I studied piano, traveled, and maybe most importantly, learned how to do nothing. Even so, I never fully disconnected from the industry, I kept following how the web is evolving and how new ideas are shaping the way we build for it. It was an important moment.
 
 In March 2026, I was invited to speak at Faculdade de Tecnologia de Sorocaba, the university where I studied, for an International Women’s Day event. This is something I’ve always done with care and genuine interest, but this time felt different after being away from the industry for a while.
 
 While talking to first-year students, encouraging them and sharing my experience, I found myself remembering why I liked tech in the first place. It’s easy to lose sight of that over time.
-
-There’s something about going back to where you started that helps reset your perspective.
-
-I was motivating students while also motivating myself.
 
 Since then, I’ve been _slowly getting back into it_ and _preparing the ground for what comes next_.
 
