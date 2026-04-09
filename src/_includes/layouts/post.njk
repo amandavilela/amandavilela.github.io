@@ -3,17 +3,13 @@ layout: layouts/base.njk
 ---
 
 <main id="main-content">
-    <article>
+    <article class="post__container">
         <header class="post__header">
-            <div class="container">
-                <h1>{{ title }}</h1>
-                <time class="post__date" datetime="{{ date | htmlDateString }}">{{ date | readableDate }}</time>
-            </div>
+            <h1>{{ title }}</h1>
+            <time class="post__date" datetime="{{ date | htmlDateString }}">{{ date | readableDate }}</time>
         </header>
         <section class="post__body">
-            <div class="container">
-                {{ content | safe }}
-            </div>
+            {{ content | safe }}
         </section>
     </article>
 </main>
