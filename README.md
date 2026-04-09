@@ -41,6 +41,8 @@ The build writes:
 - `dist/imgs/` — copied from `src/imgs/`
 - `dist/index.html` — homepage (minified)
 - `dist/services/index.html` — services page at the clean URL `/services/` (minified)
+- `dist/blog/index.html` — blog listing at `/blog/` (minified)
+- `dist/blog/<slug>/index.html` — one directory per post, e.g. `/blog/my-post/` (minified)
 
 HTML is minified via an Eleventy transform that runs when `NODE_ENV=production`.
 
@@ -51,8 +53,12 @@ src/
   _includes/
     layouts/
       base.njk          Shared HTML layout: <head>, footer, and content slot
+      post.njk          Blog post layout — extends base.njk
   index.njk             Homepage — uses base.njk layout
   services.njk          Services page — served at /services/
+  blog/
+    index.njk           Blog listing — served at /blog/
+    *.md                Blog posts — each served at /blog/<slug>/
   favicon.ico           Copied as-is to dist/
   imgs/                 Images referenced by pages
   scss/
@@ -67,10 +73,39 @@ scripts/
   build.cjs             Compiles SCSS then builds with Eleventy (NODE_ENV=production)
   deploy.cjs            Runs the build then publishes dist/ to the gh-pages branch
 
-eleventy.config.js      Eleventy configuration: dirs, passthrough copy, minification transform
+eleventy.config.js      Eleventy configuration: dirs, passthrough copy, minification transform,
+                        posts collection, readableDate and htmlDateString filters
 
 dist/                   Build output — do not edit manually
 ```
+
+## Writing a blog post
+
+Create a Markdown file in `src/blog/`. The filename becomes the URL slug.
+
+```
+src/blog/my-post-title.md  →  /blog/my-post-title/
+```
+
+Every post requires this front matter:
+
+```yaml
+---
+layout: layouts/post.njk
+title: "Post title"
+description: "One-line summary shown on the listing page."
+date: 2025-06-01
+---
+
+Post content in Markdown.
+```
+
+- **`layout`** — must be `layouts/post.njk`
+- **`title`** — used in the `<h1>`, the `<title>` tag, and the listing
+- **`description`** — shown as the excerpt on `/blog/`; also used as the meta description
+- **`date`** — determines the sort order on the listing (newest first); use `YYYY-MM-DD`
+
+Eleventy picks up the file automatically on the next build or dev-server reload — no registration needed. The post is added to the `posts` collection defined in `eleventy.config.js`.
 
 ## Adding a new page
 

@@ -1,0 +1,80 @@
+@use "../config/variables" as *;
+
+.post__header {
+    padding-bottom: 0;
+}
+
+.post__date {
+    display: block;
+    font-size: 0.875rem;
+    margin-top: 0.5rem;
+    opacity: 0.7;
+}
+
+.post__body {
+    p + p {
+        margin-top: 1rem;
+    }
+
+    h2 {
+        font-size: 1.5rem;
+        margin-bottom: 1rem;
+        margin-top: 2.5rem;
+    }
+
+    h3 {
+        font-size: 1.25rem;
+        margin-bottom: 0.75rem;
+        margin-top: 2rem;
+    }
+
+    a {
+        color: $color-green;
+        text-decoration: underline;
+        text-underline-offset: 3px;
+    }
+
+    ul,
+    ol {
+        margin: 1rem 0;
+        padding-left: 1.5rem;
+    }
+
+    ul {
+        list-style: disc;
+    }
+
+    ol {
+        list-style: decimal;
+    }
+
+    li + li {
+        margin-top: 0.35rem;
+    }
+
+    blockquote {
+        border-left: 3px solid $color-green;
+        font-style: italic;
+        margin: 1.5rem 0;
+        padding: 0.5rem 1.25rem;
+    }
+
+    code {
+        background-color: $color-light;
+        font-size: 0.875em;
+        padding: 0.15em 0.4em;
+    }
+
+    pre {
+        background-color: $color-light;
+        border-left: 3px solid $color-salmon;
+        margin: 1.5rem 0;
+        overflow-x: auto;
+        padding: 1.25rem;
+
+        code {
+            background: none;
+            padding: 0;
+        }
+    }
+}

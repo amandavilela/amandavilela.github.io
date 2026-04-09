@@ -1,0 +1,25 @@
+@use "../config/variables" as *;
+@use "../config/mixins" as *;
+
+.post-list {
+    border-top: 1px solid $color-salmon;
+    margin-top: 2rem;
+}
+
+.post-list__item {
+    border-bottom: 1px solid $color-salmon;
+    padding: 2rem 0;
+
+    h2 {
+        font-size: 1.25rem;
+        margin-bottom: 0.5rem;
+
+        a {
+            @include slide-bg-hover($hover-text-color: $color-green-dark);
+        }
+    }
+
+    p {
+        margin-top: 0.5rem;
+    }
+}

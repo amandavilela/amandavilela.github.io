@@ -11,6 +11,25 @@ const minifyOptions = {
 };
 
 module.exports = function (eleventyConfig) {
+  // ─── Blog posts collection ────────────────────────────────────────────────────
+  eleventyConfig.addCollection("posts", function (collectionApi) {
+    return collectionApi.getFilteredByGlob("src/blog/*.md").reverse();
+  });
+
+  // ─── Date filters ─────────────────────────────────────────────────────────────
+  eleventyConfig.addFilter("readableDate", (date) =>
+    new Date(date).toLocaleDateString("en-US", {
+      timeZone: "UTC",
+      year: "numeric",
+      month: "long",
+      day: "numeric",
+    }),
+  );
+
+  eleventyConfig.addFilter("htmlDateString", (date) =>
+    new Date(date).toISOString().slice(0, 10),
+  );
+
   // ─── Passthrough copy ────────────────────────────────────────────────────────
   eleventyConfig.addPassthroughCopy("src/imgs");
   eleventyConfig.addPassthroughCopy("src/favicon.ico");
