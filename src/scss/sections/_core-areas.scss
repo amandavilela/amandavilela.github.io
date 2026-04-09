@@ -1,9 +1,5 @@
 @use "../config/breakpoints" as *;
 
-.core-areas {
-    padding: 0;
-}
-
 .core-area {
     & + & {
         margin-top: 3rem;

@@ -52,7 +52,11 @@ a {
 }
 
 .section-title {
-    margin-bottom: 1.5rem;
+    margin: 1.5rem 0 1rem;
+
+    @include tablet {
+        margin: 2rem 0 1.5rem;
+    }
 }
 
 .section-divider {
@@ -60,16 +64,8 @@ a {
     border-top: 2px dashed $color-green;
 }
 
-// ─── Section / header / footer rhythm ────────────────────────────────────────
-// All top-level page blocks share the same vertical padding.
-// Individual sections only need to override when their spacing genuinely differs.
-
 section,
 header,
 footer {
     padding: 3rem 0;
-
-    @include tablet {
-        padding: 4rem 0;
-    }
 }

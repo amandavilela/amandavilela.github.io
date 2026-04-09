@@ -27,9 +27,11 @@ h6 {
 
 h1 {
     font-size: 1.85rem;
+    margin: .75rem 0;
 
     @include tablet {
         font-size: 2.75rem;
+        margin: 1rem 0;
     }
 }
 
