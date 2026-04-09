@@ -31,6 +31,21 @@
     <body>
         <a class="skip-link" href="#main-content">Skip to main content</a>
 
+        {% if page.url != '/' %}
+            <header class="header">
+                <div class="container header__container">
+                    <a class="header__logo" href="/">Amanda Vilela</a>
+                    <nav>
+                        <ul class="nav" role="list">
+                            <li><a class="nav__link" href="/">Home</a></li>
+                            <li><a class="nav__link" href="/services/">Services</a></li>
+                            <li><a class="nav__link" href="/blog/">Blog</a></li>
+                        </ul>
+                    </nav>
+                </div>
+            </header>
+        {% endif %}
+
         {{ content | safe }}
 
         <footer class="footer" id="find-me">
