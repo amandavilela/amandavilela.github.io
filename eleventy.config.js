@@ -13,7 +13,7 @@ const minifyOptions = {
 module.exports = function (eleventyConfig) {
   // ─── Blog posts collection ────────────────────────────────────────────────────
   eleventyConfig.addCollection("posts", function (collectionApi) {
-    return collectionApi.getFilteredByGlob("src/blog/*.md").reverse();
+    return collectionApi.getFilteredByGlob("src/blog/**/index.md").reverse();
   });
 
   // ─── Date filters ─────────────────────────────────────────────────────────────
@@ -33,6 +33,9 @@ module.exports = function (eleventyConfig) {
   // ─── Passthrough copy ────────────────────────────────────────────────────────
   eleventyConfig.addPassthroughCopy("src/imgs");
   eleventyConfig.addPassthroughCopy("src/favicon.ico");
+  eleventyConfig.addPassthroughCopy(
+    "src/blog/**/*.{jpg,jpeg,png,gif,webp,avif,svg}",
+  );
 
   // Ignore compiled CSS / source maps — handled separately by Sass
   eleventyConfig.ignores.add("src/style.css");

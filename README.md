@@ -58,7 +58,9 @@ src/
   services.njk          Services page — served at /services/
   blog/
     index.njk           Blog listing — served at /blog/
-    *.md                Blog posts — each served at /blog/<slug>/
+    <slug>/             One folder per post
+      index.md          Post content in Markdown
+      *.{jpg,png,…}     Images co-located with the post
   favicon.ico           Copied as-is to dist/
   imgs/                 Images referenced by pages
   scss/
@@ -81,10 +83,10 @@ dist/                   Build output — do not edit manually
 
 ## Writing a blog post
 
-Create a Markdown file in `src/blog/`. The filename becomes the URL slug.
+Each post lives in its own folder under `src/blog/`. The folder name becomes the URL slug.
 
 ```
-src/blog/my-post-title.md  →  /blog/my-post-title/
+src/blog/my-post-title/index.md  →  /blog/my-post-title/
 ```
 
 Every post requires this front matter:
@@ -106,6 +108,22 @@ Post content in Markdown.
 - **`date`** — determines the sort order on the listing (newest first); use `YYYY-MM-DD`
 
 Eleventy picks up the file automatically on the next build or dev-server reload — no registration needed. The post is added to the `posts` collection defined in `eleventy.config.js`.
+
+## Adding images to a post
+
+Place images in the same folder as the post and reference them with a relative path:
+
+```
+src/blog/my-post-title/
+  index.md
+  my-image.png
+```
+
+```markdown
+![Alt text](my-image.png)
+```
+
+The image is copied to `dist/blog/my-post-title/my-image.png` and served at `/blog/my-post-title/my-image.png`. Supported formats: `jpg`, `jpeg`, `png`, `gif`, `webp`, `avif`, `svg`.
 
 ## Adding a new page
 
