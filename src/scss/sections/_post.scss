@@ -94,4 +94,23 @@
             padding: 0;
         }
     }
+
+    picture {
+        display: block;
+        margin: 1.5rem 0;
+
+        img {
+            display: block;
+            height: auto;
+            width: 100%;
+        }
+    }
+
+    // Standalone images not wrapped in <picture>
+    > img {
+        display: block;
+        height: auto;
+        margin: 1.5rem 0;
+        max-width: 100%;
+    }
 }

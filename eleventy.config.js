@@ -33,11 +33,37 @@ module.exports = function (eleventyConfig) {
   // ─── Passthrough copy ────────────────────────────────────────────────────────
   eleventyConfig.addPassthroughCopy("src/imgs");
   eleventyConfig.addPassthroughCopy("src/favicon.ico");
-  eleventyConfig.addPassthroughCopy(
-    "src/blog/**/*.{jpg,jpeg,png,gif,webp,avif,svg}",
-  );
+  // gif and svg are not processed by Sharp — copy them as-is
+  eleventyConfig.addPassthroughCopy("src/blog/**/*.{gif,svg}");
 
-  // Ignore compiled CSS / source maps — handled separately by Sass
+  // ─── Image shortcode ──────────────────────────────────────────────────────────
+  // Usage in Markdown: {% image "photo.jpg", "Alt text" %}
+  // Generates a <picture> with WebP + native format srcsets at 400, 800, 1200w.
+  // Enable markdownTemplateEngine: "njk" (set below) for this to work in .md files.
+
+  eleventyConfig.addShortcode("image", function (src, alt) {
+    const baseName = src.replace(/\.[^.]+$/, "");
+    const ext = src.split(".").pop().toLowerCase();
+    const widths = [400, 800, 1200];
+    const sizes = "(min-width: 1100px) 1100px, 100vw";
+
+    const webpSrcset = widths
+      .map((w) => `${baseName}-${w}w.webp ${w}w`)
+      .join(", ");
+    const nativeSrcset = widths
+      .map((w) => `${baseName}-${w}w.${ext} ${w}w`)
+      .join(", ");
+    const fallbackSrc = `${baseName}-${widths[widths.length - 1]}w.${ext}`;
+
+    return [
+      `<picture>`,
+      `  <source type="image/webp" srcset="${webpSrcset}" sizes="${sizes}">`,
+      `  <img src="${fallbackSrc}" srcset="${nativeSrcset}" sizes="${sizes}" alt="${alt}" loading="lazy" decoding="async">`,
+      `</picture>`,
+    ].join("\n");
+  });
+
+  // ─── Ignore compiled CSS / source maps ────────────────────────────────────────
   eleventyConfig.ignores.add("src/style.css");
   eleventyConfig.ignores.add("src/style.css.map");
 
@@ -59,5 +85,6 @@ module.exports = function (eleventyConfig) {
       includes: "_includes",
     },
     templateFormats: ["njk", "html", "md"],
+    markdownTemplateEngine: "njk",
   };
 };

@@ -2,6 +2,7 @@
 
 const { execSync } = require("child_process");
 const path = require("path");
+const { processAll } = require("./images.cjs");
 
 const root = path.resolve(__dirname, "..");
 const isWin = process.platform === "win32";
@@ -27,10 +28,10 @@ const red = (s) => `\x1b[31m${s}\x1b[0m`;
 
 // ─── Step runner ──────────────────────────────────────────────────────────────
 
-function step(label, fn) {
+async function step(label, fn) {
   const t = Date.now();
   try {
-    fn();
+    await fn();
     console.log(`  ${green("✓")} ${label}  ${dim(`${Date.now() - t}ms`)}`);
   } catch (err) {
     console.log(`  ${red("✗")} ${label}`);
@@ -42,23 +43,27 @@ function step(label, fn) {
 
 // ─── Build ────────────────────────────────────────────────────────────────────
 
-const total = Date.now();
+(async () => {
+  const total = Date.now();
 
-console.log(`\n${bold("Building...")}\n`);
+  console.log(`\n${bold("Building...")}\n`);
 
-step("Compile SCSS", () => {
-  execSync(
-    `"${sassBin}" src/scss/style.scss dist/style.css --style=compressed --no-source-map`,
-    { cwd: root, stdio: "pipe" },
-  );
-});
-
-step("Build with Eleventy", () => {
-  execSync(`"${eleventyBin}"`, {
-    cwd: root,
-    stdio: "pipe",
-    env: { ...process.env, NODE_ENV: "production" },
+  await step("Compile SCSS", () => {
+    execSync(
+      `"${sassBin}" src/scss/style.scss dist/style.css --style=compressed --no-source-map`,
+      { cwd: root, stdio: "pipe" },
+    );
   });
-});
 
-console.log(`\n${dim(`  Done in ${Date.now() - total}ms`)}\n`);
+  await step("Build with Eleventy", () => {
+    execSync(`"${eleventyBin}"`, {
+      cwd: root,
+      stdio: "pipe",
+      env: { ...process.env, NODE_ENV: "production" },
+    });
+  });
+
+  await step("Resize images", () => processAll());
+
+  console.log(`\n${dim(`  Done in ${Date.now() - total}ms`)}\n`);
+})();

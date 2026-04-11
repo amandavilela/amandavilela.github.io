@@ -111,7 +111,7 @@ Eleventy picks up the file automatically on the next build or dev-server reload 
 
 ## Adding images to a post
 
-Place images in the same folder as the post and reference them with a relative path:
+Place images in the same folder as the post:
 
 ```
 src/blog/my-post-title/
@@ -119,11 +119,36 @@ src/blog/my-post-title/
   my-image.png
 ```
 
+Supported formats: `jpg`, `jpeg`, `png`, `webp`, `avif` (resized by Sharp), `gif`, `svg` (copied as-is).
+
+### Responsive images with the `image` shortcode
+
+Use the `{% image %}` shortcode to generate a `<picture>` element with WebP and native-format `srcset` at 400, 800, and 1200px:
+
 ```markdown
-![Alt text](my-image.png)
+{% image "my-image.png", "Description of the image" %}
 ```
 
-The image is copied to `dist/blog/my-post-title/my-image.png` and served at `/blog/my-post-title/my-image.png`. Supported formats: `jpg`, `jpeg`, `png`, `gif`, `webp`, `avif`, `svg`.
+This outputs:
+
+```html
+<picture>
+  <source type="image/webp" srcset="my-image-400w.webp 400w, my-image-800w.webp 800w, my-image-1200w.webp 1200w" sizes="(min-width: 1100px) 1100px, 100vw">
+  <img src="my-image-1200w.png" srcset="my-image-400w.png 400w, my-image-800w.png 800w, my-image-1200w.png 1200w" sizes="(min-width: 1100px) 1100px, 100vw" alt="Description of the image" loading="lazy" decoding="async">
+</picture>
+```
+
+The build pipeline (Sharp) generates all the resized variants automatically. The original file is also copied as a fallback so plain Markdown syntax `![alt](my-image.png)` still works.
+
+### Image processing
+
+The `scripts/images.cjs` script handles resizing. It runs automatically as part of `bun run build` (after the Eleventy step) and on startup during `bun run dev`. During development it also watches `src/blog/` for new or changed images and re-processes them without requiring a restart.
+
+To process images manually:
+
+```bash
+node scripts/images.cjs
+```
 
 ## Adding a new page
 

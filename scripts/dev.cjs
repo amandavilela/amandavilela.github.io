@@ -1,7 +1,9 @@
 "use strict";
 
 const { spawn } = require("child_process");
+const fs = require("fs");
 const path = require("path");
+const { processAll } = require("./images.cjs");
 
 const root = path.resolve(__dirname, "..");
 const isWin = process.platform === "win32";
@@ -56,6 +58,28 @@ eleventy.on("close", (code) => {
     console.error(`[eleventy] Exited with code ${code}`);
   }
 });
+
+// ─── Image processing ─────────────────────────────────────────────────────────
+// Runs once on startup, then watches src/blog/ for new or changed images and
+// re-processes them automatically.
+
+const PROCESSABLE_EXTS = new Set([".jpg", ".jpeg", ".png", ".webp", ".avif"]);
+const blogSrcDir = path.join(root, "src", "blog");
+
+processAll().catch((err) => console.error("[images]", err.message));
+
+let imageDebounce;
+if (fs.existsSync(blogSrcDir)) {
+  fs.watch(blogSrcDir, { recursive: true }, (_, filename) => {
+    if (!filename) return;
+    if (!PROCESSABLE_EXTS.has(path.extname(filename).toLowerCase())) return;
+    clearTimeout(imageDebounce);
+    imageDebounce = setTimeout(() => {
+      console.log(`[images] Processing ${filename}…`);
+      processAll().catch((err) => console.error("[images]", err.message));
+    }, 200);
+  });
+}
 
 // ─── Graceful shutdown ────────────────────────────────────────────────────────
 
