@@ -8,8 +8,8 @@ html {
 body {
     background-color: $color-bg;
     color: $color-text;
-    font-family: 'Inconsolata', Consolas, monospace;
-    line-height: 1.5;
+    font-family: 'Inconsolata', Courier New, monospace;
+    line-height: 1.6;
 }
 
 h1,
@@ -41,8 +41,4 @@ h2 {
     @include tablet {
         font-size: 2.25rem;
     }
-}
-
-p {
-    line-height: 1.6;
 }
