@@ -46,7 +46,5 @@
         &:active {
             color: $color-green-dark;
         }
-
-        @include focus-ring();
     }
 }

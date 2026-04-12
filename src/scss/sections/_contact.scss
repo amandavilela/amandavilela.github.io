@@ -18,7 +18,5 @@
         &:active {
             color: color.adjust($color-green, $lightness: -10%);
         }
-
-        @include focus-ring();
     }
 }

@@ -41,6 +41,5 @@
         color: $color-green;
         font-weight: bold;
         @include slide-bg-hover($hover-text-color: $color-green-dark);
-        @include focus-ring();
     }
 }

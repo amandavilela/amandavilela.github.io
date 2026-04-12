@@ -48,7 +48,6 @@
         text-decoration: underline;
         text-underline-offset: 3px;
         @include slide-bg-hover($hover-text-color: $color-green-dark);
-        @include focus-ring();
     }
 
     ul,
