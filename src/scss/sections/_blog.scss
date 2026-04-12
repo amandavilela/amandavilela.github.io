@@ -26,6 +26,10 @@
 
 .latest-post {
     padding-top: 0;
+
+    a {
+        @include slide-bg-hover($hover-text-color: $color-green-dark);
+    }
 }
 
 .latest-post__card {
@@ -38,10 +42,6 @@
     h3 {
         font-size: 1.25rem;
         margin-bottom: 0.5rem;
-
-        a {
-            @include slide-bg-hover($hover-text-color: $color-green-dark);
-        }
     }
 
     p {
