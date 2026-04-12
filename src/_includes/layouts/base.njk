@@ -34,7 +34,7 @@
     <body>
         <a class="skip-link" href="#main-content">Skip to main content</a>
 
-        {% if page.url != '/' %}
+        {% if page.url != '/' and page.url != '/404/' %}
             <header class="header">
                 <div class="container header__container">
                     <a class="header__logo" href="/">Amanda Vilela</a>
@@ -51,58 +51,60 @@
 
         {{ content | safe }}
 
-        <footer class="footer" id="find-me">
-            <div class="container">
-                <h2 class="footer__title">Find me online</h2>
-                <ul class="social" role="list">
-                    <li>
-                        <a
-                            class="social__link"
-                            href="https://br.linkedin.com/in/amanda-vilela"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            >LinkedIn</a
-                        >
-                    </li>
-                    <li>
-                        <a
-                            class="social__link"
-                            href="https://github.com/amandavilela"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            >GitHub</a
-                        >
-                    </li>
-                    <li>
-                        <a
-                            class="social__link"
-                            href="http://codepen.io/amandavilela/"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            >Codepen</a
-                        >
-                    </li>
-                    <li>
-                        <a
-                            class="social__link"
-                            href="https://speakerdeck.com/amandavilela"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            >Speakerdeck</a
-                        >
-                    </li>
-                    <li>
-                        <a
-                            class="social__link"
-                            href="https://medium.com/@amandavilela"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            >Medium</a
-                        >
-                    </li>
-                </ul>
-            </div>
-        </footer>
+        {% if page.url != '/404/' %}
+            <footer class="footer" id="find-me">
+                <div class="container">
+                    <h2 class="footer__title">Find me online</h2>
+                    <ul class="social" role="list">
+                        <li>
+                            <a
+                                class="social__link"
+                                href="https://br.linkedin.com/in/amanda-vilela"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                >LinkedIn</a
+                            >
+                        </li>
+                        <li>
+                            <a
+                                class="social__link"
+                                href="https://github.com/amandavilela"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                >GitHub</a
+                            >
+                        </li>
+                        <li>
+                            <a
+                                class="social__link"
+                                href="http://codepen.io/amandavilela/"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                >Codepen</a
+                            >
+                        </li>
+                        <li>
+                            <a
+                                class="social__link"
+                                href="https://speakerdeck.com/amandavilela"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                >Speakerdeck</a
+                            >
+                        </li>
+                        <li>
+                            <a
+                                class="social__link"
+                                href="https://medium.com/@amandavilela"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                >Medium</a
+                            >
+                        </li>
+                    </ul>
+                </div>
+            </footer>
+        {% endif %}
         <div class="footer-credit">designed and coded by Amanda Vilela</div>
     </body>
 </html>
