@@ -1,0 +1,271 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <title>Using Chrome DevTools MCP to debbug accessibility</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta charset="UTF-8" />
+        <link rel="shortcut icon" href="/favicon.ico" />
+
+        <link rel="stylesheet" href="/style.css" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@400;700&family=Merriweather:ital,wght@1,700;1,900&display=swap"
+            rel="stylesheet"
+        />
+
+        <meta name="description" content="" />
+        
+
+        
+
+        <link rel="canonical" href="https://amandavilela.me/blog/using-chrome-devtools-mcp-to-debbug-accessibility/" />
+
+
+        <!-- Google tag (gtag.js) -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-GSM2PDRLRD"></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+
+            gtag('config', 'G-GSM2PDRLRD');
+        </script>
+    </head>
+    <body>
+        <a class="skip-link" href="#main-content">Skip to main content</a>
+
+        
+            <header class="header">
+                <div class="container header__container">
+                    <a class="header__logo" href="/">Amanda Vilela</a>
+                    <nav>
+                        <ul class="nav" role="list">
+                            <li><a class="nav__link" href="/">Home</a></li>
+                            <li><a class="nav__link" href="/services/">Services</a></li>
+                            <li><a class="nav__link" href="/blog/">Blog</a></li>
+                        </ul>
+                    </nav>
+                </div>
+            </header>
+        
+
+        
+<main id="main-content">
+    <article class="post__container">
+        <header class="post__header">
+            <h1>Using Chrome DevTools MCP to debbug accessibility</h1>
+            <time class="post__date" datetime="2026-04-23">April 23, 2026</time>
+        </header>
+        <section class="post__body">
+            <p>Chrome DevTools MCP server allows you to connect Chrome DevTools to AI coding assistants, the advantage over regular Chrome DevTools is that now AIs have context of what is actually happening on the browser, improving debugging and fixes.</p>
+<p>But first things first, what is MCP (Model Context Protocol)?</p>
+<blockquote>
+<p>MCP (Model Context Protocol) is an open-source standard for connecting AI applications to external systems. Using MCP, AI applications like Claude or ChatGPT can connect to data sources (e.g. local files, databases), tools (e.g. search engines, calculators) and workflows (e.g. specialized prompts)—enabling them to access key information and perform tasks. Think of MCP like a USB-C port for AI applications. Just as USB-C provides a standardized way to connect electronic devices, MCP provides a standardized way to connect AI applications to external systems.
+— <a href="https://modelcontextprotocol.io/docs/getting-started/intro" target="_blank">Model Context Protocol docs</a></p>
+</blockquote>
+<h2><a href="#install-chrome-devtools-mcp" id="install-chrome-devtools-mcp">Installing Chrome DevTools MCP</a></h2>
+<p>First you need to <strong>install an AI tool</strong> on your terminal, Chrome DevTools MCP works with a <a href="https://github.com/ChromeDevTools/chrome-devtools-mcp?tab=readme-ov-file#mcp-client-configuration" target="_blank">large range of clients</a>, in this tutorial we are going to use <a href="https://geminicli.com/" target="_blank">gemini-cli</a>.</p>
+<ol>
+<li>Install gemini-cli</li>
+</ol>
+<pre><code>npm install -g @google/gemini-cli
+</code></pre>
+<ol start="2">
+<li>Install the Chrome DevTools MCP server and add it to Gemini's list of MCP servers.</li>
+</ol>
+<pre><code>gemini mcp add -s user chrome-devtools npx chrome-devtools-mcp@latest
+</code></pre>
+<p>To check if everything is working run <code>gemini</code> and <strong>interact with the MCP</strong></p>
+<pre><code>Open https://www.momondo.com
+</code></pre>
+<p>Gemini will detect it should run <code>&quot;new_page&quot;</code> from server ChromeDevTools MCP and ask will ask for permissions to run that.</p>
+<p>Choosing <strong>Allow all server tools for this session</strong> will avoid additional prompts during the interations.</p>
+<img src="mcp_new_page.png" loading="lazy" alt="">
+<p>On the first time, it will require you to login on your Google Account.</p>
+<p>You can watch Gemini open a Chrome window and then run some additional commands:</p>
+<video width="720" height="362" controls>
+  <source src="mcp_test.mp4" type="video/mp4">
+  <source src="mcp_test.webm" type="video/webm">
+  Your browser does not support the video tag.
+</video>
+<p>MCP should return something like <code>The momondo homepage is now open. Would you like to search for a flight or do anything else?</code> after opening the page.</p>
+<p>Now that we confirmed that it's set correctly, let's take a deeper look on the accessibility features.</p>
+<h2>Debugging Accessibility</h2>
+<h3>Lighthouse checks</h3>
+<p>We can start asking for the MCP to interact with the page and run an accessibility check.</p>
+<pre><code>Can you make a search of flights to tokyo and run an accessibility check of the results page?
+</code></pre>
+<p>You should get a report like that:</p>
+<pre><code>✦ I have completed the flight search and performed an accessibility audit on the momondo results page.
+
+  Search Details
+   - Route: São Paulo (SAO) to Tokyo (TYO)
+   - Dates: May 12, 2026 – May 19, 2026
+   - Results: 1,651 flights found, with prices starting from approximately $1,464.
+
+  Accessibility Check Results (Score: 85/100)
+  While the overall score is good, there are several key areas where the page fails accessibility standards:
+
+   1. Heading Structure (Major Issue): The page lacks a proper heading hierarchy. I found only one or two H5 tags on the entire results page. This makes it difficult for screen reader
+      users to navigate between different flight results or sections.
+   2. Missing Alternative Text: There are 6 images on the page without alt text, which means their purpose is not conveyed to users who cannot see them.
+   3. Unlabeled Buttons: Two buttons were identified that have no text or aria-label, making them essentially &quot;silent&quot; to assistive technologies.
+   4. Best Practices &amp; SEO: The page scored lower in Best Practices (58) and SEO (66), suggesting technical improvements are needed beyond just accessibility.
+
+  Technical Observations
+   - Tab Order: The page follows a natural tab order (no manual tabindex overrides), which is a positive for keyboard navigation.
+   - Aria Usage: There is a high volume of aria-label and aria-labelledby attributes (310), indicating that many elements have been explicitly labeled for assistive tech, despite the
+     heading issues.
+   - Form Controls: Filters and checkboxes for stops, airlines, and amenities are properly associated with their labels.
+
+  Would you like me to look into any specific accessibility failures or investigate the search results further?
+</code></pre>
+<p>Now we can ask the MCP how to fix the issues found and how to fix them exactly</p>
+<pre><code>How to fix those issues found? Can you point the exact items to fix?
+</code></pre>
+<img src="mcp_fix_issues_prompt.png" loading="lazy" alt="">
+<p>That's the response you might get for those basic issues</p>
+<pre><code>✦ I've identified several accessibility issues on the page that need fixing. I will provide a summary of these findings and the specific items that require attention.
+
+  1. Fix Missing Image Alternative Text
+  Problem: There are 6 images on the page (primarily related to travel deals or hotels) that have no alt text. This makes them inaccessible to screen reader users.
+
+   - Location: In the &quot;Stays near Tokyo&quot; and &quot;Travel deals&quot; sections.
+   - Fix: Add a descriptive alt attribute to each &lt;img&gt; tag.
+       - Example: &lt;img src=&quot;...&quot; alt=&quot;Hotel room with two beds and city view&quot;&gt;
+       - Example: &lt;img src=&quot;...&quot; alt=&quot;Qatar Airways airline logo&quot;&gt;
+
+  2. Fix Unlabeled Buttons
+  Problem: Two interactive buttons were found with no text or ARIA labels.
+
+   - Item 1: A button with class RxNS-mod-variant-solid. This appears to be a navigation or selection button.
+       - Fix: Add aria-label=&quot;Previous results&quot; or a similar descriptive label.
+   - Item 2: A button with class JCQa-mod-no-paddings. This appears to be part of an interactive component or span.
+       - Fix: Add aria-label=&quot;More information&quot; or a label that matches its function.
+
+  3. Improve Heading Structure
+  Problem: The page only has one H5 heading (&quot;Stays near Tokyo&quot;). Screen readers rely on a clear hierarchy (H1 to H6) to help users jump between sections of the page.
+
+   - Proposed Fixes:
+       - Add an H1 to the main results section (e.g., &lt;h1&gt;Flights from São Paulo to Tokyo&lt;/h1&gt;).
+       - Add an H2 to the filters sidebar (e.g., &lt;h2&gt;Filters&lt;/h2&gt;).
+       - Add an H2 for the main results list (e.g., &lt;h2&gt;Flight Options&lt;/h2&gt;).
+       - Each flight result (there are 31 identified) should ideally be wrapped in an H3 or have an aria-labelledby that clearly identifies the flight (e.g., &lt;h3&gt;Flight 1: $1,464 - 28h
+         00m&lt;/h3&gt;).
+
+  4. Implementation Details for Developers
+  To implement these fixes, developers should target the following:
+   - Images: Ensure all dynamically loaded images include an alt property in the data model.
+   - Buttons: Add aria-label to all icon-only buttons.
+   - Headings: Use semantic HTML tags (&lt;h1&gt;, &lt;h2&gt;, etc.) instead of styled &lt;div&gt; or &lt;span&gt; elements for section titles.
+
+  Would you like me to generate a specific list of code snippets or a more detailed technical report on any of these points?
+</code></pre>
+<h3>Keyboard testing</h3>
+<p>We can go a bit further and ask the MCP to run a proper keyboard test that goes a bit beyond the lighthouse reports</p>
+<pre><code>Is it possible to run a proper keyboard test and identy issues?
+</code></pre>
+<p>This interaction took around 2m 30s and this was the report</p>
+<pre><code>✦ I have conducted a manual keyboard navigation test, and here are the findings:
+
+  1. Skip Links (Positive)
+  The page includes multiple &quot;Skip Links&quot; at the top of the tab order:
+   - Edit search form
+   - Go to flights filters
+   - Go to flights results section
+
+  Observation: These are critical for accessibility, allowing users to bypass repetitive header content. They are correctly placed as the first items in the tab order.
+
+  2. Focus Indicators (Pass with Observations)
+   - Visibility: The focused element (e.g., the Close button) has a clear visual indicator: a rgb(37, 64, 164) solid 2px outline.
+   - Style: The focus styles are primarily handled via the outline property. While visible, some elements rely on browser defaults or subtle changes that could be improved for better
+     contrast.
+
+  3. Non-Semantic Interactive Elements (Issue Found)
+  Problem: The &quot;Get the app&quot; button is implemented as a &lt;div&gt; with a role=&quot;button&quot; and a class c_Ny2-install-button.
+   - Keyboard Issue: When focused, I attempted to trigger it using the Enter key. My test showed that while the keypress was successful, it did not lead to a new page or a clear state
+     change in the DOM snapshot.
+   - Fix: Ensure that custom elements with role=&quot;button&quot; have associated keydown or keypress event listeners for both the Enter and Space keys, as &lt;div&gt; elements do not natively support
+     these for activation. Better yet, use a native &lt;button&gt; or &lt;a&gt; element.
+
+  4. Interactive Elements without Accessible Names (Issue Found)
+  Problem: The Close button (UID 9_31) has an aria-label=&quot;Close&quot;, but its text content is empty.
+   - Lighthouse Note: Lighthouse flagged this because some automated tools prefer visible text or more robust labeling for complex components.
+   - Fix: Ensure that all buttons, especially icon-only ones, have a clear aria-label or title attribute.
+
+  5. Focus Order
+   - The focus order follows the visual flow of the page: Header -&gt; Search Summary -&gt; Filters (via skip link) -&gt; Results. This is logical and expected.
+
+  Summary of Keyboard Fixes:
+   1. &quot;Get the app&quot; button: Replace the &lt;div&gt; with a semantic &lt;button&gt; or add robust keyboard listeners for Enter and Space.
+   2. Icon Buttons: Verify that all icon-only buttons (like the Close button or Save/Share buttons on flight results) have persistent and clear aria-label attributes.
+   3. Visual Focus: Consider increasing the contrast of the focus outline on darker backgrounds (e.g., using a lighter color or a thicker border).
+
+  Would you like me to test any specific components like the date picker or the airline filters more thoroughly?
+</code></pre>
+<p>I replied &quot;yes&quot; to the last question, it returned:</p>
+<h2>Running Chrome DevTools MCP on local env</h2>
+
+        </section>
+    </article>
+</main>
+
+
+        
+            <footer class="footer" id="find-me">
+                <div class="container">
+                    <h2 class="footer__title">Find me online</h2>
+                    <ul class="social" role="list">
+                        <li>
+                            <a
+                                class="social__link"
+                                href="https://br.linkedin.com/in/amanda-vilela"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                >LinkedIn</a
+                            >
+                        </li>
+                        <li>
+                            <a
+                                class="social__link"
+                                href="https://github.com/amandavilela"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                >GitHub</a
+                            >
+                        </li>
+                        <li>
+                            <a
+                                class="social__link"
+                                href="http://codepen.io/amandavilela/"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                >Codepen</a
+                            >
+                        </li>
+                        <li>
+                            <a
+                                class="social__link"
+                                href="https://speakerdeck.com/amandavilela"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                >Speakerdeck</a
+                            >
+                        </li>
+                        <li>
+                            <a
+                                class="social__link"
+                                href="https://medium.com/@amandavilela"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                >Medium</a
+                            >
+                        </li>
+                    </ul>
+                </div>
+            </footer>
+        
+        <div class="footer-credit">designed and coded by Amanda Vilela</div>
+    </body>
+</html>
