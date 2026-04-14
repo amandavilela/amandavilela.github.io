@@ -50,7 +50,7 @@ Every interaction can trigger:
 - layout updates
 - paint operations
 
-As a rule of thumb, **keeping the DOM under ~1500 nodes** helps maintain better performance.
+As a rule, **keeping the DOM under ~1500 nodes** helps maintain better performance.
 
 Common issues:
 - deeply nested structures
@@ -59,13 +59,10 @@ Common issues:
 
 ### 2. Use content-visibility: auto
 
-The content-visibility CSS property allows the browser to skip rendering content that is outside the viewport.
+Speaking of large DOMs, if you can’t remove elements, you can hide them from the browser’s initial radar with `content-visibility`.
 
-This means:
-- less work during initial load
-- less work during interactions
-
-It’s especially useful for long pages and content-heavy layouts.
+The `content-visibility` CSS property allows the browser to skip rendering content that is outside the viewport.
+This means **less work during initial load** and **less work during interactions**, it’s especially useful for long pages and content-heavy layouts.
 
 **To avoid negatively impact accessibility or SEO**, provide a placeholder size (for example, using <code>contain-intrinsic-size</code>), so the browser can reserve space for the element and prevent <a href="https://web.dev/articles/cls" target="_blank">Cumulative Layout Shift (CLS)</a>.
 
@@ -85,7 +82,7 @@ Avoid using animating properties like width, height, or top/left.
 
 Layout thrashing happens when DOM reads and writes are interleaved, forcing the browser to recalculate layout multiple times during an interaction.
 
-Modern browsers try to batch updates for efficiency. However, this optimization breaks when layout information is requested immediately after a change.
+Modern browsers try to batch updates for efficiency, however, this optimization breaks when layout information is requested immediately after a change.
 
 For example:
 
@@ -100,14 +97,7 @@ Properties such as <code>offsetHeight</code>, <code>offsetWidth</code>, <code>ge
 
 ### 6. Debounce/throttle event handlers
 
-Events like:
-
-- scroll
-- input
-- resize
-- typing
-
-Can be triggered dozens of times per second, this can easily turns into long tasks.
+Events like: `scroll`, `input`, `resize` and `typing` can be triggered dozens of times per second, this can easily turns into long tasks.
 
 **Debounce** pauses execution until events stop for a specified time (ideal for search inputs), while **throttle** limits execution to once every specified interval (ideal for scroll tracking).
 
