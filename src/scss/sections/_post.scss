@@ -43,7 +43,16 @@
         margin-top: 2rem;
     }
 
-    a {
+    h2, h3 a {
+        color: $color-green;
+
+        &:hover {
+            text-decoration: underline;
+            text-underline-offset: 3px;
+        }
+    }
+
+    p a {
         color: $color-green;
         text-decoration: underline;
         text-underline-offset: 3px;
