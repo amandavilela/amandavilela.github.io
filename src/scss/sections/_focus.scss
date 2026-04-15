@@ -37,7 +37,11 @@
             &::before {
                 left: .1rem;
                 top: 0;
-                transform: rotate(-1deg);
+                transform: rotate(-.1deg);
+
+                @include tablet {
+                    transform: rotate(-1deg);
+                }
             }
         }
 
@@ -62,10 +66,14 @@
             left: 0;
             position: absolute;
             top: 0;
-            transform: rotate(-1deg);
+            transform: rotate(-.1deg);
             transform-origin: left top;
             width: 100%;
             z-index: -1;
+
+            @include tablet {
+                transform: rotate(-1deg);
+            }
         }
     }
 
