@@ -50,7 +50,7 @@ async function step(label, fn) {
 
   await step("Compile SCSS", () => {
     execSync(
-      `"${sassBin}" src/scss/style.scss dist/style.css --style=compressed --no-source-map`,
+      `"${sassBin}" src/scss:dist --style=compressed --no-source-map`,
       { cwd: root, stdio: "pipe" },
     );
   });

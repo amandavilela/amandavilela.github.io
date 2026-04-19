@@ -6,7 +6,16 @@
         <meta charset="UTF-8" />
         <link rel="shortcut icon" href="/favicon.ico" />
 
-        <link rel="stylesheet" href="/style.css" />
+        <style>
+            {{ "dist/critical.css" | read_file | cssmin | safe }}
+            {% if page.url == '/' %}
+                {{ "dist/home_critical.css" | read_file | cssmin | safe }}
+            {% endif %}
+        </style>
+
+        {% if page_css %}
+        <link rel="stylesheet" href="/{{ page_css }}.css" />
+        {% endif %}
 
         <meta name="description" content="{{ description }}" />
         {% if keywords %}

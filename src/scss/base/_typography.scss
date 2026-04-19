@@ -6,7 +6,7 @@
     font-family: 'Merriweather';
     font-style: italic;
     font-weight: 900;
-    src: url('../../fonts/merriweather-900italic.woff2') format('woff2');
+    src: url('/fonts/merriweather-900italic.woff2') format('woff2');
 }
 
 @font-face {
@@ -14,7 +14,7 @@
   font-family: 'Inconsolata';
   font-style: normal;
   font-weight: 400;
-  src: url('../../fonts/inconsolata-regular.woff2') format('woff2');
+  src: url('/fonts/inconsolata-regular.woff2') format('woff2');
 }
 
 @font-face {
@@ -22,7 +22,7 @@
   font-family: 'Inconsolata';
   font-style: normal;
   font-weight: 600;
-  src: url('../../fonts/inconsolata-600.woff2') format('woff2');
+  src: url('/fonts/inconsolata-600.woff2') format('woff2');
 }
 
 html {

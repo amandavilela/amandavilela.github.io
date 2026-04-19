@@ -26,7 +26,7 @@ const eleventyBin = path.join(
 
 const sass = spawn(
   sassBin,
-  ["--watch", "src/scss/style.scss:dist/style.css", "--source-map"],
+  ["--watch", "src/scss:dist", "--source-map"],
   { cwd: root, stdio: "inherit" },
 );
 

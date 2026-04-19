@@ -30,6 +30,25 @@ module.exports = function (eleventyConfig) {
     new Date(date).toISOString().slice(0, 10),
   );
 
+  // ─── CSS filters ──────────────────────────────────────────────────────────────
+  eleventyConfig.addFilter("cssmin", function (code) {
+    if (process.env.NODE_ENV === "production") {
+      const CleanCSS = require("clean-css");
+      return new CleanCSS({}).minify(code).styles;
+    }
+    return code;
+  });
+
+  eleventyConfig.addFilter("read_file", function (filePath) {
+    const fs = require("fs");
+    const path = require("path");
+    const fullPath = path.join(__dirname, filePath);
+    if (fs.existsSync(fullPath)) {
+      return fs.readFileSync(fullPath, "utf8");
+    }
+    return "";
+  });
+
   // ─── Passthrough copy ────────────────────────────────────────────────────────
   eleventyConfig.addPassthroughCopy("src/imgs");
   eleventyConfig.addPassthroughCopy("src/fonts");
