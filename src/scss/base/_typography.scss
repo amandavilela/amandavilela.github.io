@@ -17,6 +17,14 @@
   src: url('../../fonts/inconsolata-regular.woff2') format('woff2');
 }
 
+@font-face {
+  font-display: swap;
+  font-family: 'Inconsolata';
+  font-style: normal;
+  font-weight: 600;
+  src: url('../../fonts/inconsolata-600.woff2') format('woff2');
+}
+
 html {
     font-size: 16px;
 }
