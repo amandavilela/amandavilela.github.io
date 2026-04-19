@@ -32,6 +32,7 @@ module.exports = function (eleventyConfig) {
 
   // ─── Passthrough copy ────────────────────────────────────────────────────────
   eleventyConfig.addPassthroughCopy("src/imgs");
+  eleventyConfig.addPassthroughCopy("src/fonts");
   eleventyConfig.addPassthroughCopy("src/favicon.ico");
   // gif and svg are not processed by Sharp — copy them as-is
   eleventyConfig.addPassthroughCopy("src/blog/**/*.{gif,svg}");
