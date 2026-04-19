@@ -30,15 +30,22 @@
 
         <link rel="canonical" href="https://amandavilela.me{{ page.url }}" />
 
-
         <!-- Google tag (gtag.js) -->
-        <script async src="https://www.googletagmanager.com/gtag/js?id=G-GSM2PDRLRD"></script>
         <script>
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
+            if (window.location.hostname !== 'localhost') {
+                const script = document.createElement('script');
+                script.src = 'https://www.googletagmanager.com/gtag/js?id=G-GSM2PDRLRD';
+                script.async = true;
+                script.onload = () => {
+                    window.dataLayer = window.dataLayer || [];
+                    function gtag(){dataLayer.push(arguments);}
+                    gtag('js', new Date());
 
-            gtag('config', 'G-GSM2PDRLRD');
+                    gtag('config', 'G-GSM2PDRLRD');
+                };
+
+                document.head.appendChild(script);
+            }
         </script>
     </head>
     <body>
