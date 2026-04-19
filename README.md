@@ -21,7 +21,7 @@ Start the dev server:
 bun run dev
 ```
 
-- Sass compiles `src/scss/style.scss` → `dist/style.css` (with source maps)
+- Sass watches `src/scss/` and compiles all entry points (files not starting with `_`) directly into `dist/` (with source maps)
 - Eleventy processes templates from `src/` → `dist/` and serves `dist/` with live reload
 - Both processes run in parallel; `Ctrl+C` shuts them both down cleanly
 - Dev server runs at **http://localhost:8080** (Eleventy's default port)
@@ -36,7 +36,7 @@ bun run build
 
 The build writes:
 
-- `dist/style.css` — compressed CSS, no source maps
+- `dist/*.css` — compressed CSS for each entry point, no source maps
 - `dist/favicon.ico` — copied from `src/favicon.ico`
 - `dist/imgs/` — copied from `src/imgs/`
 - `dist/index.html` — homepage (minified)
@@ -64,7 +64,13 @@ src/
   favicon.ico           Copied as-is to dist/
   imgs/                 Images referenced by pages
   scss/
-    style.scss          Entry point — imports all partials in order
+    critical.scss       Base styles inlined on every page
+    home_critical.scss  Homepage-specific styles inlined on /
+    home.scss           Non-critical styles for the homepage
+    services.scss       Styles for the services page
+    blog.scss           Styles for the blog listing page
+    post.scss           Styles for blog posts
+    404.scss            Styles for the 404 page
     config/             No CSS output; project-wide configuration
     base/               Element-level styles
     components/         Reusable UI pieces
@@ -107,7 +113,7 @@ Post content in Markdown.
 - **`description`** — shown as the excerpt on `/blog/`; also used as the meta description
 - **`date`** — determines the sort order on the listing (newest first); use `YYYY-MM-DD`
 
-Eleventy picks up the file automatically on the next build or dev-server reload — no registration needed. The post is added to the `posts` collection defined in `eleventy.config.js`.
+The `post.njk` layout automatically sets `page_css: post` to load the appropriate styles.
 
 ## Adding images to a post
 
@@ -159,11 +165,13 @@ node scripts/images.cjs
 layout: layouts/base.njk
 title: "Page Title | Amanda Vilela"
 description: "Page description for SEO."
+page_css: "your-page"
 ---
 ```
 
-2. Write the page body (everything between `<body>` and the footer) as the template content.
-3. Eleventy will output it to `dist/your-page/index.html`, giving the clean URL `/your-page/`.
+2. **`page_css`** (optional): The name of the CSS file to load (e.g., `your-page` will load `/your-page.css`).
+3. Write the page body (everything between `<body>` and the footer) as the template content.
+4. Eleventy will output it to `dist/your-page/index.html`, giving the clean URL `/your-page/`.
 
 ## Deploy to GitHub Pages
 
