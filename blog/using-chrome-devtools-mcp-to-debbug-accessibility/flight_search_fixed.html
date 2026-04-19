@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Flight Search Results | Flights</title>
+  <style>
+    :root {
+      --primary-color: #003580;
+      --text-color: #262626;
+      --bg-color: #ffffff;
+      --box-bg: #f5f7fa;
+      --border-color: #ced4da;
+    }
+    body { 
+      background: var(--bg-color); 
+      color: var(--text-color); 
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      line-height: 1.5;
+      margin: 0;
+      padding: 20px;
+    }
+    header {
+      border-bottom: 2px solid var(--primary-color);
+      margin-bottom: 20px;
+      padding-bottom: 10px;
+    }
+    .container {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+    .filters { 
+      background: var(--box-bg); 
+      color: var(--text-color); 
+      padding: 15px; 
+      border-radius: 8px;
+      border: 1px solid var(--border-color);
+      flex: 1;
+      min-width: 200px;
+    }
+    .filters h2 { margin-top: 0; font-size: 1.2rem; }
+    .filter-group { margin-bottom: 15px; }
+    .filter-group h3 { font-size: 1rem; margin-bottom: 8px; }
+    .filter-list { list-style: none; padding: 0; margin: 0; }
+    .filter-btn { 
+      background: #fff; 
+      color: var(--primary-color); 
+      padding: 8px 12px; 
+      border: 1px solid var(--primary-color); 
+      border-radius: 4px;
+      cursor: pointer;
+      width: 100%;
+      text-align: left;
+      margin-bottom: 5px;
+      font-size: 0.9rem;
+    }
+    .filter-btn:hover, .filter-btn:focus {
+      background: var(--primary-color);
+      color: #fff;
+    }
+    .results {
+      flex: 3;
+      min-width: 300px;
+    }
+    .result-card { 
+      border: 1px solid var(--border-color); 
+      margin-bottom: 15px; 
+      padding: 15px; 
+      border-radius: 8px;
+      background: #fff;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .result-card:hover {
+      border-color: var(--primary-color);
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+    .select-btn {
+      background: var(--primary-color);
+      color: #fff;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 4px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+    .select-btn:hover, .select-btn:focus {
+      background: #00224d;
+    }
+    .load-more { 
+      background: #6c757d; 
+      color: #fff; 
+      padding: 12px 24px; 
+      border: none; 
+      border-radius: 4px;
+      cursor: pointer;
+      display: block;
+      margin: 20px auto;
+      font-size: 1rem;
+    }
+    .load-more:hover, .load-more:focus {
+      background: #5a6268;
+    }
+    .menu-btn {
+      background: none;
+      border: 1px solid var(--text-color);
+      color: var(--text-color);
+      padding: 5px 15px;
+      cursor: pointer;
+      border-radius: 4px;
+      font-weight: bold;
+    }
+  </style>
+  <script>
+    function selectFlight(id) {
+      alert('Selected flight ' + id);
+    }
+  </script>
+</head>
+<body>
+
+<header role="banner">
+  <button class="menu-btn" onclick="alert('menu')" aria-label="Open main menu">Menu</button>
+  <h1>Flight Search Results</h1>
+</header>
+
+<main class="container">
+  <aside class="filters" aria-labelledby="filters-title">
+    <h2 id="filters-title">Filters</h2>
+    
+    <section class="filter-group">
+      <h3>Stops</h3>
+      <ul class="filter-list">
+        <li><button class="filter-btn">Non-stop</button></li>
+        <li><button class="filter-btn">1 Stop</button></li>
+        <li><button class="filter-btn">2+ Stops</button></li>
+      </ul>
+    </section>
+
+    <section class="filter-group">
+      <h3>Airports</h3>
+      <ul class="filter-list">
+        <li><button class="filter-btn">GRU (Guarulhos)</button></li>
+        <li><button class="filter-btn">CGH (Congonhas)</button></li>
+      </ul>
+    </section>
+
+    <section class="filter-group">
+      <h3>Preferred Times</h3>
+      <ul class="filter-list">
+        <li><button class="filter-btn">Morning</button></li>
+        <li><button class="filter-btn">Afternoon</button></li>
+        <li><button class="filter-btn">Night</button></li>
+      </ul>
+    </section>
+
+    <section class="filter-group">
+      <h3>Airlines</h3>
+      <ul class="filter-list">
+        <li><button class="filter-btn">Airline A</button></li>
+        <li><button class="filter-btn">Airline B</button></li>
+        <li><button class="filter-btn">Airline C</button></li>
+      </ul>
+    </section>
+  </aside>
+
+  <section class="results" aria-label="Flight Results">
+    <article class="result-card">
+      <div>
+        <strong>Flight 1</strong><br>
+        GRU to JFK<br>
+        Price: $500
+      </div>
+      <button class="select-btn" onclick="selectFlight(1)" aria-label="Select Flight 1 from GRU to JFK for $500">View Deal</button>
+    </article>
+
+    <article class="result-card">
+      <div>
+        <strong>Flight 2</strong><br>
+        GRU to LAX<br>
+        Price: $550
+      </div>
+      <button class="select-btn" onclick="selectFlight(2)" aria-label="Select Flight 2 from GRU to LAX for $550">View Deal</button>
+    </article>
+
+    <article class="result-card">
+      <div>
+        <strong>Flight 3</strong><br>
+        GRU to ORD<br>
+        Price: $530
+      </div>
+      <button class="select-btn" onclick="selectFlight(3)" aria-label="Select Flight 3 from GRU to ORD for $530">View Deal</button>
+    </article>
+
+    <article class="result-card">
+      <div>
+        <strong>Flight 4</strong><br>
+        GRU to MIA<br>
+        Price: $480
+      </div>
+      <button class="select-btn" onclick="selectFlight(4)" aria-label="Select Flight 4 from GRU to MIA for $480">View Deal</button>
+    </article>
+
+    <article class="result-card">
+      <div>
+        <strong>Flight 5</strong><br>
+        GRU to ATL<br>
+        Price: $510
+      </div>
+      <button class="select-btn" onclick="selectFlight(5)" aria-label="Select Flight 5 from GRU to ATL for $510">View Deal</button>
+    </article>
+
+    <article class="result-card">
+      <div>
+        <strong>Flight 6</strong><br>
+        GRU to DFW<br>
+        Price: $600
+      </div>
+      <button class="select-btn" onclick="selectFlight(6)" aria-label="Select Flight 6 from GRU to DFW for $600">View Deal</button>
+    </article>
+
+    <article class="result-card">
+      <div>
+        <strong>Flight 7</strong><br>
+        GRU to BOS<br>
+        Price: $620
+      </div>
+      <button class="select-btn" onclick="selectFlight(7)" aria-label="Select Flight 7 from GRU to BOS for $620">View Deal</button>
+    </article>
+
+    <article class="result-card">
+      <div>
+        <strong>Flight 8</strong><br>
+        GRU to SEA<br>
+        Price: $700
+      </div>
+      <button class="select-btn" onclick="selectFlight(8)" aria-label="Select Flight 8 from GRU to SEA for $700">View Deal</button>
+    </article>
+
+    <article class="result-card">
+      <div>
+        <strong>Flight 9</strong><br>
+        GRU to SFO<br>
+        Price: $680
+      </div>
+      <button class="select-btn" onclick="selectFlight(9)" aria-label="Select Flight 9 from GRU to SFO for $680">View Deal</button>
+    </article>
+
+    <article class="result-card">
+      <div>
+        <strong>Flight 10</strong><br>
+        GRU to DEN<br>
+        Price: $640
+      </div>
+      <button class="select-btn" onclick="selectFlight(10)" aria-label="Select Flight 10 from GRU to DEN for $640">View Deal</button>
+    </article>
+
+    <button class="load-more" onclick="alert('load more')">Load more flights</button>
+  </section>
+</main>
+
+</body>
+</html>
