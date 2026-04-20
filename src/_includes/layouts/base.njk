@@ -14,12 +14,16 @@
         </style>
 
         {% if page_css %}
-        <link rel="stylesheet" href="/{{ page_css }}.css" />
+            <link rel="stylesheet" href="/{{ page_css }}.css" />
         {% endif %}
 
         <meta name="description" content="{{ description }}" />
         {% if keywords %}
-        <meta name="keywords" content="{{ keywords }}" />
+            <meta name="keywords" content="{{ keywords }}" />
+        {% endif %}
+
+        {% if open_graph %}
+            <meta property="og:image" content="https://amandavilela.me/{{ open_graph.image }}" />
         {% endif %}
 
         <link rel="canonical" href="https://amandavilela.me{{ page.url }}" />
