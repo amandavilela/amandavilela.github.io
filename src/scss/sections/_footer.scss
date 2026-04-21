@@ -4,10 +4,10 @@
 @use "../config/mixins" as *;
 
 .footer {
-    background-color: $color-green;
+    background-color: var(--color-green);
     &__title {
-        color: $color-bg;
-        margin-bottom: 1.5rem;
+        color: var(--color-bg);
+        margin-block-end: 1.5rem;
     }
 }
 
@@ -17,21 +17,21 @@
     gap: 1.5rem;
 
     &__link {
-        color: $color-bg;
+        color: var(--color-bg);
         text-decoration: none;
         @include slide-bg-hover();
 
         &:active {
-            color: color.adjust($color-salmon, $lightness: -10%);
+            color: color-mix(in srgb, var(--color-salmon), black 10%);
         }
 
-        @include focus-ring($color-bg, 3px);
+        @include focus-ring(var(--color-bg), 3px);
     }
 }
 
 .footer-credit {
-    color: $color-text;
+    color: var(--color-text);
     font-size: .75rem;
-    padding: .25rem 0;
+    padding-block: .25rem;
     text-align: center;
 }
