@@ -83,101 +83,101 @@
 
 .b1  {
     animation: float1 9s ease-in-out infinite;
-    background: lighten($color-green, 50%);
+    background: color-mix(in srgb, var(--color-green), white 50%);
     height: 120px;
-    top: 12%;
-    left: 10%;
+    inset-block-start: 12%;
+    inset-inline-start: 10%;
     width: 120px;
 }
 
 .b2  {
     animation: float2 6s ease-in-out infinite;
     animation-delay: -2s;
-    background: $color-green;
-    left: 35%;
+    background: var(--color-green);
+    inset-inline-start: 35%;
     height: 28px;
-    top: 8%;
+    inset-block-start: 8%;
     width: 28px;
 }
 
 .b3  {
     animation: float3 11s ease-in-out infinite;
     animation-delay: -4s;
-    background: lighten($color-green, 55%);
+    background: color-mix(in srgb, var(--color-green), white 55%);
     height: 60px;
-    right: 8%;
+    inset-inline-end: 8%;
     opacity: 0.7;
-    top: 25%;
+    inset-block-start: 25%;
     width: 60px;
 }
 
 .b4  {
     animation: float4 8s ease-in-out infinite;
     animation-delay: -1s;
-    background: darken($color-salmon, 8%);
+    background: color-mix(in srgb, var(--color-salmon), black 8%);
     height: 90px;
-    right: 5%;
-    top: 18%;
+    inset-inline-end: 5%;
+    inset-block-start: 18%;
     width: 90px;
 }
 
 .b5  {
     animation: float5 7s ease-in-out infinite;
     animation-delay: -3s;
-    background: darken($color-salmon, 15%);
+    background: color-mix(in srgb, var(--color-salmon), black 15%);
     height: 20px;
-    left: 6%;
-    top: 52%;
+    inset-inline-start: 6%;
+    inset-block-start: 52%;
     width: 20px;
 }
 
 .b6  {
     animation: float6 10s ease-in-out infinite;
     animation-delay: -5s;
-    background: darken($color-salmon, 12%);
-    bottom: 22%;
+    background: color-mix(in srgb, var(--color-salmon), black 12%);
+    inset-block-end: 22%;
     height: 75px;
-    left: 15%;
+    inset-inline-start: 15%;
     width: 75px;
 }
 
 .b7  {
     animation: float7 6.5s ease-in-out infinite;
     animation-delay: -1.5s;
-    background: lighten($color-green, 45%);
+    background: color-mix(in srgb, var(--color-green), white 45%);
     height: 35px;
-    right: 35%;
-    top: 40%;
+    inset-inline-end: 35%;
+    inset-block-start: 40%;
     width: 35px;
 }
 
 .b8  {
     animation: float8 12s ease-in-out infinite;
     animation-delay: -6s;
-    background: lighten($color-green, 55%);
-    bottom: 8%;
+    background: color-mix(in srgb, var(--color-green), white 55%);
+    inset-block-end: 8%;
     height: 100px;
-    right: 8%;
+    inset-inline-end: 8%;
     width: 100px;
 }
 
 .b9  {
     animation: float9 8.5s ease-in-out infinite;
     animation-delay: -2.5s;
-    background: darken($color-salmon, 6%);
-    bottom: 10%;
+    background: color-mix(in srgb, var(--color-salmon), black 6%);
+    inset-block-end: 10%;
     height: 40px;
-    right: 20%;
+    inset-inline-end: 20%;
     width: 40px;
 }
 
 .b10 {
     animation: float10 7.5s ease-in-out infinite;
     animation-delay: -4.5s;
-    background: darken($color-salmon, 18%);
-    bottom: 20%;
+    background: color-mix(in srgb, var(--color-salmon), black 18%);
+    inset-block-end: 20%;
     height: 15px;
-    right: 40%;
+    inset-inline-end: 40%;
     width: 15px;
 }
 
@@ -191,11 +191,11 @@
 
     &__title {
         font-size: clamp(56px, 10vw, 96px);
-        margin-bottom: 2rem;
+        margin-block-end: 2rem;
         z-index: 1;
     }
 
     &__subtitle {
-        margin: 1.5rem 0;
+        margin-block: 1.5rem;
     }
 }
