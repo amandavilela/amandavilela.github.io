@@ -2,24 +2,25 @@
 @use "../config/mixins" as *;
 
 .btn {
-    background: $color-light;
-    border: 1px solid $color-salmon;
-    color: $color-green;
+    background: var(--color-light);
+    border: 1px solid var(--color-salmon);
+    color: var(--color-green);
     cursor: pointer;
     display: inline-block;
     font-family: 'Inconsolata', monospace;
-    padding: 0.4rem 0.85rem;
+    padding-block: 0.4rem;
+    padding-inline: 0.85rem;
     transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
 
     &:hover {
-        background: $color-green;
-        border-color: $color-green;
-        color: $color-bg;
+        background: var(--color-green);
+        border-color: var(--color-green);
+        color: var(--color-bg);
     }
 
     &:active {
-        background: $color-green-dark;
-        border-color: $color-green-dark;
-        color: $color-bg;
+        background: var(--color-green-dark);
+        border-color: var(--color-green-dark);
+        color: var(--color-bg);
     }
 }

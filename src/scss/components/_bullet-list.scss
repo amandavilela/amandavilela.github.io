@@ -11,7 +11,7 @@
         gap: 0.85rem;
 
         &::before {
-            background-color: $color-salmon;
+            background-color: var(--color-salmon);
             content: "";
             display: block;
             flex-shrink: 0;
