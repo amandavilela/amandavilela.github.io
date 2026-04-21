@@ -4,10 +4,10 @@
 
 .header {
     box-shadow: 0px 0px 10px rgba(0, 0, 0, .1);
-    padding: 1rem 0;
+    padding-block: 1rem;
 
     @include tablet {
-        padding: 1.75rem 0;
+        padding-block: 1.75rem;
     }
 
     &__container {
@@ -25,7 +25,7 @@
     }
 
     &__logo {
-        color: $color-green;
+        color: var(--color-green);
         font-family: 'Merriweather', serif;
         font-size: 1.5rem;
         font-style: italic;
@@ -39,9 +39,15 @@
     gap: 1.5rem;
     justify-content: space-around;
 
+    &:has(&__link:hover) &__link:not(:hover) {
+        opacity: 0.6;
+    }
+
     &__link {
-        color: $color-green;
+        color: var(--color-green);
         font-weight: bold;
-        @include slide-bg-hover($hover-text-color: $color-green-dark);
+        transition: opacity 0.2s ease;
+        @include focus-ring();
+        @include slide-bg-hover($hover-text-color: var(--color-green-dark));
     }
 }
