@@ -30,7 +30,9 @@
 
 .post__body {
     padding-block-start: 1.5rem;
+}
 
+@scope (.post__body) {
     p + p {
         margin-block-start: 1rem;
     }
@@ -47,7 +49,7 @@
         margin-block-start: 2rem;
     }
 
-    h2, h3 a {
+    :is(h2, h3) a {
         color: var(--color-green);
 
         &:hover {
@@ -63,8 +65,7 @@
         @include slide-bg-hover($hover-text-color: var(--color-green-dark));
     }
 
-    ul,
-    ol {
+    :is(ul, ol) {
         margin-block: 1rem;
         padding-inline-start: 1.5rem;
     }
@@ -123,7 +124,7 @@
     }
 
     // Standalone images not wrapped in <picture>
-    > img {
+    :scope > img {
         display: block;
         height: auto;
         margin-block: 1.5rem;
