@@ -61,3 +61,7 @@ h2 {
         font-size: 2.25rem;
     }
 }
+
+p + p {
+    margin-block-start: 1rem;
+}
