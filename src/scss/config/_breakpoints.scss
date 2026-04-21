@@ -8,13 +8,13 @@ $desktop-width: 1024px;
 }
 
 @mixin tablet {
-    @media (min-width: #{$tablet-width}) {
+    @media (width >= #{$tablet-width}) {
         @content;
     }
 }
 
 @mixin desktop {
-    @media (min-width: #{$desktop-width}) {
+    @media (width >= #{$desktop-width}) {
         @content;
     }
 }
