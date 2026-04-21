@@ -2,49 +2,50 @@
 @use "../config/mixins" as *;
 
 .post-list {
-    border-top: 1px solid $color-salmon;
-    margin-top: 2rem;
+    border-block-start: 1px solid var(--color-salmon);
+    margin-block-start: 2rem;
 }
 
 .post-list__item {
-    border-bottom: 1px solid $color-salmon;
-    padding: 2rem 0;
+    border-block-end: 1px solid var(--color-salmon);
+    padding-block: 2rem;
 
     h2 {
         font-size: 1.25rem;
-        margin-bottom: 0.5rem;
+        margin-block-end: 0.5rem;
 
         a {
-            @include slide-bg-hover($hover-text-color: $color-green-dark);
+            @include slide-bg-hover($hover-text-color: var(--color-green-dark));
         }
     }
 
     p {
-        margin-top: 0.5rem;
+        margin-block-start: 0.5rem;
     }
 }
 
 .latest-post {
-    padding-top: 0;
+    padding-block-start: 0;
 
     a {
-        @include slide-bg-hover($hover-text-color: $color-green-dark);
+        @include slide-bg-hover($hover-text-color: var(--color-green-dark));
     }
 }
 
 .latest-post__card {
-    background-color: $color-light;
-    border-left: 3px solid $color-salmon;
-    margin-top: 2rem;
-    margin-bottom: 1.5rem;
-    padding: 1.5rem;
+    background-color: var(--color-light);
+    border-inline-start: 3px solid var(--color-salmon);
+    margin-block-start: 2rem;
+    margin-block-end: 1.5rem;
+    padding-block: 1.5rem;
+    padding-inline: 1.5rem;
 
     h3 {
         font-size: 1.25rem;
-        margin-bottom: 0.5rem;
+        margin-block-end: 0.5rem;
     }
 
     p {
-        margin-top: 0.5rem;
+        margin-block-start: 0.5rem;
     }
 }
