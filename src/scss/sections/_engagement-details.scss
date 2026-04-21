@@ -5,7 +5,7 @@
     padding-block-start: 0;
 
     &__grid {
-        margin-block-start: 2.5rem;
+        margin-block-start: 1.5rem;
         @include bordered-grid(2);
     }
 
@@ -22,9 +22,15 @@
                 grid-column: 1 / -1;
             }
         }
+    }
+}
 
-        ul {
-            list-style: inside;
-        }
+@scope (.engagement-details) {
+    p + p {
+        margin: 0;
+    }
+
+    ul {
+        list-style: inside;
     }
 }
