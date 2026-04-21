@@ -3,20 +3,20 @@
 @use "sass:color";
 
 .contact {
-    padding-top: 0;
+    padding-block-start: 0;
 
     p {
         line-height: 1.7;
-        margin-bottom: 0.5rem;
+        margin-block-end: 0.5rem;
     }
 
     &__email {
-        color: $color-text;
+        color: var(--color-text);
         font-weight: 700;
-        @include slide-bg-hover($hover-text-color: $color-green);
+        @include slide-bg-hover($hover-text-color: var(--color-green));
 
         &:active {
-            color: color.adjust($color-green, $lightness: -10%);
+            color: color-mix(in srgb, var(--color-green), black 10%);
         }
     }
 }
