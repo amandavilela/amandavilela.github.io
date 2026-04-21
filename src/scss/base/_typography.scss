@@ -30,19 +30,14 @@ html {
 }
 
 body {
-    background-color: $color-bg;
-    color: $color-text;
+    background-color: var(--color-bg);
+    color: var(--color-text);
     font-family: 'Inconsolata', Courier New, monospace;
     line-height: 1.6;
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-    color: $color-green;
+:is(h1, h2, h3, h4, h5, h6) {
+    color: var(--color-green);
     font-family: 'Merriweather', serif;
     font-style: italic;
     font-weight: 900;
@@ -51,11 +46,11 @@ h6 {
 
 h1 {
     font-size: 1.85rem;
-    margin: .75rem 0;
+    margin-block: .75rem;
 
     @include tablet {
         font-size: 2.75rem;
-        margin: 1rem 0;
+        margin-block: 1rem;
     }
 }
 

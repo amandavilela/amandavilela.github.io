@@ -9,8 +9,10 @@
 
 * {
     box-sizing: border-box;
-    margin: 0;
-    padding: 0;
+    margin-block: 0;
+    margin-inline: 0;
+    padding-block: 0;
+    padding-inline: 0;
 }
 
 html {
@@ -35,40 +37,45 @@ a {
 }
 
 .skip-link {
-    background: $color-green;
-    color: $color-bg;
-    left: 0;
-    padding: 0.5rem 1rem;
+    background: var(--color-green);
+    color: var(--color-bg);
+    inset-inline-start: 0;
+    padding-block: 0.5rem;
+    padding-inline: 1rem;
     position: absolute;
-    top: -100%;
+    inset-block-start: -100%;
     z-index: 9999;
 
     &:focus {
-        top: 0;
+        inset-block-start: 0;
     }
 }
 
 .container {
-    margin: 0 auto;
+    margin-inline: auto;
     max-width: 1100px;
     width: 90%;
 }
 
 .section-title {
-    margin: 1.5rem 0 1rem;
+    margin-block: 1.5rem 1rem;
 
     @include tablet {
-        margin: 2rem 0 1.5rem;
+        margin-block: 2rem 1.5rem;
     }
 }
 
 .section-divider {
     border: none;
-    border-top: 2px dashed $color-green;
+    border-block-start: 2px dashed var(--color-green);
 }
 
 section,
 header,
 footer {
-    padding: 3rem 0;
+    padding-block: 3rem;
+}
+
+section {
+    contain: content;
 }
