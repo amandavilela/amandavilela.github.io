@@ -3,8 +3,8 @@
 @use "../config/mixins" as *;
 
 ::selection {
-    background: $color-green;
-    color: $color-bg;
+    background: var(--color-green);
+    color: var(--color-bg);
 }
 
 * {
