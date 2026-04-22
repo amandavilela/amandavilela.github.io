@@ -1,88 +1,25 @@
 @use "../config/variables" as *;
 
-@keyframes float1 {
-    0%   { transform: translate(0px, 0px); }
-    25%  { transform: translate(18px, -22px); }
-    50%  { transform: translate(-12px, 15px); }
-    75%  { transform: translate(20px, 10px); }
-    100% { transform: translate(0px, 0px); }
-}
-
-@keyframes float2 {
-    0%   { transform: translate(0px, 0px); }
-    30%  { transform: translate(-20px, 14px); }
-    60%  { transform: translate(16px, -18px); }
-    100% { transform: translate(0px, 0px); }
-}
-
-@keyframes float3 {
-    0%   { transform: translate(0px, 0px); }
-    20%  { transform: translate(14px, 20px); }
-    50%  { transform: translate(-18px, -10px); }
-    80%  { transform: translate(10px, -20px); }
-    100% { transform: translate(0px, 0px); }
-}
-
-@keyframes float4 {
-    0%   { transform: translate(0px, 0px); }
-    35%  { transform: translate(-22px, -16px); }
-    65%  { transform: translate(18px, 20px); }
-    100% { transform: translate(0px, 0px); }
-}
-
-@keyframes float5 {
-    0%   { transform: translate(0px, 0px); }
-    25%  { transform: translate(20px, 18px); }
-    55%  { transform: translate(-16px, -22px); }
-    80%  { transform: translate(12px, 14px); }
-    100% { transform: translate(0px, 0px); }
-}
-
-@keyframes float6 {
-    0%   { transform: translate(0px, 0px); }
-    40%  { transform: translate(16px, -20px); }
-    70%  { transform: translate(-20px, 12px); }
-    100% { transform: translate(0px, 0px); }
-}
-
-@keyframes float7 {
-    0%   { transform: translate(0px, 0px); }
-    30%  { transform: translate(-14px, 20px); }
-    60%  { transform: translate(22px, -14px); }
-    90%  { transform: translate(-10px, -18px); }
-    100% { transform: translate(0px, 0px); }
-}
-
-@keyframes float8 {
-    0%   { transform: translate(0px, 0px); }
-    20%  { transform: translate(20px, -12px); }
-    50%  { transform: translate(-18px, 20px); }
-    80%  { transform: translate(14px, -16px); }
-    100% { transform: translate(0px, 0px); }
-}
-
-@keyframes float9 {
-    0%   { transform: translate(0px, 0px); }
-    45%  { transform: translate(-20px, -20px); }
-    75%  { transform: translate(18px, 16px); }
-    100% { transform: translate(0px, 0px); }
-}
-
-@keyframes float10 {
-    0%   { transform: translate(0px, 0px); }
-    30%  { transform: translate(22px, 14px); }
-    60%  { transform: translate(-16px, -20px); }
-    100% { transform: translate(0px, 0px); }
+@keyframes float {
+    0%, 100% { transform: translate(0, 0); }
+    25% { transform: translate(var(--x1), var(--y1)); }
+    50% { transform: translate(var(--x2), var(--y2)); }
+    75% { transform: translate(var(--x3), var(--y3)); }
 }
 
 .bubble {
+    animation: float var(--duration) ease-in-out infinite;
+    animation-delay: var(--delay, 0s);
     border-radius: 50%;
     position: fixed;
     will-change: transform;
 }
 
 .b1  {
-    animation: float1 9s ease-in-out infinite;
+    --duration: 9s;
+    --x1: 18px; --y1: -22px;
+    --x2: -12px; --y2: 15px;
+    --x3: 20px; --y3: 10px;
     background: color-mix(in srgb, var(--color-green), white 50%);
     height: 120px;
     inset-block-start: 12%;
@@ -91,8 +28,11 @@
 }
 
 .b2  {
-    animation: float2 6s ease-in-out infinite;
-    animation-delay: -2s;
+    --duration: 6s;
+    --delay: -2s;
+    --x1: -20px; --y1: 14px;
+    --x2: 16px; --y2: -18px;
+    --x3: 0px; --y3: 0px;
     background: var(--color-green);
     inset-inline-start: 35%;
     height: 28px;
@@ -101,8 +41,11 @@
 }
 
 .b3  {
-    animation: float3 11s ease-in-out infinite;
-    animation-delay: -4s;
+    --duration: 11s;
+    --delay: -4s;
+    --x1: 14px; --y1: 20px;
+    --x2: -18px; --y2: -10px;
+    --x3: 10px; --y3: -20px;
     background: color-mix(in srgb, var(--color-green), white 55%);
     height: 60px;
     inset-inline-end: 8%;
@@ -112,8 +55,11 @@
 }
 
 .b4  {
-    animation: float4 8s ease-in-out infinite;
-    animation-delay: -1s;
+    --duration: 8s;
+    --delay: -1s;
+    --x1: -22px; --y1: -16px;
+    --x2: 18px; --y2: 20px;
+    --x3: 0px; --y3: 0px;
     background: color-mix(in srgb, var(--color-salmon), black 8%);
     height: 90px;
     inset-inline-end: 5%;
@@ -122,8 +68,11 @@
 }
 
 .b5  {
-    animation: float5 7s ease-in-out infinite;
-    animation-delay: -3s;
+    --duration: 7s;
+    --delay: -3s;
+    --x1: 20px; --y1: 18px;
+    --x2: -16px; --y2: -22px;
+    --x3: 12px; --y3: 14px;
     background: color-mix(in srgb, var(--color-salmon), black 15%);
     height: 20px;
     inset-inline-start: 6%;
@@ -132,8 +81,11 @@
 }
 
 .b6  {
-    animation: float6 10s ease-in-out infinite;
-    animation-delay: -5s;
+    --duration: 10s;
+    --delay: -5s;
+    --x1: 16px; --y1: -20px;
+    --x2: -20px; --y2: 12px;
+    --x3: 0px; --y3: 0px;
     background: color-mix(in srgb, var(--color-salmon), black 12%);
     inset-block-end: 22%;
     height: 75px;
@@ -142,8 +94,11 @@
 }
 
 .b7  {
-    animation: float7 6.5s ease-in-out infinite;
-    animation-delay: -1.5s;
+    --duration: 6.5s;
+    --delay: -1.5s;
+    --x1: -14px; --y1: 20px;
+    --x2: 22px; --y2: -14px;
+    --x3: -10px; --y3: -18px;
     background: color-mix(in srgb, var(--color-green), white 45%);
     height: 35px;
     inset-inline-end: 35%;
@@ -152,8 +107,11 @@
 }
 
 .b8  {
-    animation: float8 12s ease-in-out infinite;
-    animation-delay: -6s;
+    --duration: 12s;
+    --delay: -6s;
+    --x1: 20px; --y1: -12px;
+    --x2: -18px; --y2: 20px;
+    --x3: 14px; --y3: -16px;
     background: color-mix(in srgb, var(--color-green), white 55%);
     inset-block-end: 8%;
     height: 100px;
@@ -162,8 +120,11 @@
 }
 
 .b9  {
-    animation: float9 8.5s ease-in-out infinite;
-    animation-delay: -2.5s;
+    --duration: 8.5s;
+    --delay: -2.5s;
+    --x1: -20px; --y1: -20px;
+    --x2: 18px; --y2: 16px;
+    --x3: 0px; --y3: 0px;
     background: color-mix(in srgb, var(--color-salmon), black 6%);
     inset-block-end: 10%;
     height: 40px;
@@ -172,8 +133,11 @@
 }
 
 .b10 {
-    animation: float10 7.5s ease-in-out infinite;
-    animation-delay: -4.5s;
+    --duration: 7.5s;
+    --delay: -4.5s;
+    --x1: 22px; --y1: 14px;
+    --x2: -16px; --y2: -20px;
+    --x3: 0px; --y3: 0px;
     background: color-mix(in srgb, var(--color-salmon), black 18%);
     inset-block-end: 20%;
     height: 15px;
