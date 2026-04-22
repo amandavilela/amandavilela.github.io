@@ -6,9 +6,10 @@
 .footer {
     background-color: var(--color-green);
     padding-block: var(--section-spacing);
+
     &__title {
         color: var(--color-bg);
-        margin-block-end: 1.5rem;
+        margin-top: 0;
     }
 }
 
