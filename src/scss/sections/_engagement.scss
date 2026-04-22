@@ -16,12 +16,12 @@
         @include bordered-grid-cell($p-block: 1.5rem, $p-inline: 1.25rem, $gap: 0.5rem);
     }
 
-    &__cell--cta {
+    &__cell--link {
         padding-block: 0;
         padding-inline: 0;
     }
 
-    &__cta-link {
+    &__cta {
         align-items: center;
         color: var(--color-green);
         display: flex;

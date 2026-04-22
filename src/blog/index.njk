@@ -12,9 +12,9 @@ page_css: blog
             <p>Thoughts on frontend performance, accessibility, and software engineering.</p>
 
             {% if collections.posts.length %}
-            <ul class="post-list" role="list">
+            <ul class="blog-list" role="list">
                 {% for post in collections.posts %}
-                <li class="post-list__item">
+                <li class="blog-list__item">
                     <article class="post-summary">
                         <h2 class="post-summary__title">
                             <a class="post-summary__link" href="{{ post.url }}">{{ post.data.title }}</a>

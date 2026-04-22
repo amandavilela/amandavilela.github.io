@@ -1,7 +1,7 @@
 @use "../config/variables" as *;
 @use "../config/mixins" as *;
 
-.post-list {
+.blog-list {
     border-block-start: 1px solid var(--color-salmon);
     margin-block-start: 2rem;
 
