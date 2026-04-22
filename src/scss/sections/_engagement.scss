@@ -13,16 +13,7 @@
     }
 
     &__cell {
-        @include bordered-grid-cell;
-        display: flex;
-        flex-direction: column;
-        gap: 0.5rem;
-        padding-block: 1.5rem;
-        padding-inline: 1.25rem;
-    }
-
-    &__term {
-        margin-block-end: .5rem;
+        @include bordered-grid-cell($p-block: 1.5rem, $p-inline: 1.25rem, $gap: 0.5rem);
     }
 
     &__cell--cta {

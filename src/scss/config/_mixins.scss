@@ -44,7 +44,12 @@
     }
 }
 
-@mixin bordered-grid-cell {
+@mixin bordered-grid-cell($gap: 0.75rem, $p-block: 2rem, $p-inline: 1.5rem) {
     border-block-end: 1px solid var(--color-salmon);
     border-inline-end: 1px solid var(--color-salmon);
+    display: flex;
+    flex-direction: column;
+    gap: $gap;
+    padding-block: $p-block;
+    padding-inline: $p-inline;
 }
