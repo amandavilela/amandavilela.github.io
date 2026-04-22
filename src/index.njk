@@ -213,18 +213,18 @@ open_graph:
             <h2 class="section-title" id="latest-post-heading">Blog</h2>
             {% set post = collections.posts[0] %}
             {% if post %}
-            <article class="latest-post__card">
-                <h3>
-                    <a href="{{ post.url }}">{{ post.data.title }}</a>
+            <article class="latest-post__card post-summary">
+                <h3 class="post-summary__title">
+                    <a class="post-summary__link" href="{{ post.url }}">{{ post.data.title }}</a>
                 </h3>
-                <time class="post__date" datetime="{{ post.date | htmlDateString }}">
+                <time class="post-summary__date" datetime="{{ post.date | htmlDateString }}">
                     {{ post.date | readableDate }}
                 </time>
                 {% if post.data.description %}
-                <p>{{ post.data.description }}</p>
+                <p class="post-summary__description">{{ post.data.description }}</p>
                 {% endif %}
             </article>
-            <a href="/blog/">View all posts →</a>
+            <a href="/blog/" class="latest-post__view-all">View all posts →</a>
             {% endif %}
         </div>
     </section>

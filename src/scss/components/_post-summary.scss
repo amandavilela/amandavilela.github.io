@@ -1,0 +1,27 @@
+@use "../config/variables" as *;
+@use "../config/mixins" as *;
+
+.post-summary {
+    &__date {
+        display: block;
+        font-size: 0.875rem;
+    }
+
+    &__item {
+        border-block-end: 1px solid var(--color-salmon);
+        padding-block: 2rem;
+    }
+
+    &__title {
+        font-size: 1.25rem;
+        margin-block: 0 0.5rem;
+    }
+
+    &__link {
+        @include slide-bg-hover($hover-text-color: var(--color-green-dark));
+    }
+
+    &__description {
+        margin-block-start: 0.5rem;
+    }
+}

@@ -2,34 +2,35 @@
 @use "../config/breakpoints" as *;
 @use "../config/mixins" as *;
 
-.post__container {
-    background-color: var(--color-white);
-    margin-block: 1rem;
-    margin-inline: auto;
-    max-width: 800px;
-    padding-block: 1.5rem;
-    padding-inline: 1.5rem;
-
-    @include tablet {
-        margin-block: 2rem;
-        padding-block: 2.5rem;
-        padding-inline: 2.5rem;
-        width: 90%;
+.post {
+    &__header {
+        padding: 0
     }
-}
 
-.post__header {
-    padding-block: 0;
-    padding-inline: 0;
-}
+    &__date {
+        display: block;
+        font-size: 0.875rem;
+    }
 
-.post__date {
-    display: block;
-    font-size: 0.875rem;
-}
+    &__container {
+        background-color: var(--color-white);
+        margin-block: 1rem;
+        margin-inline: auto;
+        max-width: 800px;
+        padding-block: 1.5rem;
+        padding-inline: 1.5rem;
 
-.post__body {
-    padding-block-start: 1.5rem;
+        @include tablet {
+            margin-block: 2rem;
+            padding-block: 2.5rem;
+            padding-inline: 2.5rem;
+            width: 90%;
+        }
+    }
+
+    &__body {
+        padding-block: 1.5rem 0;
+    }
 }
 
 @scope (.post__body) {

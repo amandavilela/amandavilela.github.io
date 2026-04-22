@@ -1,0 +1,19 @@
+@use "../config/variables" as *;
+@use "../config/mixins" as *;
+
+.latest-post {
+    padding-block-start: 0;
+
+    &__card {
+        background-color: var(--color-light);
+        border-inline-start: 3px solid var(--color-salmon);
+        margin-block-start: 2rem;
+        margin-block-end: 1.5rem;
+        padding-block: 1.5rem;
+        padding-inline: 1.5rem;
+    }
+
+    &__view-all {
+        @include slide-bg-hover($hover-text-color: var(--color-green-dark));
+    }
+}
