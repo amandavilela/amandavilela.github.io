@@ -70,12 +70,7 @@ a {
     border-block-start: 2px dashed var(--color-green);
 }
 
-section,
-header,
-footer {
-    padding-block: 3rem;
-}
-
 section {
+    padding-block: var(--section-spacing);
     contain: content;
 }
