@@ -1,14 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
             <url>
-                <loc>https://amandavilela.me/</loc>
-                <lastmod>2026-04-20</lastmod>
+                <loc>https://amandavilela.me/blog/using-chrome-devtools-mcp-to-debug-web-accessibility/poorly_accessible_flight_search/</loc>
+                <lastmod>2026-04-23</lastmod>
+                <changefreq>monthly</changefreq>
+                <priority>0.8</priority>
+            </url>
+            <url>
+                <loc>https://amandavilela.me/blog/using-chrome-devtools-mcp-to-debug-web-accessibility/flight_search_fixed/</loc>
+                <lastmod>2026-04-23</lastmod>
                 <changefreq>monthly</changefreq>
                 <priority>0.8</priority>
             </url>
             <url>
                 <loc>https://amandavilela.me/blog/</loc>
-                <lastmod>2026-04-20</lastmod>
+                <lastmod>2026-04-23</lastmod>
+                <changefreq>monthly</changefreq>
+                <priority>0.8</priority>
+            </url>
+            <url>
+                <loc>https://amandavilela.me/blog/using-chrome-devtools-mcp-to-debug-web-accessibility/</loc>
+                <lastmod>2026-04-23</lastmod>
+                <changefreq>monthly</changefreq>
+                <priority>0.8</priority>
+            </url>
+            <url>
+                <loc>https://amandavilela.me/</loc>
+                <lastmod>2026-04-22</lastmod>
                 <changefreq>monthly</changefreq>
                 <priority>0.8</priority>
             </url>
