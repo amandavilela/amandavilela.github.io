@@ -69,15 +69,15 @@ To get started, you'll need an **AI tool** on your terminal. Chrome DevTools MCP
 
 1. Install gemini-cli
 
-```
-npm install -g @google/gemini-cli
-```
+<pre data-copy-code>
+<code>all -g @google/gemini-cli</code>
+</pre>
 
 2. Install the Chrome DevTools MCP server and add it to Gemini's list of MCP servers.
 
-```
-gemini mcp add -s user chrome-devtools npx chrome-devtools-mcp@latest
-```
+<pre data-copy-code>
+<code>gemini mcp add -s user chrome-devtools npx chrome-devtools-mcp@latest</code>
+</pre>
 
 ### <a href="#testing-chrome-devtools-mcp-installation" id="testing-chrome-devtools-mcp-installation">Testing Chrome DevTools MCP installation</a>
 
@@ -123,15 +123,15 @@ In this post we are going to use <a href="https://github.com/addyosmani/agent-sk
 
 In order to add those skills, you can simply run on your terminal:
 
-```
-gemini skills install https://github.com/addyosmani/agent-skills.git --path skills
-```
+<pre data-copy-code>
+<code>gemini skills install https://github.com/addyosmani/agent-skills.git --path skills</code>
+</pre>
 
 To check if the skills were properly installed you can open gemini and run:
 
-```
-/skills list
-```
+<pre data-copy-code>
+<code>/skills list</code>
+</pre>
 
 **a11y-debugging** should be the first item of the list this command returns.
 

@@ -2,6 +2,7 @@
 
 const { execSync } = require("child_process");
 const path = require("path");
+const fs = require("fs");
 const { processAll } = require("./images.cjs");
 
 const root = path.resolve(__dirname, "..");
@@ -17,6 +18,12 @@ const eleventyBin = path.join(
   "node_modules",
   ".bin",
   isWin ? "eleventy.cmd" : "eleventy",
+);
+const terserBin = path.join(
+  root,
+  "node_modules",
+  ".bin",
+  isWin ? "terser.cmd" : "terser",
 );
 
 // ─── Formatting ───────────────────────────────────────────────────────────────
@@ -53,6 +60,25 @@ async function step(label, fn) {
       `"${sassBin}" src/scss:dist --style=compressed --no-source-map`,
       { cwd: root, stdio: "pipe" },
     );
+  });
+
+  await step("Minify JS", () => {
+    const jsDir = path.join(root, "src/js");
+    const distJsDir = path.join(root, "dist/js");
+
+    if (!fs.existsSync(distJsDir)) {
+      fs.mkdirSync(distJsDir, { recursive: true });
+    }
+
+    const files = fs.readdirSync(jsDir).filter((f) => f.endsWith(".js"));
+    for (const file of files) {
+      const input = path.join(jsDir, file);
+      const output = path.join(distJsDir, file);
+      execSync(`"${terserBin}" "${input}" -o "${output}" --compress --mangle`, {
+        cwd: root,
+        stdio: "pipe",
+      });
+    }
   });
 
   await step("Build with Eleventy", () => {
