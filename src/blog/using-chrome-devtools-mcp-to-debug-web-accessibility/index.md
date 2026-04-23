@@ -60,7 +60,7 @@ Now, with enough context, we can start testing the Chrome DevTools MCP Server ca
 
 <section class="info">
     <p>This audit uses <a href="https://www.momondo.com" target="_blank">www.momondo.com</a> as a case study to explore the capabilities of the Chrome DevTools MCP Server for accessibility debugging. I picked Momondo both for its effective flight-search deals that I use regularly and for providing a perfect example of a complex, real-world UI.</p>
-    <p>The intention is not to evaluate the company or its teams, but to understand how the tool performs in practice. I’m always open to discussing the findings further.</p>
+    <p>The intention is not to evaluate the company or its teams, but to understand how the tool performs in practice.</p>
 </section>
 
 ## <a href="#install-chrome-devtools-mcp" id="install-chrome-devtools-mcp">Installing Chrome DevTools MCP</a>
