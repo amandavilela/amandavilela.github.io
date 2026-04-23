@@ -70,7 +70,7 @@ To get started, you'll need an **AI tool** on your terminal. Chrome DevTools MCP
 1. Install gemini-cli
 
 <pre data-copy-code>
-<code>all -g @google/gemini-cli</code>
+<code>npm install -g @google/gemini-cli</code>
 </pre>
 
 2. Install the Chrome DevTools MCP server and add it to Gemini's list of MCP servers.
