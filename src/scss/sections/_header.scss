@@ -40,7 +40,7 @@
     justify-content: space-around;
 
     &:has(&__link:hover) &__link:not(:hover) {
-        opacity: 0.6;
+        opacity: 0.9;
     }
 
     &__link {

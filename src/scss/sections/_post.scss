@@ -16,7 +16,7 @@
         background-color: var(--color-white);
         margin-block: 1rem;
         margin-inline: auto;
-        max-width: 800px;
+        max-width: 860px;
         padding-block: 1.5rem;
         padding-inline: 1.5rem;
 
@@ -34,8 +34,12 @@
 }
 
 @scope (.post__body) {
+    p {
+        line-height: 1.7rem;
+    }
+
     p + p {
-        margin-block-start: 1rem;
+        margin-block-start: 1.25rem;
     }
 
     h2 {
@@ -50,8 +54,19 @@
         margin-block-start: 2rem;
     }
 
-    :is(h2, h3) a {
+    h4 {
+        margin-block: 1.5rem 0.75rem;
+    }
+
+    li a, p a {
+        color: $color-green;
+        display: inline-block;
+    }
+
+    :is(h2, h3, h4, h5, h6) a {
         color: var(--color-green);
+        display: inline-block;
+        scroll-margin-top: 1.5rem;
 
         &:hover {
             text-decoration: underline;
@@ -59,7 +74,7 @@
         }
     }
 
-    p a {
+    li a, p a {
         color: var(--color-green);
         text-decoration: underline;
         text-underline-offset: 3px;
@@ -103,14 +118,18 @@
         border-inline-start: 3px solid var(--color-salmon);
         margin-block: 1.5rem;
         overflow-x: auto;
-        padding-block: 1.25rem;
-        padding-inline: 1.25rem;
+        padding: 1.25rem;
+        white-space: pre-wrap;
 
         code {
             background: none;
             padding-block: 0;
             padding-inline: 0;
         }
+    }
+
+    figure {
+        margin: 1.5rem 0;
     }
 
     picture {
@@ -123,10 +142,74 @@
         }
     }
 
+    figcaption {
+        font-size: .875rem;
+        font-style: italic;
+        text-align: center;
+    }
+
     // Standalone images not wrapped in <picture>
     :scope > img {
         height: auto;
         margin-block: 1.5rem;
         width: 100%;
+    }
+
+    video {
+        display: block;
+        height: auto;
+        margin: 1.5rem 0 .5rem 0;
+        width: 100%;
+    }
+
+    details {
+        font-size: 1rem;
+        margin: 1.25rem 0;
+    }
+
+    summary {
+        cursor: pointer;
+
+        &::marker {
+            color: $color-green;
+        }
+    }
+}
+
+.table-of-contents {
+    margin-bottom: 2rem;
+
+    ul {
+        list-style-type: square;
+        margin: 0;
+
+        li {
+            &::marker {
+                color: $color-salmon;
+                font-size: 1.5rem;
+            }
+        }
+    }
+}
+
+.info {
+    border: solid 2px #e4effa;
+    margin: 2rem 0 1rem 0;
+    padding: 1.5rem;
+    position: relative;
+
+    &::before {
+        background: #e4effa;
+        color: #59748c;
+        content: "ℹ️ Disclaimer";
+        display: inline-block;
+        font-size: 0.875rem;
+        font-weight: bold;
+        left: 1.5rem;
+        line-height: 1.5rem;
+        padding: 0 .75rem;
+        position: absolute;
+        text-transform: uppercase;
+        top: -.875rem;
     }
 }

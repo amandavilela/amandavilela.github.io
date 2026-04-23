@@ -39,7 +39,6 @@ async function resizeImage(srcPath) {
   const relDir = path.dirname(relPath);
   const destDir = path.join(DIST_DIR, relDir);
   fs.mkdirSync(destDir, { recursive: true });
-
   const baseName = path.basename(srcPath, path.extname(srcPath));
   const ext = path.extname(srcPath).slice(1).toLowerCase();
 
@@ -49,13 +48,21 @@ async function resizeImage(srcPath) {
     fs.copyFileSync(srcPath, destOriginal);
   }
 
+  // og-image: convert to WebP as-is, no resize
+  if (baseName.startsWith("og-image")) {
+    const destWebp = path.join(destDir, `${baseName}.webp`);
+    if (isStale(srcPath, destWebp)) {
+      await sharp(srcPath).webp({ quality: 85 }).toFile(destWebp);
+    }
+    return;
+  }
+
   // Generate each responsive width in the native format and as WebP
   for (const width of WIDTHS) {
     const destNative = path.join(destDir, `${baseName}-${width}w.${ext}`);
     if (isStale(srcPath, destNative)) {
       await sharp(srcPath).resize(width).toFile(destNative);
     }
-
     const destWebp = path.join(destDir, `${baseName}-${width}w.webp`);
     if (isStale(srcPath, destWebp)) {
       await sharp(srcPath).resize(width).webp({ quality: 85 }).toFile(destWebp);

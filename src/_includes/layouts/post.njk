@@ -4,12 +4,12 @@ page_css: post
 ---
 
 <main id="main-content">
-    <article class="post__container">
+    <article class="post__container" itemscope itemtype="https://schema.org/BlogPosting">
         <header class="post__header">
-            <h1>{{ title }}</h1>
-            <time class="post__date" datetime="{{ date | htmlDateString }}">{{ date | readableDate }}</time>
+            <h1 itemprop="headline">{{ title }}</h1>
+            <time class="post__date" itemprop="datePublished" datetime="{{ date | htmlDateString }}">{{ date | readableDate }}</time>
         </header>
-        <section class="post__body">
+        <section class="post__body" itemprop="articleBody">
             {{ content | safe }}
         </section>
     </article>

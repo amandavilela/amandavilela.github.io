@@ -3,6 +3,8 @@ layout: layouts/post.njk
 title: "Why your UI feels slow: A Practical guide to INP"
 description: "Page load time is not enough, learn about Interaction to Next Paint metric and how to improve it."
 date: 2026-04-14
+open_graph:
+  image: "blog/your-page-is-fast-but-is-it-responsive-meet-inp/og-image-your-page-is-fast-but-is-it-responsive-meet-inp.webp"
 ---
 
 Web performance goes beyond loading speed, it also depends on how quickly the page responds to user interactions.

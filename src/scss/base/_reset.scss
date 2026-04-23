@@ -17,6 +17,7 @@
 
 html {
     overflow-x: hidden;
+    scroll-behavior: smooth;
 }
 
 ul,
@@ -72,5 +73,4 @@ a {
 
 section {
     padding-block: var(--section-spacing);
-    contain: content;
 }
