@@ -1,4 +1,3 @@
-@use "variables" as *;
 @use "breakpoints" as *;
 
 @mixin focus-ring($color: var(--color-green), $offset: 2px) {
