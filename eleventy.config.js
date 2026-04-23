@@ -1,6 +1,6 @@
 "use strict";
 
-const { minify } = require("html-minifier");
+const { minify } = require("html-minifier-terser");
 
 const minifyOptions = {
   collapseWhitespace: true,
