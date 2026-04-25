@@ -1,0 +1,251 @@
+.post__header {
+    padding: 0;
+}
+
+.post__date {
+    display: block;
+    font-size: 0.875rem;
+}
+
+.post__container {
+    background-color: var(--color-white);
+    margin-block: 1rem;
+    margin-inline: auto;
+    max-width: 860px;
+    padding-block: 1.5rem;
+    padding-inline: 1.5rem;
+
+    @media (width >= 768px) {
+        margin-block: 2rem;
+        padding-block: 2.5rem;
+        padding-inline: 2.5rem;
+        width: 90%;
+    }
+}
+
+.post__body {
+    padding-block: 1.5rem 0;
+}
+
+.post__body p {
+    line-height: 1.7rem;
+}
+
+.post__body p + p {
+    margin-block-start: 1.25rem;
+}
+
+.post__body h2 {
+    font-size: 1.5rem;
+    margin-block-end: 1rem;
+    margin-block-start: 2.5rem;
+}
+
+.post__body h3 {
+    font-size: 1.25rem;
+    margin-block-end: 1rem;
+    margin-block-start: 2rem;
+}
+
+.post__body h4 {
+    margin-block: 1.5rem 0.75rem;
+}
+
+.post__body li a,
+.post__body p a {
+    color: var(--color-green);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    position: relative;
+    z-index: 0;
+}
+
+.post__body li a::before,
+.post__body p a::before {
+    background: var(--color-salmon);
+    content: "";
+    inset: 0;
+    position: absolute;
+    transform: scaleX(0);
+    transform-origin: inline-end;
+    transition: transform 0.25s ease-in-out;
+    z-index: -1;
+}
+
+.post__body li a:hover,
+.post__body p a:hover {
+    color: var(--color-green-dark);
+}
+
+.post__body li a:hover::before,
+.post__body p a:hover::before {
+    transform: scaleX(1);
+    transform-origin: inline-start;
+}
+
+.post__body :is(h2, h3, h4, h5, h6) a {
+    color: var(--color-green);
+    display: inline-block;
+    scroll-margin-top: 1.5rem;
+}
+
+.post__body :is(h2, h3, h4, h5, h6) a:hover {
+    text-decoration: underline;
+    text-underline-offset: 3px;
+}
+
+.post__body :is(ul, ol) {
+    margin-block: 1rem;
+    padding-inline-start: 1.5rem;
+}
+
+.post__body ul {
+    list-style: disc;
+}
+
+.post__body ol {
+    list-style: decimal;
+}
+
+.post__body li + li {
+    margin-block-start: 0.35rem;
+}
+
+.post__body blockquote {
+    border-inline-start: 3px solid var(--color-green);
+    font-style: italic;
+    margin-block: 1.5rem;
+    padding-block: 0.5rem;
+    padding-inline: 1.25rem;
+}
+
+.post__body code {
+    background-color: var(--color-light);
+    font-size: 0.875em;
+    padding-block: 0.15em;
+    padding-inline: 0.4em;
+}
+
+.post__body pre {
+    background-color: var(--color-light);
+    border-inline-start: 3px solid var(--color-salmon);
+    margin-block: 1.5rem;
+    overflow-x: auto;
+    padding: 1.25rem;
+    position: relative;
+    white-space: pre-wrap;
+}
+
+.post__body pre code {
+    background: none;
+    padding-block: 0;
+    padding-inline: 0;
+}
+
+.post__body .copy-code-button {
+    background-color: var(--color-white);
+    border: 1px solid var(--color-green);
+    border-radius: 4px;
+    color: var(--color-green);
+    cursor: pointer;
+    font-size: 0.75rem;
+    font-weight: bold;
+    padding: 0.25rem;
+    position: absolute;
+    right: 0.5rem;
+    top: 0.5rem;
+    transition: all 0.2s ease;
+}
+
+.post__body .copy-code-button:hover {
+    background-color: var(--color-green);
+    color: var(--color-white);
+}
+
+.post__body .copy-code-button.copied {
+    background-color: var(--color-salmon);
+    border-color: var(--color-salmon);
+    color: var(--color-green);
+}
+
+.post__body figure {
+    margin: 1.5rem 0;
+}
+
+.post__body picture {
+    display: block;
+    margin-block: 1.5rem;
+}
+
+.post__body picture img {
+    height: auto;
+    width: 100%;
+}
+
+.post__body figcaption {
+    font-size: 0.875rem;
+    font-style: italic;
+    text-align: center;
+}
+
+.post__body > img {
+    height: auto;
+    margin-block: 1.5rem;
+    width: 100%;
+}
+
+.post__body video {
+    display: block;
+    height: auto;
+    margin: 1.5rem 0 0.5rem 0;
+    width: 100%;
+}
+
+.post__body details {
+    font-size: 1rem;
+    margin: 1.25rem 0;
+}
+
+.post__body summary {
+    cursor: pointer;
+}
+
+.post__body summary::marker {
+    color: var(--color-green);
+}
+
+.table-of-contents {
+    margin-bottom: 2rem;
+}
+
+.table-of-contents ul {
+    list-style-type: square;
+    margin: 0;
+}
+
+.table-of-contents li::marker {
+    color: var(--color-salmon);
+    font-size: 1.5rem;
+}
+
+.info {
+    border: solid 2px #e4effa;
+    margin: 2rem 0 1rem 0;
+    padding: 1.5rem;
+    position: relative;
+}
+
+.info::before {
+    background: #e4effa;
+    color: #59748c;
+    content: "ℹ️ Disclaimer";
+    display: inline-block;
+    font-size: 0.875rem;
+    font-weight: bold;
+    left: 1.5rem;
+    line-height: 1.5rem;
+    padding: 0 0.75rem;
+    position: absolute;
+    text-transform: uppercase;
+    top: -0.875rem;
+}

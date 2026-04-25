@@ -7,12 +7,6 @@ const { processAll } = require("./images.cjs");
 
 const root = path.resolve(__dirname, "..");
 const isWin = process.platform === "win32";
-const sassBin = path.join(
-  root,
-  "node_modules",
-  ".bin",
-  isWin ? "sass.cmd" : "sass",
-);
 const eleventyBin = path.join(
   root,
   "node_modules",
@@ -55,11 +49,14 @@ async function step(label, fn) {
 
   console.log(`\n${bold("Building...")}\n`);
 
-  await step("Compile SCSS", () => {
-    execSync(
-      `"${sassBin}" src/scss:dist --style=compressed --no-source-map`,
-      { cwd: root, stdio: "pipe" },
-    );
+  await step("Bundle CSS", () => {
+    const entries = ["home", "blog", "critical", "services", "post", "404", "home_critical"];
+    for (const name of entries) {
+      execSync(
+        `bun x lightningcss --bundle --minify --targets ">= 0.25%" ./src/css/${name}.css -o ./dist/${name}.css`,
+        { cwd: root, stdio: "pipe" },
+      );
+    }
   });
 
   await step("Minify JS", () => {

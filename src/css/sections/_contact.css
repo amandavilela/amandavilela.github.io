@@ -1,0 +1,34 @@
+.contact {
+    padding-block-start: 0;
+}
+
+.contact__email {
+    color: var(--color-text);
+    font-weight: 700;
+    position: relative;
+    z-index: 0;
+
+    &::before {
+        background: var(--color-salmon);
+        content: '';
+        inset: 0;
+        position: absolute;
+        transform: scaleX(0);
+        transform-origin: inline-end;
+        transition: transform 0.25s ease-in-out;
+        z-index: -1;
+    }
+
+    &:hover {
+        color: var(--color-green);
+
+        &::before {
+            transform: scaleX(1);
+            transform-origin: inline-start;
+        }
+    }
+
+    &:active {
+        color: color-mix(in srgb, var(--color-green), black 10%);
+    }
+}

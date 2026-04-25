@@ -150,14 +150,14 @@
     height: calc(100vh - 28px);
     justify-content: center;
     text-align: center;
+}
 
-    &__title {
-        font-size: clamp(56px, 10vw, 96px);
-        margin-block-end: 2rem;
-        z-index: 1;
-    }
+.not-found__title {
+    font-size: clamp(56px, 10vw, 96px);
+    margin-block-end: 2rem;
+    z-index: 1;
+}
 
-    &__subtitle {
-        margin-block: 1.5rem;
-    }
+.not-found__subtitle {
+    margin-block: 1.5rem;
 }

@@ -1,0 +1,9 @@
+.blog-list {
+    border-top: 1px solid var(--color-salmon);
+    margin-top: 2rem;
+}
+
+.blog-list__item {
+    border-bottom: 1px solid var(--color-salmon);
+    padding: 2rem 0;
+}
