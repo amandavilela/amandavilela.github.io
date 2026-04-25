@@ -1,31 +1,39 @@
-@use "../config/breakpoints" as *;
-@use "../config/mixins" as *;
-
 .engagement-details {
     padding-block-start: 0;
+}
 
-    &__grid {
-        margin-block-start: 1.5rem;
-        @include bordered-grid(2);
-    }
+.engagement-details p + p {
+    margin: 0;
+}
 
-    &__card {
-        @include bordered-grid-cell($gap: 0.75rem, $p-block: 2rem, $p-inline: 1.5rem);
+.engagement-details ul {
+    list-style: inside;
+}
 
-        &:last-child:nth-child(odd) {
-            @include tablet {
-                grid-column: 1 / -1;
-            }
-        }
+.engagement-details__grid {
+    margin-block-start: 1.5rem;
+    border-inline-start: 1px solid var(--color-salmon);
+    border-block-start: 1px solid var(--color-salmon);
+    display: grid;
+    grid-template-columns: 1fr;
+
+    @media (width >= 768px) {
+        grid-template-columns: repeat(2, 1fr);
     }
 }
 
-@scope (.engagement-details) {
-    p + p {
-        margin: 0;
-    }
+.engagement-details__card {
+    border-block-end: 1px solid var(--color-salmon);
+    border-inline-end: 1px solid var(--color-salmon);
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    padding-block: 2rem;
+    padding-inline: 1.5rem;
+}
 
-    ul {
-        list-style: inside;
+@media (width >= 768px) {
+    .engagement-details__card:last-child:nth-child(odd) {
+        grid-column: 1 / -1;
     }
 }
