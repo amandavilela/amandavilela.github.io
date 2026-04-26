@@ -1,13 +1,13 @@
 .engagement-details {
     padding-block-start: 0;
-}
 
-.engagement-details p + p {
-    margin: 0;
-}
+    p + p {
+        margin: 0;
+    }
 
-.engagement-details ul {
-    list-style: inside;
+    ul {
+        list-style: inside;
+    }
 }
 
 .engagement-details__grid {

@@ -6,24 +6,27 @@
     color: var(--color-green);
     cursor: pointer;
     display: inline-block;
-    font-family: 'Inconsolata', monospace;
+    font-family: "Inconsolata", monospace;
     padding: 0.4rem 0.85rem;
-    transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
-}
+    transition:
+        background-color 0.2s ease,
+        color 0.2s ease,
+        border-color 0.2s ease;
 
-.btn:hover {
-    background: var(--color-green);
-    border-color: var(--color-green);
-    color: var(--color-bg);
-}
+    &:hover {
+        background: var(--color-green);
+        border-color: var(--color-green);
+        color: var(--color-bg);
+    }
 
-.btn:active {
-    background: var(--color-green-dark);
-    border-color: var(--color-green-dark);
-    color: var(--color-bg);
-}
+    &:active {
+        background: var(--color-green-dark);
+        border-color: var(--color-green-dark);
+        color: var(--color-bg);
+    }
 
-.btn:focus-visible {
-    outline: 2px solid var(--color-green);
-    outline-offset: 2px;
+    &:focus-visible {
+        outline: 2px solid var(--color-green);
+        outline-offset: 2px;
+    }
 }

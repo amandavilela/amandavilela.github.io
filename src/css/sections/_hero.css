@@ -1,6 +1,10 @@
 @keyframes mark-fill {
-    from { background-size: 0% 100%; }
-    to   { background-size: 100% 100%; }
+    from {
+        background-size: 0% 100%;
+    }
+    to {
+        background-size: 100% 100%;
+    }
 }
 
 .hero {
@@ -27,12 +31,12 @@
 
 .hero__lead mark {
     background-color: unset;
-    background-image:
-        linear-gradient(100deg,
-            color-mix(in srgb, var(--color-salmon), transparent 85%),
-            color-mix(in srgb, var(--color-salmon), transparent 15%) 100%,
-            color-mix(in srgb, var(--color-salmon), transparent 65%)
-        );
+    background-image: linear-gradient(
+        100deg,
+        color-mix(in srgb, var(--color-salmon), transparent 85%),
+        color-mix(in srgb, var(--color-salmon), transparent 15%) 100%,
+        color-mix(in srgb, var(--color-salmon), transparent 65%)
+    );
     background-position: inline-start center;
     background-repeat: no-repeat;
     background-size: 100% 100%;
@@ -74,22 +78,22 @@
 
 .hero__profile {
     position: relative;
+
+    &::before {
+        background-color: var(--color-salmon);
+        inset-block-end: 0;
+        content: "";
+        display: block;
+        height: 196px;
+        position: absolute;
+        inset-inline-end: -4px;
+        rotate: -3.5deg;
+        width: 196px;
+    }
 }
 
 .hero__profile-img {
     height: 186px;
     rotate: 3.5deg;
     width: 186px;
-}
-
-.hero__profile:before {
-    background-color: var(--color-salmon);
-    inset-block-end: 0;
-    content: "";
-    display: block;
-    height: 196px;
-    position: absolute;
-    inset-inline-end: -4px;
-    rotate: -3.5deg;
-    width: 196px;
 }
