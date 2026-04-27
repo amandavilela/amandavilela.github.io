@@ -1,14 +1,20 @@
 @scope (.post) {
-    .post__header {
-        padding: 0;
+    :scope {
+        /* Base post styles */
     }
 
-    .post__date {
+    .header {
+        padding: 0;
+        box-shadow: none; /* Explicitly reset to avoid conflict with global header */
+    }
+
+    .date {
         display: block;
         font-size: 0.875rem;
     }
 
-    .post__container {
+    /* Using proximity to override/extend global .container */
+    .container {
         background-color: var(--color-white);
         margin-block: 1rem;
         margin-inline: auto;
@@ -22,13 +28,13 @@
         }
     }
 
-    .post__body {
+    .body {
         padding-block: 1.5rem 0;
     }
 }
 
 /* Scoping the content area for simpler, more readable descendant selectors */
-@scope (.post__container) {
+@scope (.post .body) {
     p {
         line-height: 1.7rem;
     }
@@ -62,7 +68,7 @@
 
         &::before {
             background: var(--color-salmon);
-            content: "";
+            content: '';
             inset: 0;
             position: absolute;
             transform: scaleX(0);
@@ -179,7 +185,7 @@
     }
 
     figcaption {
-        font-size: 0.875rem;
+        font-size: .875rem;
         font-style: italic;
         text-align: center;
     }
@@ -194,7 +200,7 @@
     video {
         display: block;
         height: auto;
-        margin: 1.5rem 0 0.5rem 0;
+        margin: 1.5rem 0 .5rem 0;
         width: 100%;
     }
 
@@ -212,7 +218,7 @@
     }
 }
 
-/* Scoping components that appear inside or near posts */
+/* Helper components */
 @scope (.table-of-contents) {
     :scope {
         margin-bottom: 2rem;
@@ -246,9 +252,9 @@
         font-weight: bold;
         left: 1.5rem;
         line-height: 1.5rem;
-        padding: 0 0.75rem;
+        padding: 0 .75rem;
         position: absolute;
         text-transform: uppercase;
-        top: -0.875rem;
+        top: -.875rem;
     }
 }
