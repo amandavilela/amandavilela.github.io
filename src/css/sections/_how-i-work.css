@@ -1,7 +1,9 @@
-.how-i-work {
-    padding-block-end: 4rem;
-}
+@scope (.how-i-work) {
+    :scope {
+        padding-block: 3rem 5rem;
+    }
 
-.how-i-work__lead {
-    margin-block-end: 1.5rem;
+    .lead {
+        margin-block-end: 1.5rem;
+    }
 }

@@ -1,16 +1,22 @@
-.bullet-list {
-    list-style: none;
-    padding: 0;
+@scope (.bullet-list) {
+    :scope {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+    }
 
-    li {
-        padding-inline-start: 1.5rem;
-        position: relative;
+    .item {
+        align-items: center;
+        display: flex;
+        gap: 0.85rem;
 
         &::before {
-            color: var(--color-green);
-            content: "→";
-            inset-inline-start: 0;
-            position: absolute;
+            background-color: var(--color-salmon);
+            content: "";
+            display: block;
+            flex-shrink: 0;
+            height: 1.25rem;
+            width: 1.25rem;
         }
     }
 }
