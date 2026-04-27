@@ -20,6 +20,7 @@
         margin-inline: auto;
         max-width: 860px;
         padding: 1.5rem;
+        width: 100%;
 
         @media (width >= 768px) {
             margin-block: 2rem;
@@ -68,7 +69,7 @@
 
         &::before {
             background: var(--color-salmon);
-            content: '';
+            content: "";
             inset: 0;
             position: absolute;
             transform: scaleX(0);
@@ -185,7 +186,7 @@
     }
 
     figcaption {
-        font-size: .875rem;
+        font-size: 0.875rem;
         font-style: italic;
         text-align: center;
     }
@@ -200,7 +201,7 @@
     video {
         display: block;
         height: auto;
-        margin: 1.5rem 0 .5rem 0;
+        margin: 1.5rem 0 0.5rem 0;
         width: 100%;
     }
 
@@ -252,9 +253,9 @@
         font-weight: bold;
         left: 1.5rem;
         line-height: 1.5rem;
-        padding: 0 .75rem;
+        padding: 0 0.75rem;
         position: absolute;
         text-transform: uppercase;
-        top: -.875rem;
+        top: -0.875rem;
     }
 }
