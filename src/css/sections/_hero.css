@@ -1,6 +1,10 @@
 @keyframes mark-fill {
-    from { background-size: 0% 100%; }
-    to   { background-size: 100% 100%; }
+    from {
+        background-size: 0% 100%;
+    }
+    to {
+        background-size: 100% 100%;
+    }
 }
 
 @scope (.hero) {
@@ -8,7 +12,7 @@
         padding: 5rem 0 1rem 0;
     }
 
-    .inner {
+    .container {
         display: flex;
         flex-direction: column;
         gap: 2rem;
@@ -28,12 +32,12 @@
 
     .lead mark {
         background-color: unset;
-        background-image:
-            linear-gradient(100deg,
-                color-mix(in srgb, var(--color-salmon), transparent 85%),
-                color-mix(in srgb, var(--color-salmon), transparent 15%) 100%,
-                color-mix(in srgb, var(--color-salmon), transparent 65%)
-            );
+        background-image: linear-gradient(
+            100deg,
+            color-mix(in srgb, var(--color-salmon), transparent 85%),
+            color-mix(in srgb, var(--color-salmon), transparent 15%) 100%,
+            color-mix(in srgb, var(--color-salmon), transparent 65%)
+        );
         background-position: left center;
         background-repeat: no-repeat;
         background-size: 100% 100%;
