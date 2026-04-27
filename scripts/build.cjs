@@ -50,10 +50,19 @@ async function step(label, fn) {
   console.log(`\n${bold("Building...")}\n`);
 
   await step("Bundle CSS", () => {
-    const entries = ["home", "blog", "critical", "services", "post", "404", "home_critical"];
+    const entries = [
+      "home",
+      "blog",
+      "critical",
+      "services",
+      "post",
+      "404",
+      "home_critical",
+      "header",
+    ];
     for (const name of entries) {
       execSync(
-        `bun x lightningcss --bundle --minify --targets ">= 0.25%" ./src/css/${name}.css -o ./dist/${name}.css`,
+        `bun x lightningcss --bundle --minify --targets "last 3 versions" ./src/css/${name}.css -o ./dist/${name}.css`,
         { cwd: root, stdio: "pipe" },
       );
     }

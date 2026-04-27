@@ -1,18 +1,14 @@
 @keyframes mark-fill {
-    from {
-        background-size: 0% 100%;
-    }
-    to {
-        background-size: 100% 100%;
-    }
+    from { background-size: 0% 100%; }
+    to   { background-size: 100% 100%; }
 }
 
 @scope (.hero) {
     :scope {
-        padding-block: 5rem 1rem;
+        padding: 5rem 0 1rem 0;
     }
 
-    .container {
+    .inner {
         display: flex;
         flex-direction: column;
         gap: 2rem;
@@ -32,13 +28,13 @@
 
     .lead mark {
         background-color: unset;
-        background-image: linear-gradient(
-            100deg,
-            color-mix(in srgb, var(--color-salmon), transparent 85%),
-            color-mix(in srgb, var(--color-salmon), transparent 15%) 100%,
-            color-mix(in srgb, var(--color-salmon), transparent 65%)
-        );
-        background-position: inline-start center;
+        background-image:
+            linear-gradient(100deg,
+                color-mix(in srgb, var(--color-salmon), transparent 85%),
+                color-mix(in srgb, var(--color-salmon), transparent 15%) 100%,
+                color-mix(in srgb, var(--color-salmon), transparent 65%)
+            );
+        background-position: left center;
         background-repeat: no-repeat;
         background-size: 100% 100%;
         border-radius: 1em 0 1em 0;
@@ -47,8 +43,7 @@
         font-size: 1.15rem;
         font-weight: 700;
         line-height: 1.9;
-        padding-block: 0.15em;
-        padding-inline: 0.1em;
+        padding: 0.15em 0.1em;
         text-shadow: 1px 1px 1px white;
 
         @media (prefers-reduced-motion: no-preference) {
@@ -61,7 +56,7 @@
         display: flex;
         flex-wrap: wrap;
         gap: 1.5rem;
-        margin-block-start: 1.5rem;
+        margin-top: 1.5rem;
     }
 
     .right {
@@ -72,7 +67,7 @@
             display: flex;
             flex-shrink: 0;
             justify-content: center;
-            padding-block-start: 1rem;
+            padding-top: 1rem;
             width: 220px;
         }
     }
@@ -82,12 +77,12 @@
 
         &::before {
             background-color: var(--color-salmon);
-            inset-block-end: 0;
+            bottom: 0;
             content: "";
             display: block;
             height: 196px;
             position: absolute;
-            inset-inline-end: -4px;
+            right: -4px;
             rotate: -3.5deg;
             width: 196px;
         }

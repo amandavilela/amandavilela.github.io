@@ -1,185 +1,8 @@
 @keyframes float {
-    0%,
-    100% {
-        transform: translate(0, 0);
-    }
-    25% {
-        transform: translate(var(--x1), var(--y1));
-    }
-    50% {
-        transform: translate(var(--x2), var(--y2));
-    }
-    75% {
-        transform: translate(var(--x3), var(--y3));
-    }
-}
-
-.bubble {
-    animation: float var(--duration) ease-in-out infinite;
-    animation-delay: var(--delay, 0s);
-    border-radius: 50%;
-    position: fixed;
-    will-change: transform;
-}
-
-.b1 {
-    --duration: 9s;
-    --x1: 18px;
-    --y1: -22px;
-    --x2: -12px;
-    --y2: 15px;
-    --x3: 20px;
-    --y3: 10px;
-    background: color-mix(in srgb, var(--color-green), white 50%);
-    height: 120px;
-    inset-block-start: 12%;
-    inset-inline-start: 10%;
-    width: 120px;
-}
-
-.b2 {
-    --duration: 6s;
-    --delay: -2s;
-    --x1: -20px;
-    --y1: 14px;
-    --x2: 16px;
-    --y2: -18px;
-    --x3: 0px;
-    --y3: 0px;
-    background: var(--color-green);
-    inset-inline-start: 35%;
-    height: 28px;
-    inset-block-start: 8%;
-    width: 28px;
-}
-
-.b3 {
-    --duration: 11s;
-    --delay: -4s;
-    --x1: 14px;
-    --y1: 20px;
-    --x2: -18px;
-    --y2: -10px;
-    --x3: 10px;
-    --y3: -20px;
-    background: color-mix(in srgb, var(--color-green), white 55%);
-    height: 60px;
-    inset-inline-end: 8%;
-    opacity: 0.7;
-    inset-block-start: 25%;
-    width: 60px;
-}
-
-.b4 {
-    --duration: 8s;
-    --delay: -1s;
-    --x1: -22px;
-    --y1: -16px;
-    --x2: 18px;
-    --y2: 20px;
-    --x3: 0px;
-    --y3: 0px;
-    background: color-mix(in srgb, var(--color-salmon), black 8%);
-    height: 90px;
-    inset-inline-end: 5%;
-    inset-block-start: 18%;
-    width: 90px;
-}
-
-.b5 {
-    --duration: 7s;
-    --delay: -3s;
-    --x1: 20px;
-    --y1: 18px;
-    --x2: -16px;
-    --y2: -22px;
-    --x3: 12px;
-    --y3: 14px;
-    background: color-mix(in srgb, var(--color-salmon), black 15%);
-    height: 20px;
-    inset-inline-start: 6%;
-    inset-block-start: 52%;
-    width: 20px;
-}
-
-.b6 {
-    --duration: 10s;
-    --delay: -5s;
-    --x1: 16px;
-    --y1: -20px;
-    --x2: -20px;
-    --y2: 12px;
-    --x3: 0px;
-    --y3: 0px;
-    background: color-mix(in srgb, var(--color-salmon), black 12%);
-    inset-block-end: 22%;
-    height: 75px;
-    inset-inline-start: 15%;
-    width: 75px;
-}
-
-.b7 {
-    --duration: 6.5s;
-    --delay: -1.5s;
-    --x1: -14px;
-    --y1: 20px;
-    --x2: 22px;
-    --y2: -14px;
-    --x3: -10px;
-    --y3: -18px;
-    background: color-mix(in srgb, var(--color-green), white 45%);
-    height: 35px;
-    inset-inline-end: 35%;
-    inset-block-start: 40%;
-    width: 35px;
-}
-
-.b8 {
-    --duration: 12s;
-    --delay: -6s;
-    --x1: 20px;
-    --y1: -12px;
-    --x2: -18px;
-    --y2: 20px;
-    --x3: 14px;
-    --y3: -16px;
-    background: color-mix(in srgb, var(--color-green), white 55%);
-    inset-block-end: 8%;
-    height: 100px;
-    inset-inline-end: 8%;
-    width: 100px;
-}
-
-.b9 {
-    --duration: 8.5s;
-    --delay: -2.5s;
-    --x1: -20px;
-    --y1: -20px;
-    --x2: 18px;
-    --y2: 16px;
-    --x3: 0px;
-    --y3: 0px;
-    background: color-mix(in srgb, var(--color-salmon), black 6%);
-    inset-block-end: 10%;
-    height: 40px;
-    inset-inline-end: 20%;
-    width: 40px;
-}
-
-.b10 {
-    --duration: 7.5s;
-    --delay: -4.5s;
-    --x1: 22px;
-    --y1: 14px;
-    --x2: -16px;
-    --y2: -20px;
-    --x3: 0px;
-    --y3: 0px;
-    background: color-mix(in srgb, var(--color-salmon), black 18%);
-    inset-block-end: 20%;
-    height: 15px;
-    inset-inline-end: 40%;
-    width: 15px;
+    25% { transform: translate(var(--x1), var(--y1)); }
+    50% { transform: translate(var(--x2), var(--y2)); }
+    75% { transform: translate(var(--x3, 0), var(--y3, 0)); }
+    0%, 100% { transform: translate(0, 0); }
 }
 
 @scope (.not-found) {
@@ -194,11 +17,33 @@
 
     .title {
         font-size: clamp(56px, 10vw, 96px);
-        margin-block-end: 2rem;
+        margin-bottom: 2rem;
         z-index: 1;
     }
 
     .subtitle {
-        margin-block: 1.5rem;
+        margin: 1.5rem 0;
     }
+
+    .bubble {
+        animation: float var(--dur) ease-in-out infinite var(--del, 0s);
+        border-radius: 50%;
+        position: fixed;
+        will-change: transform;
+        height: var(--size);
+        width: var(--size);
+        background: var(--bg);
+    }
+
+    /* Bubble configurations - Using standard top/left/right/bottom for smallest size */
+    .b1 { --dur: 9s; --size: 120px; top: 12%; left: 10%; --x1: 18px; --y1: -22px; --x2: -12px; --y2: 15px; --x3: 20px; --y3: 10px; --bg: color-mix(in srgb, var(--color-green), white 50%); }
+    .b2 { --dur: 6s; --del: -2s; --size: 28px; top: 8%; left: 35%; --x1: -20px; --y1: 14px; --x2: 16px; --y2: -18px; --bg: var(--color-green); }
+    .b3 { --dur: 11s; --del: -4s; --size: 60px; top: 25%; right: 8%; --x1: 14px; --y1: 20px; --x2: -18px; --y2: -10px; --x3: 10px; --y3: -20px; --bg: color-mix(in srgb, var(--color-green), white 55%); opacity: 0.7; }
+    .b4 { --dur: 8s; --del: -1s; --size: 90px; top: 18%; right: 5%; --x1: -22px; --y1: -16px; --x2: 18px; --y2: 20px; --bg: color-mix(in srgb, var(--color-salmon), black 8%); }
+    .b5 { --dur: 7s; --del: -3s; --size: 20px; top: 52%; left: 6%; --x1: 20px; --y1: 18px; --x2: -16px; --y2: -22px; --x3: 12px; --y3: 14px; --bg: color-mix(in srgb, var(--color-salmon), black 15%); }
+    .b6 { --dur: 10s; --del: -5s; --size: 75px; bottom: 22%; left: 15%; --x1: 16px; --y1: -20px; --x2: -20px; --y2: 12px; --bg: color-mix(in srgb, var(--color-salmon), black 12%); }
+    .b7 { --dur: 6.5s; --del: -1.5s; --size: 35px; top: 40%; right: 35%; --x1: -14px; --y1: 20px; --x2: 22px; --y2: -14px; --x3: -10px; --y3: -18px; --bg: color-mix(in srgb, var(--color-green), white 45%); }
+    .b8 { --dur: 12s; --del: -6s; --size: 100px; bottom: 8%; right: 8%; --x1: 20px; --y1: -12px; --x2: -18px; --y2: 20px; --x3: 14px; --y3: -16px; --bg: color-mix(in srgb, var(--color-green), white 55%); }
+    .b9 { --dur: 8.5s; --del: -2.5s; --size: 40px; bottom: 10%; right: 20%; --x1: -20px; --y1: -20px; --x2: 18px; --y2: 16px; --bg: color-mix(in srgb, var(--color-salmon), black 6%); }
+    .b10 { --dur: 7.5s; --del: -4.5s; --size: 15px; bottom: 20%; right: 40%; --x1: 22px; --y1: 14px; --x2: -16px; --y2: -20px; --bg: color-mix(in srgb, var(--color-salmon), black 18%); }
 }

@@ -14,26 +14,35 @@ const eleventyBin = path.join(
   isWin ? "eleventy.cmd" : "eleventy",
 );
 
-const cssEntries = ["home", "blog", "critical", "services", "post", "404", "home_critical"];
+const cssEntries = [
+  "home",
+  "blog",
+  "critical",
+  "services",
+  "post",
+  "404",
+  "home_critical",
+  "header",
+];
 
 function compileCSS() {
-    console.log("[css] Bundling with Lightning CSS...");
-    for (const name of cssEntries) {
-        try {
-            execSync(
-                `bun x lightningcss --bundle --targets ">= 0.25%" ./src/css/${name}.css -o ./dist/${name}.css`,
-                { cwd: root, stdio: "inherit" }
-            );
-        } catch (err) {
-            console.error(`[css:${name}] Failed to compile`);
-        }
+  console.log("[css] Bundling with Lightning CSS...");
+  for (const name of cssEntries) {
+    try {
+      execSync(
+        `bun x lightningcss --bundle --targets "last 2 versions" ./src/css/${name}.css -o ./dist/${name}.css`,
+        { cwd: root, stdio: "inherit" },
+      );
+    } catch (err) {
+      console.error(`[css:${name}] Failed to compile`);
     }
-    // Touch a file that Eleventy watches to trigger a rebuild
-    const touchFile = path.join(root, "src/index.njk");
-    if (fs.existsSync(touchFile)) {
-        const now = new Date();
-        fs.utimesSync(touchFile, now, now);
-    }
+  }
+  // Touch a file that Eleventy watches to trigger a rebuild
+  const touchFile = path.join(root, "src/index.njk");
+  if (fs.existsSync(touchFile)) {
+    const now = new Date();
+    fs.utimesSync(touchFile, now, now);
+  }
 }
 
 // ─── CSS initial build & watch ────────────────────────────────────────────────
@@ -41,9 +50,9 @@ compileCSS();
 
 const cssDir = path.join(root, "src/css");
 fs.watch(cssDir, { recursive: true }, (event, filename) => {
-    if (filename && filename.endsWith(".css")) {
-        compileCSS();
-    }
+  if (filename && filename.endsWith(".css")) {
+    compileCSS();
+  }
 });
 
 // ─── Eleventy dev server ──────────────────────────────────────────────────────

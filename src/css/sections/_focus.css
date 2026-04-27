@@ -7,7 +7,7 @@
         display: grid;
         grid-template-columns: 1fr;
         gap: 2rem;
-        margin-block: 2.5rem;
+        margin: 2.5rem 0;
 
         @media (width >= 768px) {
             grid-template-columns: repeat(2, 1fr);
@@ -31,8 +31,8 @@
         &::after {
             background-color: var(--color-green);
             content: "";
-            inset-block-start: -0.5rem;
-            inset-inline-start: -0.1rem;
+            top: -0.5rem;
+            left: -0.1rem;
             position: absolute;
             transform: rotate(1deg);
             transform-origin: left top;
@@ -45,8 +45,8 @@
         &::before {
             background-color: var(--color-salmon);
             content: "";
-            inset-block-start: 0;
-            inset-inline-start: 0;
+            top: 0;
+            left: 0;
             position: absolute;
             transform: rotate(-0.1deg);
             transform-origin: left top;
@@ -63,14 +63,14 @@
 
         &:nth-child(even) {
             &::after {
-                inset-block-start: -0.5rem;
-                inset-inline-start: 0;
+                top: -0.5rem;
+                left: 0;
                 transform: rotate(1deg);
             }
 
             &::before {
-                inset-block-start: 0;
-                inset-inline-start: 0.1rem;
+                top: 0;
+                left: 0.1rem;
                 transform: rotate(-0.1deg);
             }
 
