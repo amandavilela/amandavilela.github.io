@@ -31,11 +31,11 @@ open_graph:
                 class="actions"
                 aria-label="Quick navigation"
             >
-                <a href="mailto:hello@amandavilela.me" class="btn"
+                <a href="mailto:hello@amandavilela.me" class="btn u-focus-ring"
                     >Contact me →</a
                 >
 
-                <a href="/services" class="btn"
+                <a href="/services" class="btn u-focus-ring"
                     >Consulting services →</a
                 >
             </nav>
@@ -171,7 +171,7 @@ open_graph:
                 </li>
                 <li class="cell cell--link">
                     <a
-                        class="cta"
+                        class="cta u-slide-hover"
                         href="/services/"
                     >
                         Learn more →
@@ -198,7 +198,7 @@ open_graph:
                 Reach me at
                 <a
                     href="mailto:hello@amandavilela.me"
-                    class="email"
+                    class="email u-slide-hover u-focus-ring"
                     >hello@amandavilela.me</a
                 >
                 for a quick chat or a detailed quote.
@@ -213,7 +213,7 @@ open_graph:
             {% if post %}
             <article class="card post-summary">
                 <h3 class="post-summary__title">
-                    <a class="post-summary__link" href="{{ post.url }}">{{ post.data.title }}</a>
+                    <a class="post-summary__link u-slide-hover u-focus-ring" href="{{ post.url }}">{{ post.data.title }}</a>
                 </h3>
                 <time class="post-summary__date" datetime="{{ post.date | htmlDateString }}">
                     {{ post.date | readableDate }}
@@ -222,7 +222,7 @@ open_graph:
                 <p class="post-summary__description">{{ post.data.description }}</p>
                 {% endif %}
             </article>
-            <a href="/blog/" class="view-all">View all posts →</a>
+            <a href="/blog/" class="view-all u-slide-hover u-focus-ring">View all posts →</a>
             {% endif %}
         </div>
     </section>

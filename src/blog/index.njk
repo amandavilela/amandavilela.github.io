@@ -17,7 +17,7 @@ page_css: blog
                         <li class="item">
                             <article class="post-summary" itemscope itemtype="https://schema.org/BlogPosting">
                                 <h2 class="post-summary__title" itemprop="headline">
-                                    <a class="post-summary__link" href="{{ post.url }}">{{ post.data.title }}</a>
+                                    <a class="post-summary__link u-slide-hover u-focus-ring" href="{{ post.url }}">{{ post.data.title }}</a>
                                 </h2>
                                 <time class="post-summary__date" itemprop="datePublished" datetime="{{ post.date | htmlDateString }}">
                                     {{ post.date | readableDate }}

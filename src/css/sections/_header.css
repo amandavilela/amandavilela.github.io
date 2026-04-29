@@ -1,4 +1,3 @@
-/* Target specifically the site-wide header */
 @scope (body > .header) {
     :scope {
         padding: 1rem 0;
@@ -38,43 +37,12 @@
         gap: 1.5rem;
 
         &:has(.link:hover) .link:not(:hover) {
-            opacity: .9;
+            opacity: 0.9;
         }
     }
 
     .link {
         color: var(--color-green);
-        position: relative;
-        z-index: 0;
-        transition: opacity .2s;
         font-weight: bold;
-
-        &:focus-visible {
-            outline: 2px solid var(--color-green);
-            outline-offset: 2px;
-        }
-
-        &::before {
-            background: var(--color-salmon);
-            content: '';
-            position: absolute;
-            transform-origin: right;
-            z-index: -1;
-            transition: transform 0.25s ease-in-out;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            transform: scaleX(0);
-        }
-
-        &:hover {
-            color: var(--color-green-dark);
-
-            &::before {
-                transform-origin: left;
-                transform: scaleX(1);
-            }
-        }
     }
 }

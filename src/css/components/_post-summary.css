@@ -1,9 +1,10 @@
-
+@import "../config/_variables.css";
 
 .post-summary {
     display: flex;
     flex-direction: column;
     gap: 0.5rem;
+    padding: 2.5rem 0;
     text-decoration: none;
 }
 
@@ -18,28 +19,10 @@
 .post-summary__link {
     color: var(--color-green);
     text-decoration: none;
-    position: relative;
-    z-index: 0;
+}
 
-    &::before {
-        background: var(--color-salmon);
-        content: "";
-        inset: 0;
-        position: absolute;
-        transform: scaleX(0);
-        transform-origin: inline-end;
-        transition: transform 0.25s ease-in-out;
-        z-index: -1;
-    }
-
-    &:hover {
-        color: var(--color-green-dark);
-
-        &::before {
-            transform: scaleX(1);
-            transform-origin: inline-start;
-        }
-    }
+.post-summary:hover .post-summary__title {
+    color: var(--color-green-dark);
 }
 
 .post-summary__date {
