@@ -60,7 +60,7 @@ open_graph:
                 What I focus on
             </h2>
             <ul class="grid" role="list">
-                <li class="card">
+                <li class="focus-card">
                     <h3 class="title">
                         Performance &amp; Core Web Vitals
                     </h3>
@@ -69,14 +69,14 @@ open_graph:
                         bottlenecks affecting conversion and experience
                     </p>
                 </li>
-                <li class="card">
+                <li class="focus-card">
                     <h3 class="title">Accessibility</h3>
                     <p>
                         Ensure products are usable, compliant, and
                         scalable across teams
                     </p>
                 </li>
-                <li class="card">
+                <li class="focus-card">
                     <h3 class="title">
                         Frontend architecture
                     </h3>
@@ -85,7 +85,7 @@ open_graph:
                         reduce complexity, and build systems that scale.
                     </p>
                 </li>
-                <li class="card">
+                <li class="focus-card">
                     <h3 class="title">
                         Technical Leadership
                     </h3>
@@ -211,15 +211,15 @@ open_graph:
             <h2 class="section-title" id="latest-post-heading">Blog</h2>
             {% set post = collections.posts[0] %}
             {% if post %}
-            <article class="card post-summary">
-                <h3 class="post-summary__title">
+            <article class="post-card post-summary">
+                <h3 class="title">
                     <a class="post-summary__link u-slide-hover u-focus-ring" href="{{ post.url }}">{{ post.data.title }}</a>
                 </h3>
-                <time class="post-summary__date" datetime="{{ post.date | htmlDateString }}">
+                <time class="date" datetime="{{ post.date | htmlDateString }}">
                     {{ post.date | readableDate }}
                 </time>
                 {% if post.data.description %}
-                <p class="post-summary__description">{{ post.data.description }}</p>
+                <p class="description">{{ post.data.description }}</p>
                 {% endif %}
             </article>
             <a href="/blog/" class="view-all u-slide-hover u-focus-ring">View all posts →</a>

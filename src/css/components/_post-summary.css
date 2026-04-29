@@ -1,36 +1,35 @@
-@import "../config/_variables.css";
+@scope (.post-summary) {
+    :scope {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+        text-decoration: none;
 
-.post-summary {
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
-    padding: 2.5rem 0;
-    text-decoration: none;
-}
+        &:hover .title {
+            color: var(--color-green-dark);
+        }
+    }
 
-.post-summary__title {
-    color: var(--color-green);
-    margin: 0;
-    margin-bottom: 8px;
-    font-size: 20px;
-    transition: color 0.2s ease;
-}
+    .title {
+        color: var(--color-green);
+        margin: 0;
+        margin-bottom: 8px;
+        font-size: 20px;
+        transition: color 0.2s ease;
+    }
 
-.post-summary__link {
-    color: var(--color-green);
-    text-decoration: none;
-}
+    .link {
+        color: var(--color-green);
+        text-decoration: none;
+    }
 
-.post-summary:hover .post-summary__title {
-    color: var(--color-green-dark);
-}
+    .date {
+        color: var(--color-text);
+        font-size: 0.9rem;
+    }
 
-.post-summary__date {
-    color: var(--color-text);
-    font-size: 0.9rem;
-}
-
-.post-summary__description {
-    color: var(--color-text);
-    margin: 0;
+    .description {
+        color: var(--color-text);
+        margin: 0;
+    }
 }
