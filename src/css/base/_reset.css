@@ -39,15 +39,15 @@ a {
 .skip-link {
     background: var(--color-green);
     color: var(--color-bg);
-    inset-inline-start: 0;
+    left: 0;
     padding-block: 0.5rem;
     padding-inline: 1rem;
     position: absolute;
-    inset-block-start: -100%;
+    top: -100%;
     z-index: 9999;
 
     &:focus {
-        inset-block-start: 0;
+        top: 0;
     }
 }
 
@@ -58,16 +58,13 @@ a {
 }
 
 .section-title {
-    margin-block: 1.5rem 1rem;
-
-    @media (width >= 768px) {
-        margin-block: 2rem 1.5rem;
-    }
+    margin-top: var(--margin-section-v);
+    margin-bottom: calc(var(--margin-section-v) * 0.75);
 }
 
 .section-divider {
     border: none;
-    border-block-start: 2px dashed var(--color-green);
+    border-top: 2px dashed var(--color-green);
 }
 
 section {
