@@ -13,8 +13,15 @@ const minifyOptions = {
 module.exports = function (eleventyConfig) {
   // ─── Blog posts collection ────────────────────────────────────────────────────
   eleventyConfig.addCollection("posts", function (collectionApi) {
-    return collectionApi.getFilteredByGlob("src/blog/**/index.md").reverse();
+    const now = new Date();
+    return collectionApi
+      .getFilteredByGlob("src/blog/**/index.md")
+      .filter((item) => item.date <= now)
+      .reverse();
   });
+
+  // ─── Global Data ──────────────────────────────────────────────────────────────
+  eleventyConfig.addGlobalData("now", () => new Date());
 
   // ─── Date filters ─────────────────────────────────────────────────────────────
   eleventyConfig.addFilter("readableDate", (date) =>
