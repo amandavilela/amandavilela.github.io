@@ -1,0 +1,41 @@
+@scope (.footer) {
+    :scope {
+        background-color: var(--color-green);
+        padding-block: var(--section-spacing);
+    }
+
+    .title {
+        color: var(--color-bg);
+        margin-top: 0;
+    }
+
+    .social {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1.5rem;
+    }
+
+    .link {
+        color: var(--color-bg);
+        text-decoration: none;
+
+        /* Utility customization for footer contrast */
+        --m-slide-text: var(--color-green-dark);
+
+        &:active {
+            color: color-mix(in srgb, var(--color-salmon), black 10%);
+        }
+
+        &:focus-visible {
+            outline: 2px solid var(--color-bg);
+            outline-offset: 3px;
+        }
+    }
+}
+
+.footer-credit {
+    color: var(--color-text);
+    text-align: center;
+    padding-block: 0.25rem;
+    font-size: 0.75rem;
+}

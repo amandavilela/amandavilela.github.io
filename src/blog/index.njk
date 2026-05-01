@@ -14,16 +14,16 @@ page_css: blog
             {% if collections.posts.length %}
                 <ul class="blog-list" itemscope itemtype="https://schema.org/Blog">
                     {% for post in collections.posts %}
-                        <li class="blog-list__item">
+                        <li class="item">
                             <article class="post-summary" itemscope itemtype="https://schema.org/BlogPosting">
-                                <h2 class="post-summary__title" itemprop="headline">
-                                    <a class="post-summary__link" href="{{ post.url }}">{{ post.data.title }}</a>
+                                <h2 class="title" itemprop="headline">
+                                    <a class="link u-slide-hover u-focus-ring" href="{{ post.url }}">{{ post.data.title }}</a>
                                 </h2>
-                                <time class="post-summary__date" itemprop="datePublished" datetime="{{ post.date | htmlDateString }}">
+                                <time class="date" itemprop="datePublished" datetime="{{ post.date | htmlDateString }}">
                                     {{ post.date | readableDate }}
                                 </time>
                                 {% if post.data.description %}
-                                    <p class="post-summary__description" itemprop="description">{{ post.data.description }}</p>
+                                    <p class="description" itemprop="description">{{ post.data.description }}</p>
                                 {% endif %}
                             </article>
                         </li>

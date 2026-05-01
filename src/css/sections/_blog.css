@@ -1,0 +1,11 @@
+@scope (.blog-list) {
+    :scope {
+        border-top: 1px solid var(--color-salmon);
+        margin-top: 2rem;
+    }
+
+    .item {
+        border-bottom: 1px solid var(--color-salmon);
+        padding: 2rem 0;
+    }
+}

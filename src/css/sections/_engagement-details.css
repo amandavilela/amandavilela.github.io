@@ -1,0 +1,40 @@
+@scope (.engagement-details) {
+    :scope {
+        padding-block-start: 0;
+    }
+
+    p + p {
+        margin: 0;
+    }
+
+    ul {
+        list-style: inside;
+    }
+
+    .grid {
+        margin-block-start: 1.5rem;
+        border-inline-start: 1px solid var(--color-salmon);
+        border-block-start: 1px solid var(--color-salmon);
+        display: grid;
+        grid-template-columns: 1fr;
+
+        @media (width >= 768px) {
+            grid-template-columns: repeat(2, 1fr);
+        }
+    }
+
+    .engagement-card {
+        border-block-end: 1px solid var(--color-salmon);
+        border-inline-end: 1px solid var(--color-salmon);
+        display: flex;
+        flex-direction: column;
+        gap: 0.75rem;
+        padding: 2rem 1.5rem;
+
+        &:last-child:nth-child(odd) {
+            @media (width >= 768px) {
+                grid-column: 1 / -1;
+            }
+        }
+    }
+}

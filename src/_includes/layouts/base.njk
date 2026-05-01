@@ -11,6 +11,9 @@
             {% if page.url == '/' %}
                 {{ "dist/home_critical.css" | read_file | cssmin | safe }}
             {% endif %}
+            {% if page.url != '/' and page.url != '/404/' %}
+                {{ "dist/header.css" | read_file | cssmin | safe }}
+            {% endif %}
         </style>
 
         {% if page_css %}
@@ -47,17 +50,17 @@
         </script>
     </head>
     <body>
-        <a class="skip-link" href="#main-content">Skip to main content</a>
+        <a class="skip-link u-focus-ring" href="#main-content">Skip to main content</a>
 
         {% if page.url != '/' and page.url != '/404/' %}
             <header class="header">
-                <div class="container header__container">
-                    <a class="header__logo" href="/">Amanda Vilela</a>
+                <div class="container container--flex">
+                    <a class="logo u-focus-ring" href="/">Amanda Vilela</a>
                     <nav>
                         <ul class="nav" role="list">
-                            <li><a class="nav__link" href="/">Home</a></li>
-                            <li><a class="nav__link" href="/services/">Services</a></li>
-                            <li><a class="nav__link" href="/blog/">Blog</a></li>
+                            <li><a class="link u-slide-hover u-focus-ring" href="/">Home</a></li>
+                            <li><a class="link u-slide-hover u-focus-ring" href="/services/">Services</a></li>
+                            <li><a class="link u-slide-hover u-focus-ring" href="/blog/">Blog</a></li>
                         </ul>
                     </nav>
                 </div>
@@ -69,11 +72,11 @@
         {% if page.url != '/404/' %}
             <footer class="footer" id="find-me">
                 <div class="container">
-                    <h2 class="footer__title">Find me online</h2>
+                    <h2 class="title">Find me online</h2>
                     <ul class="social" role="list">
                         <li>
                             <a
-                                class="social__link"
+                                class="link u-slide-hover"
                                 href="https://br.linkedin.com/in/amanda-vilela"
                                 target="_blank"
                                 rel="noopener noreferrer"
@@ -82,7 +85,7 @@
                         </li>
                         <li>
                             <a
-                                class="social__link"
+                                class="link u-slide-hover"
                                 href="https://github.com/amandavilela"
                                 target="_blank"
                                 rel="noopener noreferrer"
@@ -91,7 +94,7 @@
                         </li>
                         <li>
                             <a
-                                class="social__link"
+                                class="link u-slide-hover"
                                 href="http://codepen.io/amandavilela/"
                                 target="_blank"
                                 rel="noopener noreferrer"
@@ -100,7 +103,7 @@
                         </li>
                         <li>
                             <a
-                                class="social__link"
+                                class="link u-slide-hover"
                                 href="https://speakerdeck.com/amandavilela"
                                 target="_blank"
                                 rel="noopener noreferrer"
@@ -109,7 +112,7 @@
                         </li>
                         <li>
                             <a
-                                class="social__link"
+                                class="link u-slide-hover"
                                 href="https://medium.com/@amandavilela"
                                 target="_blank"
                                 rel="noopener noreferrer"

@@ -1,0 +1,48 @@
+@scope (body > .header) {
+    :scope {
+        padding: 1rem 0;
+        box-shadow: 0 0 10px #0000001a;
+
+        @media (width >= 768px) {
+            padding: 1.75rem 0;
+        }
+    }
+
+    .container--flex {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+        gap: 1rem;
+
+        @media (width >= 768px) {
+            flex-direction: row;
+            justify-content: space-between;
+            gap: 0;
+        }
+    }
+
+    .logo {
+        color: var(--color-green);
+        min-height: 36px;
+        font-family: Merriweather, serif;
+        font-size: 1.5rem;
+        font-style: italic;
+        font-weight: 900;
+    }
+
+    .nav {
+        display: flex;
+        justify-content: space-around;
+        gap: 1.5rem;
+
+        &:has(.link:hover) .link:not(:hover) {
+            opacity: 0.9;
+        }
+    }
+
+    .link {
+        color: var(--color-green);
+        font-weight: bold;
+    }
+}

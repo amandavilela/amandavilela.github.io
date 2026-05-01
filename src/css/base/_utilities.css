@@ -1,0 +1,34 @@
+/* Shared "Mixin" Replacements */
+
+/* The "focus-ring" utility */
+.u-focus-ring:focus-visible {
+    outline: 2px solid var(--color-green);
+    outline-offset: 2px;
+}
+
+/* The "slide-bg-hover" utility */
+.u-slide-hover {
+    position: relative;
+    z-index: 0;
+    transition: color 0.25s ease;
+
+    &::before {
+        content: '';
+        background: var(--m-slide-bg, var(--color-salmon));
+        position: absolute;
+        inset: 0;
+        z-index: -1;
+        transform: scaleX(0);
+        transform-origin: right;
+        transition: transform 0.25s ease-in-out;
+    }
+
+    &:hover {
+        color: var(--m-slide-text, var(--color-green-dark));
+
+        &::before {
+            transform: scaleX(1);
+            transform-origin: left;
+        }
+    }
+}

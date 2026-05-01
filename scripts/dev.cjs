@@ -1,18 +1,12 @@
 "use strict";
 
-const { spawn } = require("child_process");
+const { spawn, execSync } = require("child_process");
 const fs = require("fs");
 const path = require("path");
 const { processAll } = require("./images.cjs");
 
 const root = path.resolve(__dirname, "..");
 const isWin = process.platform === "win32";
-const sassBin = path.join(
-  root,
-  "node_modules",
-  ".bin",
-  isWin ? "sass.cmd" : "sass",
-);
 const eleventyBin = path.join(
   root,
   "node_modules",
@@ -20,30 +14,48 @@ const eleventyBin = path.join(
   isWin ? "eleventy.cmd" : "eleventy",
 );
 
-// ─── Sass watch ───────────────────────────────────────────────────────────────
-// Compiles directly into dist/ so Eleventy's dev server can serve it.
-// Source maps are enabled for easier debugging in DevTools.
+const cssEntries = [
+  "home",
+  "blog",
+  "critical",
+  "services",
+  "post",
+  "404",
+  "home_critical",
+  "header",
+];
 
-const sass = spawn(
-  sassBin,
-  ["--watch", "src/scss:dist", "--source-map"],
-  { cwd: root, stdio: "inherit" },
-);
+function compileCSS() {
+  console.log("[css] Bundling with Lightning CSS...");
+  for (const name of cssEntries) {
+    try {
+      execSync(
+        `bun x lightningcss --bundle --targets "last 2 versions" ./src/css/${name}.css -o ./dist/${name}.css`,
+        { cwd: root, stdio: "inherit" },
+      );
+    } catch (err) {
+      console.error(`[css:${name}] Failed to compile`);
+    }
+  }
+  // Touch a file that Eleventy watches to trigger a rebuild
+  const touchFile = path.join(root, "src/index.njk");
+  if (fs.existsSync(touchFile)) {
+    const now = new Date();
+    fs.utimesSync(touchFile, now, now);
+  }
+}
 
-sass.on("error", (err) => {
-  console.error("[sass] Failed to start process:", err.message);
-});
+// ─── CSS initial build & watch ────────────────────────────────────────────────
+compileCSS();
 
-sass.on("close", (code) => {
-  if (code !== null && code !== 0) {
-    console.error(`[sass] Exited with code ${code}`);
+const cssDir = path.join(root, "src/css");
+fs.watch(cssDir, { recursive: true }, (event, filename) => {
+  if (filename && filename.endsWith(".css")) {
+    compileCSS();
   }
 });
 
 // ─── Eleventy dev server ──────────────────────────────────────────────────────
-// Processes templates from src/ → dist/ and serves dist/ with live reload.
-// HTML/Nunjucks changes trigger a rebuild; CSS changes are picked up directly.
-
 const eleventy = spawn(eleventyBin, ["--serve", "--watch"], {
   cwd: root,
   stdio: "inherit",
@@ -53,16 +65,7 @@ eleventy.on("error", (err) => {
   console.error("[eleventy] Failed to start process:", err.message);
 });
 
-eleventy.on("close", (code) => {
-  if (code !== null && code !== 0) {
-    console.error(`[eleventy] Exited with code ${code}`);
-  }
-});
-
 // ─── Image processing ─────────────────────────────────────────────────────────
-// Runs once on startup, then watches src/blog/ for new or changed images and
-// re-processes them automatically.
-
 const PROCESSABLE_EXTS = new Set([".jpg", ".jpeg", ".png", ".webp", ".avif"]);
 const blogSrcDir = path.join(root, "src", "blog");
 
@@ -82,10 +85,8 @@ if (fs.existsSync(blogSrcDir)) {
 }
 
 // ─── Graceful shutdown ────────────────────────────────────────────────────────
-
 process.on("SIGINT", () => {
   console.log("\n[dev] Shutting down…\n");
-  sass.kill("SIGTERM");
   eleventy.kill("SIGTERM");
   process.exit(0);
 });

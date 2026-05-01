@@ -1,0 +1,11 @@
+@scope (.contact) {
+    :scope {
+        padding-block-start: 0;
+    }
+
+    .email {
+        color: var(--color-green);
+        text-decoration: underline;
+        text-underline-offset: 3px;
+    }
+}
