@@ -8,12 +8,8 @@
 
         <style>
             {{ "dist/critical.css" | read_file | cssmin | safe }}
-            {% if page.url == '/' %}
-                {{ "dist/home_critical.css" | read_file | cssmin | safe }}
-            {% endif %}
-            {% if page.url != '/' and page.url != '/404/' %}
-                {{ "dist/header.css" | read_file | cssmin | safe }}
-            {% endif %}
+            {% if page.url == '/' %}{{ "dist/home_critical.css" | read_file | cssmin | safe }}{% endif %}
+            {% if page.url != '/' and page.url != '/404/' %}{{ "dist/header.css" | read_file | cssmin | safe }}{% endif %}
         </style>
 
         {% if page_css %}
