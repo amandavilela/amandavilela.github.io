@@ -2,7 +2,7 @@
 
 Static portfolio site for [amandavilela.me](https://amandavilela.me).
 
-Built with [Eleventy](https://www.11ty.dev/) (templates + routing) and [Sass](https://sass-lang.com/) (styles).
+Built with [Eleventy](https://www.11ty.dev/) (templates + routing) and [Lightning CSS](https://lightningcss.dev/) (styles).
 
 ## Getting started
 
@@ -21,7 +21,7 @@ Start the dev server:
 bun run dev
 ```
 
-- Sass watches `src/scss/` and compiles all entry points (files not starting with `_`) directly into `dist/` (with source maps)
+- Lightning CSS watches `src/css/` and bundles entry points directly into `dist/`. Entry points are specified in `scripts/dev.cjs`.
 - Eleventy processes templates from `src/` → `dist/` and serves `dist/` with live reload
 - Both processes run in parallel; `Ctrl+C` shuts them both down cleanly
 - Dev server runs at **http://localhost:8080** (Eleventy's default port)
@@ -36,7 +36,7 @@ bun run build
 
 The build writes:
 
-- `dist/*.css` — compressed CSS for each entry point, no source maps
+- `dist/*.css` — bundled and minified CSS for each entry point, optimized by Lightning CSS
 - `dist/favicon.ico` — copied from `src/favicon.ico`
 - `dist/imgs/` — copied from `src/imgs/`
 - `dist/index.html` — homepage (minified)
@@ -63,22 +63,23 @@ src/
       *.{jpg,png,…}     Images co-located with the post
   favicon.ico           Copied as-is to dist/
   imgs/                 Images referenced by pages
-  scss/
-    critical.scss       Base styles inlined on every page
-    home_critical.scss  Homepage-specific styles inlined on /
-    home.scss           Non-critical styles for the homepage
-    services.scss       Styles for the services page
-    blog.scss           Styles for the blog listing page
-    post.scss           Styles for blog posts
-    404.scss            Styles for the 404 page
-    config/             No CSS output; project-wide configuration
-    base/               Element-level styles
-    components/         Reusable UI pieces
-    sections/           One file per page section
+  css/
+    critical.css       Base styles inlined on every page
+    home_critical.css  Homepage-specific styles inlined on /
+    home.css           Non-critical styles for the homepage
+    services.css       Styles for the services page
+    blog.css           Styles for the blog listing page
+    post.css           Styles for blog posts
+    404.css            Styles for the 404 page
+    header.css         Styles for the global header
+    config/            Project-wide configuration (variables, shared styles)
+    base/              Low-level resets and typography
+    components/        Reusable UI pieces (buttons, lists, etc.)
+    sections/          Page-specific component sections
 
 scripts/
-  dev.cjs               Orchestrates sass --watch + eleventy --serve for local development
-  build.cjs             Compiles SCSS then builds with Eleventy (NODE_ENV=production)
+  dev.cjs               Orchestrates CSS bundling + eleventy --serve for local development
+  build.cjs             Bundles CSS and builds with Eleventy (NODE_ENV=production)
   deploy.cjs            Runs the build then publishes dist/ to the gh-pages branch
 
 eleventy.config.js      Eleventy configuration: dirs, passthrough copy, minification transform,
