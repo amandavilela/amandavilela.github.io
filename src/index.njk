@@ -211,7 +211,10 @@ open_graph:
     <section class="latest-post" aria-labelledby="latest-post-heading">
         <div class="container">
             <h2 class="section-title" id="latest-post-heading">Blog</h2>
-            {% set post = collections.posts[0] %}
+            {% set featuredPost = collections.featured[0] %}
+            {% set latestPost = collections.posts[0] %}
+            {% set post = featuredPost if featuredPost else latestPost %}
+            
             {% if post %}
             <article class="latest-post__card post-summary">
                 <h3 class="post-summary__title">

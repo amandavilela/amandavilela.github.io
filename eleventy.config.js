@@ -20,6 +20,14 @@ module.exports = function (eleventyConfig) {
       .reverse();
   });
 
+  eleventyConfig.addCollection("featured", function (collectionApi) {
+    const now = new Date();
+    return collectionApi
+      .getFilteredByGlob("src/blog/**/index.md")
+      .filter((item) => item.data.featured === true && item.date <= now)
+      .reverse();
+  });
+
   // ─── Global Data ──────────────────────────────────────────────────────────────
   eleventyConfig.addGlobalData("now", () => new Date());
 
