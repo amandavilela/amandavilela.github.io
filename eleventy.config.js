@@ -47,10 +47,6 @@ module.exports = function (eleventyConfig) {
 
   // ─── CSS filters ──────────────────────────────────────────────────────────────
   eleventyConfig.addFilter("cssmin", function (code) {
-    if (process.env.NODE_ENV === "production") {
-      const CleanCSS = require("clean-css");
-      return new CleanCSS({}).minify(code).styles;
-    }
     return code;
   });
 
@@ -68,6 +64,7 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy("src/imgs");
   eleventyConfig.addPassthroughCopy("src/fonts");
   eleventyConfig.addPassthroughCopy("src/favicon.ico");
+  eleventyConfig.addPassthroughCopy("src/CNAME");
   // gif, svg, videos and html files are not processed by Sharp — copy them as-is
   eleventyConfig.addPassthroughCopy("src/blog/**/*.{gif,svg,mp4,webm,html}");
   eleventyConfig.addPassthroughCopy({ "src/robots.txt": "/robots.txt" });
