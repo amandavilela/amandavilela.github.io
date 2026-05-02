@@ -102,6 +102,10 @@
     :is(ul, ol) {
         margin-block: 1rem;
         padding-inline-start: 1.5rem;
+
+        :is(ul, ol) {
+            margin-block: 0.5rem;
+        }
     }
 
     ul {
@@ -216,6 +220,23 @@
         &::marker {
             color: var(--color-green);
         }
+    }
+
+    table {
+        border-collapse: collapse;
+        margin-block: 0.5rem 1.25rem;
+        width: 100%;
+    }
+
+    th,
+    td {
+        border: 1px solid var(--color-green);
+        padding: 0.25rem;
+        text-align: left;
+    }
+
+    th {
+        background-color: var(--color-light);
     }
 }
 
