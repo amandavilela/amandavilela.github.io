@@ -2,7 +2,7 @@ name: Publish scheduled posts
 
 on:
   schedule:
-    - cron: "0 8 * * *" # runs daily at 08:00 UTC
+    - cron: '0 8 * * *'
   workflow_dispatch:
 
 jobs:
@@ -34,7 +34,7 @@ jobs:
             BRANCH=$(echo "$pr" | jq -r '.headRefName')
             DATE=$(echo "$pr" | jq -r '.title' | grep -oP '\d{4}-\d{2}-\d{2}')
 
-            if [[ "$DATE" le "$TODAY" ]]; then
+            if [[ "$DATE" <= "$TODAY" ]]; then
               echo "Merging PR #$NUMBER ($BRANCH, scheduled for $DATE)"
               gh pr merge "$NUMBER" --merge --delete-branch
             else
