@@ -1,49 +1,22 @@
-name: Publish scheduled posts
+- name: Merge due scheduled post PRs
+  env:
+    GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+  run: |
+    TODAY=$(date -u '+%Y-%m-%d')
+    echo "Today is $TODAY"
 
-on:
-  schedule:
-    - cron: "0 8 * * *" # runs daily at 08:00 UTC
-  workflow_dispatch: # lets you trigger manually for testing
+    gh pr list --base gh-pages --state open \
+      --json number,title,headRefName \
+      --jq '.[] | select(.title | test("^Scheduled post: [0-9]{4}-[0-9]{2}-[0-9]{2}-.+$"))' | \
+    while read -r pr; do
+      NUMBER=$(echo "$pr" | jq -r '.number')
+      BRANCH=$(echo "$pr" | jq -r '.headRefName')
+      DATE=$(echo "$pr" | jq -r '.title' | grep -oP '\d{4}-\d{2}-\d{2}')
 
-jobs:
-  publish:
-    runs-on: ubuntu-latest
-    permissions:
-      contents: write
-
-    steps:
-      - name: Checkout gh-pages
-        uses: actions/checkout@v4
-        with:
-          ref: gh-pages
-          fetch-depth: 0 # need full history for merges
-
-      - name: Merge due post branches
-        env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: |
-          git config user.name  "github-actions[bot]"
-          git config user.email "github-actions[bot]@users.noreply.github.com"
-
-          TODAY=$(date -u '+%Y-%m-%d')
-          echo "Today is $TODAY"
-
-          # List all remote post/* branches
-          git fetch --all
-          for branch in $(git branch -r | grep 'origin/post/' | sed 's|origin/||'); do
-            # Extract date portion from branch name, e.g. post/2026-05-10-my-article
-            DATE=$(echo "$branch" | grep -oP '\d{4}-\d{2}-\d{2}')
-            if [[ -z "$DATE" ]]; then
-              echo "Skipping $branch — no date found"
-              continue
-            fi
-
-            if [[ "$DATE" le "$TODAY" ]]; then
-              echo "Merging $branch (scheduled for $DATE)"
-              git merge --no-ff "origin/$branch" -m "chore: publish scheduled post from $branch"
-            else
-              echo "Skipping $branch (scheduled for $DATE, not yet)"
-            fi
-          done
-
-          git push origin gh-pages
+      if [[ "$DATE" le "$TODAY" ]]; then
+        echo "Merging PR #$NUMBER ($BRANCH, scheduled for $DATE)"
+        gh pr merge "$NUMBER" --merge --delete-branch
+      else
+        echo "Skipping PR #$NUMBER ($BRANCH, scheduled for $DATE)"
+      fi
+    done
