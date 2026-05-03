@@ -1,4 +1,4 @@
-- name: Merge due scheduled post PRs
+- name: Merge due post PRs
   env:
     GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
   run: |
@@ -6,8 +6,8 @@
     echo "Today is $TODAY"
 
     gh pr list --base gh-pages --state open \
-      --json number,title,headRefName \
-      --jq '.[] | select(.title | test("^Scheduled post: [0-9]{4}-[0-9]{2}-[0-9]{2}-.+$"))' | \
+      --json number,title,headRefName | \
+    jq -c '.[] | select(.title | test("^Scheduled post: [0-9]{4}-[0-9]{2}-[0-9]{2}-.+$"))' | \
     while read -r pr; do
       NUMBER=$(echo "$pr" | jq -r '.number')
       BRANCH=$(echo "$pr" | jq -r '.headRefName')
