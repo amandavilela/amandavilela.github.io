@@ -57,7 +57,7 @@ src/
   index.njk             Homepage — uses base.njk layout
   services.njk          Services page — served at /services/
   blog/
-    index.njk           Blog listing — served at /blog/
+    index.njk           Blog listing
     <slug>/             One folder per post
       index.md          Post content in Markdown
       *.{jpg,png,…}     Images co-located with the post
@@ -65,16 +65,11 @@ src/
   imgs/                 Images referenced by pages
   css/
     critical.css       Base styles inlined on every page
-    home_critical.css  Homepage-specific styles inlined on /
-    home.css           Non-critical styles for the homepage
-    services.css       Styles for the services page
-    blog.css           Styles for the blog listing page
-    post.css           Styles for blog posts
-    404.css            Styles for the 404 page
-    header.css         Styles for the global header
+    home_critical.css  Homepage-specific styles inlined on homepage
+                       CSS bundles for other pages here...
     config/            Project-wide configuration (variables, shared styles)
     base/              Low-level resets and typography
-    components/        Reusable UI pieces (buttons, lists, etc.)
+    components/        Reusable UI pieces
     sections/          Page-specific component sections
 
 scripts/
@@ -173,6 +168,25 @@ page_css: "your-page"
 2. **`page_css`** (optional): The name of the CSS file to load (e.g., `your-page` will load `/your-page.css`).
 3. Write the page body (everything between `<body>` and the footer) as the template content.
 4. Eleventy will output it to `dist/your-page/index.html`, giving the clean URL `/your-page/`.
+
+## Scheduling a post
+
+You can schedule a post to be published automatically on a specific date.
+
+1.  **Write the post** in `src/blog/` as usual.
+2.  **Run the scheduling script** providing the publication date and the post slug:
+
+```bash
+bun run deploy-scheduled-post 2026-06-01 another-post
+```
+
+The script will:
+- Build the project.
+- Create and push a branch named `post/2026-06-01-another-post` with the built artifacts.
+- Attempt to create a Pull Request from that branch to `gh-pages` (requires `gh` CLI).
+
+3.  **Approve the PR**: Once the PR is created, you can review and approve it.
+4.  **Automatic Publication**: A GitHub Action runs daily at 08:00 UTC. It checks for all `post/*` branches that have a date less than or equal to the current date and merges them into `gh-pages`, effectively publishing the posts.
 
 ## Deploy to GitHub Pages
 
