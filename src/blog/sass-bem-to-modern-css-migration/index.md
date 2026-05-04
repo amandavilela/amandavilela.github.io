@@ -404,6 +404,10 @@ If you decided to remove BEM or start using @scope, it is important to establish
     - @scope: .title, .button, .image inside @scope (.hero).
 3. **Don't rely on @scope to resolve specificity conflicts**: Don't use @scope as a crutch to win specificity wars. If you find yourself reaching for !important, your architecture likely needs a rethink. BEM-style "modifiers" (e.g., --large) are still a great way to handle state or variations.
 
+<section class="info-box explore">
+    <p>If you liked <code>@scope</code> for encapsulation, you should look into <a href="https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/Styling_basics/Cascade_layers" target="_blank">Cascade Layers</a>, while <code>@scope</code> limits where a selector applies, <code>@layer</code> controls which styles win regardless of specificity.</a>
+</section>
+
 ## <a href="#act-4-need-sass" id="act-4-need-sass">Act 4: Do I really need Sass after all?</a>
 
 After modernizing my styles and even removing BEM, I had the ultimate question: **Does Sass still earn its place in my stack?** I broke it down by the features I use most:
