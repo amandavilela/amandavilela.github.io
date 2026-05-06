@@ -7,7 +7,8 @@
   "scripts": {
     "dev": "bun scripts/dev.cjs",
     "build": "bun scripts/build.cjs",
-    "deploy": "bun scripts/deploy.cjs"
+    "deploy": "bun scripts/deploy.cjs",
+    "deploy-scheduled-post": "bun scripts/deploy-scheduled-post.cjs"
   },
   "repository": {
     "type": "git",
