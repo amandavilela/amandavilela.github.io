@@ -212,7 +212,7 @@ open_graph:
             {% set featuredPost = collections.featured[0] %}
             {% set latestPost = collections.posts[0] %}
             {% set post = featuredPost if featuredPost else latestPost %}
-            
+
             {% if post %}
             <article class="post-card post-summary">
                 <h3 class="title">

@@ -14,10 +14,7 @@ module.exports = function (eleventyConfig) {
   // ─── Blog posts collection ────────────────────────────────────────────────────
   eleventyConfig.addCollection("posts", function (collectionApi) {
     const now = new Date();
-    return collectionApi
-      .getFilteredByGlob("src/blog/**/index.md")
-      .filter((item) => item.date <= now)
-      .reverse();
+    return collectionApi.getFilteredByGlob("src/blog/**/index.md").reverse();
   });
 
   eleventyConfig.addCollection("featured", function (collectionApi) {
