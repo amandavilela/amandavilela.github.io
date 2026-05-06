@@ -4,7 +4,7 @@ title: "From Sass and BEM to modern CSS: A migration journey in 4 acts"
 description: "A deep dive into refactoring this blog. Learn how native CSS features can replace legacy pre-processors and naming conventions to create a faster, leaner codebase."
 date: 2026-06-12
 open_graph:
-  image: "blog/sass-bem-to-modern-css-migration/sass-bem-to-modern-css-migration.webp"
+  image: "blog/og-image-sass-bem-to-modern-css-migration/sass-bem-to-modern-css-migration.webp"
 ---
 
 In March of this year, I started redesigning my website and building this blog.
