@@ -266,6 +266,15 @@ Without this, if the screen was extremely narrow, 4vw could become too small to 
 
 The use of clamp() can reduce the amount of CSS/@media queries by allowing elements like typography, padding, or gaps to resize themselves automatically for every single device width.
 
+<figure>
+    <video width="720" height="362" controls loading="lazy">
+        <source src="media-queries-vs-clamp.mp4" type="video/mp4">
+        <source src="media-queries-vs-clamp.webm" type="video/webm">
+        Your browser does not support the video tag.
+    </video>
+    <figcaption>On the left, text sizes jump abruptly at specific breakpoints using CSS Media Queries. On the right, text sizes scale smoothly and continuously using the clamp() function.</figcaption>
+</figure>
+
 **Support**: Major support since July 2020, <a href="https://caniuse.com/css-math-functions" target="_blank">check clamp() support</a>.
 
 ## <a href="#act-2-scope-rule" id="act-2-scope-rule">Act 2: @scope — The rule that changed everything</a>
@@ -491,3 +500,4 @@ I hope these insights help you decide which tools to keep, and which to leave be
 - <a href="https://web.dev/articles/media-query-range-syntax" target="_blank"> New syntax for range media queries - web.dev</a>
 - <a href="https://ishadeed.com/article/css-nesting/" target="_blank"> CSS Nesting -  Ahmad Shadeed</a>
 - <a href="https://ishadeed.com/article/css-has-guide/" target="_blank"> CSS :has() Interactive Guide -  Ahmad Shadeed</a>
+- <a href="https://www.smashingmagazine.com/2026/02/css-scope-alternative-naming-conventions/" target="_blank"> CSS @scope: An Alternative To Naming Conventions And Heavy Abstractions - Smashing Magazine</a>
