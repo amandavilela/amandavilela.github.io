@@ -3,6 +3,7 @@ layout: layouts/post.njk
 title: "Using Chrome DevTools MCP to debug web accessibility"
 description: "Learn how to set up the Chrome DevTools MCP Server with the Gemini CLI + Agent skills. Follow my walkthrough on using AI agent skills to debug web accessibility issues and automatically fix local code files."
 date: 2026-04-23
+featured: true
 open_graph:
   image: "blog/using-chrome-devtools-mcp-to-debug-web-accessibility/og-image-using-chrome-devtools-mcp-to-debug-web-accessibility.webp"
 ---
