@@ -55,7 +55,7 @@
                 <div class="container container--flex">
                     <a class="logo u-focus-ring" href="/">Amanda Vilela</a>
                     <nav>
-                        <ul class="nav" role="list">
+                        <ul class="nav">
                             <li><a class="link u-slide-hover u-focus-ring" href="/">Home</a></li>
                             <li><a class="link u-slide-hover u-focus-ring" href="/services/">Services</a></li>
                             <li><a class="link u-slide-hover u-focus-ring" href="/blog/">Blog</a></li>
@@ -63,6 +63,30 @@
                     </nav>
                 </div>
             </header>
+
+            <nav aria-label="Breadcrumb" class="breadcrumbs">
+                <div class="container">
+                    <ol class="list" itemscope itemtype="https://schema.org/BreadcrumbList">
+                        <li class="item" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+                            <a href="/" class="link u-focus-ring" itemprop="item"><span itemprop="name">Home</span></a>
+                            <meta itemprop="position" content="1" />
+                        </li>
+                        {% if '/blog/' in page.url %}
+                            {% if page.url == '/blog/' %}
+                                <li class="item" aria-current="page" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><span itemprop="name">{{ title | breadcrumbTitle }}</span> <meta itemprop="position" content="2" /></li>
+                            {% else %}
+                                <li class="item" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+                                    <a href="/blog/" class="link u-focus-ring" itemprop="item"><span itemprop="name">Blog</span></a>
+                                    <meta itemprop="position" content="2" />
+                                </li>
+                                <li class="item" aria-current="page" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><span itemprop="name">{{ title | breadcrumbTitle }}</span> <meta itemprop="position" content="3" /></li>
+                            {% endif %}
+                        {% elif '/services/' in page.url %}
+                             <li class="item" aria-current="page" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><span itemprop="name">{{ title | breadcrumbTitle }}</span> <meta itemprop="position" content="2" /></li>
+                        {% endif %}
+                    </ol>
+                </div>
+            </nav>
         {% endif %}
 
         {{ content | safe }}
@@ -71,7 +95,7 @@
             <footer class="footer" id="find-me">
                 <div class="container">
                     <h2 class="title">Find me online</h2>
-                    <ul class="social" role="list">
+                    <ul class="social">
                         <li>
                             <a
                                 class="link u-slide-hover"

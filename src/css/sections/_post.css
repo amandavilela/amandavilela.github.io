@@ -1,8 +1,4 @@
 @scope (.post) {
-    :scope {
-        /* Base post styles */
-    }
-
     .header {
         padding: 0;
         box-shadow: none; /* Explicitly reset to avoid conflict with global header */

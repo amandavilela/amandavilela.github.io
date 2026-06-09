@@ -38,6 +38,11 @@ module.exports = function (eleventyConfig) {
     }),
   );
 
+  eleventyConfig.addFilter("breadcrumbTitle", (title) => {
+    if (!title) return "";
+    return title.split(" | ")[0];
+  });
+
   eleventyConfig.addFilter("htmlDateString", (date) =>
     new Date(date).toISOString().slice(0, 10),
   );

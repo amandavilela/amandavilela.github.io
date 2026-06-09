@@ -1,3 +1,7 @@
+.blog {
+    padding: 0;
+}
+
 @scope (.blog-list) {
     :scope {
         border-top: 1px solid var(--color-salmon);

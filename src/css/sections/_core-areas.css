@@ -1,4 +1,8 @@
 @scope (.core-areas) {
+    :scope {
+        padding: 0;
+    }
+
     .core-area {
         h3 {
             font-size: 1.25rem;

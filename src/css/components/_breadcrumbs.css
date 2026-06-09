@@ -1,0 +1,43 @@
+@scope (.breadcrumbs) {
+    :scope {
+        padding-block: 1rem 0;
+        font-size: 0.875rem;
+        color: var(--color-text);
+    }
+
+    .list {
+        display: flex;
+        flex-wrap: nowrap;
+        gap: 0.5rem;
+        align-items: center;
+    }
+
+    .item {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+    }
+
+    .item:not(:last-child)::after {
+        content: "/";
+        opacity: 0.5;
+    }
+
+    .link {
+        color: var(--color-green);
+        text-decoration: none;
+    }
+
+    .link:hover {
+        color: var(--color-green-dark);
+        text-decoration: underline;
+    }
+
+    .item[aria-current="page"] {
+        display: block;
+        font-weight: 600;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+}
