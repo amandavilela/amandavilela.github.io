@@ -1,2 +1,4 @@
 @import "sections/_post.css";
+@import "components/_post-summary.css";
+@import "sections/_related-posts.css";
 @import "sections/_footer.css";

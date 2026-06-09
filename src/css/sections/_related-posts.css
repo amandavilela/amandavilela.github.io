@@ -1,0 +1,38 @@
+@scope (.related-posts) {
+    :scope {
+        padding: 0;
+    }
+
+    .container {
+        background: none;
+        padding-inline: 0;
+    }
+
+    .title {
+        margin-bottom: 2rem;
+    }
+
+    .list {
+        display: grid;
+        gap: 2rem;
+        grid-template-columns: 1fr;
+        padding: 0;
+        margin: 0;
+        list-style: none;
+
+        @media (width >= 768px) {
+            grid-template-columns: repeat(2, 1fr);
+        }
+    }
+
+    .item {
+        background-color: var(--color-light);
+        border-inline-start: 3px solid var(--color-salmon);
+        display: flex;
+        padding: 1.5rem;
+    }
+
+    a:hover {
+        text-decoration: underline;
+    }
+}

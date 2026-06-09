@@ -43,6 +43,31 @@ module.exports = function (eleventyConfig) {
     return title.split(" | ")[0];
   });
 
+  eleventyConfig.addFilter(
+    "relatedPosts",
+    function (collection, currentUrl, currentCategory) {
+      if (!collection) return [];
+
+      let related = [];
+
+      if (currentCategory) {
+        related = collection.filter(
+          (post) =>
+            post.data.category === currentCategory && post.url !== currentUrl,
+        );
+      }
+
+      if (related.length < 2) {
+        const latest = collection.filter(
+          (post) => post.url !== currentUrl && !related.includes(post),
+        );
+        related = [...related, ...latest].slice(0, 2);
+      }
+
+      return related;
+    },
+  );
+
   eleventyConfig.addFilter("htmlDateString", (date) =>
     new Date(date).toISOString().slice(0, 10),
   );

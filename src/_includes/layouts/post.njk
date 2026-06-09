@@ -13,6 +13,32 @@ page_css: post
             {{ content | safe }}
         </section>
     </article>
+
+    {% set related = collections.posts | relatedPosts(page.url, category) %}
+    {% if related.length %}
+        <section class="related-posts" aria-labelledby="related-posts-title">
+            <div class="container">
+                <h2 id="related-posts-title" class="title">Posts you might like</h2>
+                <ul class="list" itemscope itemtype="https://schema.org/Blog">
+                    {% for post in related %}
+                        <li class="item">
+                            <article class="post-summary" itemscope itemtype="https://schema.org/BlogPosting">
+                                <h3 class="title" itemprop="headline">
+                                    <a class="link u-focus-ring" href="{{ post.url }}">{{ post.data.title | breadcrumbTitle }}</a>
+                                </h3>
+                                <time class="date" itemprop="datePublished" datetime="{{ post.date | htmlDateString }}">
+                                    {{ post.date | readableDate }}
+                                </time>
+                                {% if post.data.description %}
+                                    <p class="description" itemprop="description">{{ post.data.description | truncate(90) }}</p>
+                                {% endif %}
+                            </article>
+                        </li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </section>
+    {% endif %}
 </main>
 
 <script src="/js/copy-code.js" async></script>
