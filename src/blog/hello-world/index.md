@@ -1,6 +1,6 @@
 ---
 layout: layouts/post.njk
-title: "Hello World | Amanda Vilela | Frontend Specialist"
+title: "Hello World"
 description: "Who am I and what to expect from this blog"
 date: 2026-04-09
 ---

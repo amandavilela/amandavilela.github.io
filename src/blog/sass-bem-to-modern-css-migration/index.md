@@ -1,6 +1,6 @@
 ---
 layout: layouts/post.njk
-title: "From Sass and BEM to modern CSS: A migration journey in 4 acts | Amanda Vilela | Frontend Specialist"
+title: "From Sass and BEM to modern CSS: A migration journey in 4 acts"
 description: "A deep dive into refactoring this blog. Learn how native CSS features can replace legacy pre-processors and naming conventions to create a faster, leaner codebase."
 keywords: "css refactor, modern css, removing sass, removing BEM, @scope CSS"
 date: 2026-05-12
