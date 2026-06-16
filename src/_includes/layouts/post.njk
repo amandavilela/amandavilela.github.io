@@ -12,12 +12,23 @@ page_css: post
   "author": {
     "@type": "Person",
     "name": "Amanda Vilela",
-    "url": "https://amandavilela.me/"
+    "url": "https://amandavilela.me/",
+    "sameAs": [
+        "https://br.linkedin.com/in/amanda-vilela",
+        "https://github.com/amandavilela",
+        "http://codepen.io/amandavilela/",
+        "https://speakerdeck.com/amandavilela",
+        "https://medium.com/@amandavilela"
+    ]
   },
   "publisher": {
     "@type": "Person",
     "name": "Amanda Vilela",
-    "url": "https://amandavilela.me/"
+    "url": "https://amandavilela.me/",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://amandavilela.me/imgs/layout/profile.webp"
+    }
   },
   "url": "https://amandavilela.me{{ page.url }}",
   "mainEntityOfPage": {
@@ -33,7 +44,7 @@ page_css: post
     <article class="container">
         <header class="header">
             <h1>{{ title }}</h1>
-            <time class="date" datetime="{{ date | htmlDateString }}">{{ date | readableDate }}</time>
+            <p class="meta"><time datetime="{{ date | htmlDateString }}">{{ date | readableDate }}</time> by <a href="/" rel="author">Amanda Vilela</a></p>
         </header>
         <section class="body">
             {{ content | safe }}
@@ -52,9 +63,11 @@ page_css: post
                                 <h3 class="title">
                                     <a class="link u-focus-ring" href="{{ post.url }}">{{ post.data.title | breadcrumbTitle }}</a>
                                 </h3>
-                                <time class="date" datetime="{{ post.date | htmlDateString }}">
-                                    {{ post.date | readableDate }}
-                                </time>
+                                <p class="meta">
+                                    <time class="date" datetime="{{ post.date | htmlDateString }}">
+                                        {{ post.date | readableDate }}
+                                    </time> by <a href="/" rel="author">Amanda Vilela</a>
+                                </p>
                                 {% if post.data.description %}
                                     <p class="description">{{ post.data.description | truncate(90) }}</p>
                                 {% endif %}

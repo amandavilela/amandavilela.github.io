@@ -22,9 +22,15 @@
         text-decoration: none;
     }
 
-    .date {
+    .meta {
         color: var(--color-text);
-        font-size: 0.9rem;
+        font-size: 0.875rem;
+
+        a:hover {
+            color: var(--color-green);
+            text-decoration: underline;
+            text-underline-offset: 3px;
+        }
     }
 
     .description {

@@ -218,9 +218,11 @@ open_graph:
                 <h3 class="title">
                     <a class="post-summary__link u-slide-hover u-focus-ring" href="{{ post.url }}">{{ post.data.title }}</a>
                 </h3>
-                <time class="date" datetime="{{ post.date | htmlDateString }}">
-                    {{ post.date | readableDate }}
-                </time>
+                <p class="meta">
+                    <time class="date" datetime="{{ post.date | htmlDateString }}">
+                        {{ post.date | readableDate }}
+                    </time> by <a href="/" rel="author">Amanda Vilela</a>
+                </p>
                 {% if post.data.description %}
                 <p class="description">{{ post.data.description }}</p>
                 {% endif %}

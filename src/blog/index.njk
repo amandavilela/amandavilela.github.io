@@ -53,9 +53,11 @@ page_css: blog
                                 <h2 class="title">
                                     <a class="link u-slide-hover u-focus-ring" href="{{ post.url }}">{{ post.data.title }}</a>
                                 </h2>
-                                <time class="date" datetime="{{ post.date | htmlDateString }}">
-                                    {{ post.date | readableDate }}
-                                </time>
+                                <p class="meta">
+                                    <time class="date" datetime="{{ post.date | htmlDateString }}">
+                                        {{ post.date | readableDate }}
+                                    </time> by <a href="/" rel="author">Amanda Vilela</a>
+                                </p>
                                 {% if post.data.description %}
                                     <p class="description">{{ post.data.description }}</p>
                                 {% endif %}

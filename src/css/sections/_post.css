@@ -4,9 +4,14 @@
         box-shadow: none;
     }
 
-    .date {
-        display: block;
+    .meta {
         font-size: 0.875rem;
+
+        a:hover {
+            color: var(--color-green);
+            text-decoration: underline;
+            text-underline-offset: 3px;
+        }
     }
 
     .container {
