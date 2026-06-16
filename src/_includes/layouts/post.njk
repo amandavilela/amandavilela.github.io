@@ -3,13 +3,39 @@ layout: layouts/base.njk
 page_css: post
 ---
 
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "{{ title }}",
+  "datePublished": "{{ date | htmlDateString }}",
+  "author": {
+    "@type": "Person",
+    "name": "Amanda Vilela",
+    "url": "https://amandavilela.me/"
+  },
+  "publisher": {
+    "@type": "Person",
+    "name": "Amanda Vilela",
+    "url": "https://amandavilela.me/"
+  },
+  "url": "https://amandavilela.me{{ page.url }}",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://amandavilela.me{{ page.url }}"
+  }
+  {% if description %},"description": "{{ description | replace('"', '\\"') }}"{% endif %}
+  {% if open_graph %},"image": "https://amandavilela.me/{{ open_graph.image }}"{% endif %}
+}
+</script>
+
 <main id="main-content" class="post">
-    <article class="container" itemscope itemtype="https://schema.org/BlogPosting">
+    <article class="container">
         <header class="header">
-            <h1 itemprop="headline">{{ title }}</h1>
-            <time class="date" itemprop="datePublished" datetime="{{ date | htmlDateString }}">{{ date | readableDate }}</time>
+            <h1>{{ title }}</h1>
+            <time class="date" datetime="{{ date | htmlDateString }}">{{ date | readableDate }}</time>
         </header>
-        <section class="body" itemprop="articleBody">
+        <section class="body">
             {{ content | safe }}
         </section>
     </article>
@@ -19,18 +45,18 @@ page_css: post
         <section class="related-posts" aria-labelledby="related-posts-title">
             <div class="container">
                 <h2 id="related-posts-title" class="title">Posts you might like</h2>
-                <ul class="list" itemscope itemtype="https://schema.org/Blog">
+                <ul class="list">
                     {% for post in related %}
                         <li class="item">
-                            <article class="post-summary" itemscope itemtype="https://schema.org/BlogPosting">
-                                <h3 class="title" itemprop="headline">
+                            <article class="post-summary">
+                                <h3 class="title">
                                     <a class="link u-focus-ring" href="{{ post.url }}">{{ post.data.title | breadcrumbTitle }}</a>
                                 </h3>
-                                <time class="date" itemprop="datePublished" datetime="{{ post.date | htmlDateString }}">
+                                <time class="date" datetime="{{ post.date | htmlDateString }}">
                                     {{ post.date | readableDate }}
                                 </time>
                                 {% if post.data.description %}
-                                    <p class="description" itemprop="description">{{ post.data.description | truncate(90) }}</p>
+                                    <p class="description">{{ post.data.description | truncate(90) }}</p>
                                 {% endif %}
                             </article>
                         </li>

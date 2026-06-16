@@ -29,6 +29,76 @@
 
         <link rel="canonical" href="https://amandavilela.me{{ page.url }}" />
 
+        <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@graph": [
+                {% if page.url == '/' %}
+                {
+                    "@type": "WebSite",
+                    "name": "Amanda Vilela",
+                    "url": "https://amandavilela.me/"
+                },
+                {
+                    "@type": "Person",
+                    "name": "Amanda Vilela",
+                    "url": "https://amandavilela.me/",
+                    "jobTitle": "Frontend Specialist",
+                    "sameAs": [
+                        "https://br.linkedin.com/in/amanda-vilela",
+                        "https://github.com/amandavilela",
+                        "http://codepen.io/amandavilela/",
+                        "https://speakerdeck.com/amandavilela",
+                        "https://medium.com/@amandavilela"
+                    ]
+                }
+                {% elif page.url != '/404/' %}
+                {
+                    "@type": "BreadcrumbList",
+                    "itemListElement": [
+                        {
+                            "@type": "ListItem",
+                            "position": 1,
+                            "name": "Home",
+                            "item": "https://amandavilela.me/"
+                        }
+                        {% if '/blog/' in page.url %}
+                            {% if page.url == '/blog/' %}
+                            ,{
+                                "@type": "ListItem",
+                                "position": 2,
+                                "name": "{{ title | breadcrumbTitle }}",
+                                "item": "https://amandavilela.me/blog/"
+                            }
+                            {% else %}
+                            ,{
+                                "@type": "ListItem",
+                                "position": 2,
+                                "name": "Blog",
+                                "item": "https://amandavilela.me/blog/"
+                            },
+                            {
+                                "@type": "ListItem",
+                                "position": 3,
+                                "name": "{{ title | breadcrumbTitle }}",
+                                "item": "https://amandavilela.me{{ page.url }}"
+                            }
+                            {% endif %}
+                        {% elif '/services/' in page.url %}
+                            ,{
+                                "@type": "ListItem",
+                                "position": 2,
+                                "name": "{{ title | breadcrumbTitle }}",
+                                "item": "https://amandavilela.me/services/"
+                            }
+                        {% endif %}
+                    ]
+                }
+                {% endif %}
+            ]
+        }
+        </script>
+
         <!-- Google tag (gtag.js) -->
         <script>
             if (window.location.hostname !== 'localhost') {
@@ -66,23 +136,21 @@
 
             <nav aria-label="Breadcrumb" class="breadcrumbs">
                 <div class="container">
-                    <ol class="list" itemscope itemtype="https://schema.org/BreadcrumbList">
-                        <li class="item" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
-                            <a href="/" class="link u-focus-ring" itemprop="item"><span itemprop="name">Home</span></a>
-                            <meta itemprop="position" content="1" />
+                    <ol class="list">
+                        <li class="item">
+                            <a href="/" class="link u-focus-ring">Home</a>
                         </li>
                         {% if '/blog/' in page.url %}
                             {% if page.url == '/blog/' %}
-                                <li class="item" aria-current="page" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><span itemprop="name">{{ title | breadcrumbTitle }}</span> <meta itemprop="position" content="2" /></li>
+                                <li class="item" aria-current="page">{{ title | breadcrumbTitle }}</li>
                             {% else %}
-                                <li class="item" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
-                                    <a href="/blog/" class="link u-focus-ring" itemprop="item"><span itemprop="name">Blog</span></a>
-                                    <meta itemprop="position" content="2" />
+                                <li class="item">
+                                    <a href="/blog/" class="link u-focus-ring">Blog</a>
                                 </li>
-                                <li class="item" aria-current="page" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><span itemprop="name">{{ title | breadcrumbTitle }}</span> <meta itemprop="position" content="3" /></li>
+                                <li class="item" aria-current="page">{{ title | breadcrumbTitle }}</li>
                             {% endif %}
                         {% elif '/services/' in page.url %}
-                             <li class="item" aria-current="page" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><span itemprop="name">{{ title | breadcrumbTitle }}</span> <meta itemprop="position" content="2" /></li>
+                             <li class="item" aria-current="page">{{ title | breadcrumbTitle }}</li>
                         {% endif %}
                     </ol>
                 </div>

@@ -5,6 +5,64 @@ description: "Frontend consulting services by Amanda Vilela — performance, acc
 page_css: services
 ---
 
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+        "@type": "ProfessionalService",
+        "@id": "https://amandavilela.me/services",
+        "name": "Amanda Vilela - Frontend Consulting",
+        "description": "{{ description | replace('"', '\\"') }}",
+        "url": "https://amandavilela.me/services/",
+        "image": "https://amandavilela.me/imgs/layout/profile.webp",
+        "areaServed": {
+            "@type": "GeoShape",
+            "name": "Global"
+        },
+        "knowsAbout": [
+            "Frontend Performance",
+            "Web Accessibility",
+            "Core Web Vitals",
+            "Frontend Architecture",
+            "WCAG",
+            "LCP, CLS, INP"
+        ]
+    },
+    {
+        "@type": "Service",
+        "@id": "https://amandavilela.me/services",
+        "name": "Core Web Vitals Optimization",
+        "serviceType": "Technical Consulting",
+        "provider": {
+            "@id": "https://amandavilela.me/services"
+        },
+        "description": "High-impact frontend performance consulting and Core Web Vitals remediation for enterprise engineering teams."
+    },
+    {
+        "@type": "Service",
+        "@id": "https://amandavilela.me/services",
+        "name": "Web Accessibility (WCAG) Auditing & Compliance",
+        "serviceType": "Technical Consulting",
+        "description": "Comprehensive accessibility audits mapping out digital platforms against WCAG 2.2 standards to ensure global compliance.",
+        "provider": {
+            "@id": "https://amandavilela.me/services"
+        }
+    },
+    {
+        "@type": "Service",
+        "@id": "https://amandavilela.me/services",
+        "name": "Frontend Architecture Workshops & Team Training",
+        "serviceType": "Professional Training",
+        "description": "Custom technical workshops designed to level up engineering teams on modern CSS architectures, performance budget systems, and clean code principles.",
+        "provider": {
+            "@id": "https://amandavilela.me/services"
+        }
+    }
+  ]
+}
+</script>
+
 <main id="main-content">
     <section class="core-areas" aria-labelledby="core-areas-heading">
         <div class="container">

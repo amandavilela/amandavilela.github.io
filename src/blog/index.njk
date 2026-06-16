@@ -5,6 +5,21 @@ description: "Technical writing on frontend performance, accessibility, Core Web
 page_css: blog
 ---
 
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Blog",
+  "name": "Amanda Vilela's Blog",
+  "description": "{{ description | replace('"', '\\"') }}",
+  "url": "https://amandavilela.me/blog/",
+  "publisher": {
+    "@type": "Person",
+    "name": "Amanda Vilela",
+    "url": "https://amandavilela.me/"
+  }
+}
+</script>
+
 <main id="main-content">
     <section class="blog">
         <div class="container">
@@ -12,18 +27,18 @@ page_css: blog
             <p>Technical writing on frontend performance, accessibility, Core Web Vitals, and scalable frontend.</p>
 
             {% if collections.posts.length %}
-                <ul class="blog-list" itemscope itemtype="https://schema.org/Blog">
+                <ul class="blog-list">
                     {% for post in collections.posts %}
                         <li class="item">
-                            <article class="post-summary" itemscope itemtype="https://schema.org/BlogPosting">
-                                <h2 class="title" itemprop="headline">
+                            <article class="post-summary">
+                                <h2 class="title">
                                     <a class="link u-slide-hover u-focus-ring" href="{{ post.url }}">{{ post.data.title }}</a>
                                 </h2>
-                                <time class="date" itemprop="datePublished" datetime="{{ post.date | htmlDateString }}">
+                                <time class="date" datetime="{{ post.date | htmlDateString }}">
                                     {{ post.date | readableDate }}
                                 </time>
                                 {% if post.data.description %}
-                                    <p class="description" itemprop="description">{{ post.data.description }}</p>
+                                    <p class="description">{{ post.data.description }}</p>
                                 {% endif %}
                             </article>
                         </li>
