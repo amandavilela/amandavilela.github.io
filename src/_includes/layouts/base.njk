@@ -36,11 +36,16 @@
                 {% if page.url == '/' %}
                 {
                     "@type": "WebSite",
+                    "@id": "https://amandavilela.me/",
+                    "url": "https://amandavilela.me/",
                     "name": "Amanda Vilela",
-                    "url": "https://amandavilela.me/"
+                    "publisher": {
+                        "@id": "https://amandavilela.me/"
+                    }
                 },
                 {
                     "@type": "Person",
+                    "@id": "https://amandavilela.me/",
                     "name": "Amanda Vilela",
                     "url": "https://amandavilela.me/",
                     "jobTitle": "Frontend Specialist",
@@ -50,7 +55,8 @@
                         "http://codepen.io/amandavilela/",
                         "https://speakerdeck.com/amandavilela",
                         "https://medium.com/@amandavilela"
-                    ]
+                    ],
+                    "image": "https://amandavilela.me/imgs/layout/profile.webp"
                 }
                 {% elif page.url != '/404/' %}
                 {

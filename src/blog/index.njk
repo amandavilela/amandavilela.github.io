@@ -8,15 +8,34 @@ page_css: blog
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "Blog",
-  "name": "Amanda Vilela's Blog",
-  "description": "{{ description | replace('"', '\\"') }}",
-  "url": "https://amandavilela.me/blog/",
-  "publisher": {
-    "@type": "Person",
-    "name": "Amanda Vilela",
-    "url": "https://amandavilela.me/"
-  }
+  "@graph": [
+    {
+      "@type": "Blog",
+      "@id": "https://amandavilela.me/blog/",
+      "name": "Amanda Vilela's Blog",
+      "description": "{{ description | replace('"', '\\"') }}",
+      "url": "https://amandavilela.me/blog/",
+      "publisher": {
+        "@type": "Person",
+        "@id": "https://amandavilela.me/",
+        "name": "Amanda Vilela",
+        "url": "https://amandavilela.me/"
+      }
+    },
+    {
+      "@type": "ItemList",
+      "name": "Blog Posts",
+      "itemListElement": [
+        {% for post in collections.posts %}
+        {
+          "@type": "ListItem",
+          "position": {{ loop.index }},
+          "url": "https://amandavilela.me{{ post.url }}"
+        }{% if not loop.last %},{% endif %}
+        {% endfor %}
+      ]
+    }
+  ]
 }
 </script>
 
