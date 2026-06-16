@@ -1,8 +1,12 @@
 @scope (.breadcrumbs) {
     :scope {
-        padding-block: 1rem 0;
+        padding-block: 0.5rem 0;
         font-size: 0.875rem;
         color: var(--color-text);
+
+        @media (width >= 768px) {
+            padding-block: 1rem 0;
+        }
     }
 
     .list {

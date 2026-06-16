@@ -1,7 +1,7 @@
 @scope (.post) {
     .header {
         padding: 0;
-        box-shadow: none; /* Explicitly reset to avoid conflict with global header */
+        box-shadow: none;
     }
 
     .date {
@@ -9,10 +9,9 @@
         font-size: 0.875rem;
     }
 
-    /* Using proximity to override/extend global .container */
     .container {
         background-color: var(--color-white);
-        margin-block: 1rem;
+        margin-block: 0.5rem;
         margin-inline: auto;
         max-width: 860px;
         padding: 1.5rem;
@@ -30,7 +29,6 @@
     }
 }
 
-/* Scoping the content area for simpler, more readable descendant selectors */
 @scope (.post .body) {
     p {
         line-height: 1.7rem;
