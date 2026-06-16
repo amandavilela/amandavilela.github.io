@@ -2,7 +2,7 @@
     :scope {
         display: flex;
         flex-direction: column;
-        gap: 0.5rem;
+        gap: 0.25rem;
         text-decoration: none;
 
         &:hover .title {
@@ -12,8 +12,7 @@
 
     .title {
         color: var(--color-green);
-        margin: 0;
-        margin-bottom: 8px;
+        margin: 0 0 5px;
         font-size: 20px;
         transition: color 0.2s ease;
     }
