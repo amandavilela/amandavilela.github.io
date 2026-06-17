@@ -1,6 +1,6 @@
 @scope (.engagement-details) {
     :scope {
-        padding-block-start: 0;
+        padding: 0;
     }
 
     p + p {
