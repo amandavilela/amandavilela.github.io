@@ -37,4 +37,31 @@
         color: var(--color-text);
         margin: 0;
     }
+
+    .tags {
+        margin-top: 0.25rem;
+    }
+}
+
+.tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.tag a {
+    background-color: var(--color-light);
+    border-radius: 0.75rem;
+    color: var(--color-green);
+    display: inline-block;
+    font-size: 0.75rem;
+    padding: 0.15rem 0.75rem;
+    text-decoration: none;
+
+    &:hover {
+        background-color: var(--color-salmon);
+    }
 }

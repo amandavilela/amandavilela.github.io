@@ -5,6 +5,8 @@ description: "Learn how to set up the Chrome DevTools MCP Server with the Gemini
 keywords: "accessibility audit, AI audit, accessibility MCP"
 date: 2026-04-23
 featured: true
+tags:
+  - accessibility
 open_graph:
   image: "blog/using-chrome-devtools-mcp-to-debug-web-accessibility/og-image-using-chrome-devtools-mcp-to-debug-web-accessibility.webp"
 ---

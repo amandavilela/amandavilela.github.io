@@ -4,6 +4,14 @@
         box-shadow: none;
     }
 
+    .meta-row {
+        align-items: center;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem 1rem;
+        justify-content: space-between;
+    }
+
     .meta {
         font-size: 0.875rem;
 

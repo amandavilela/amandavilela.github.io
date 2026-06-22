@@ -43,6 +43,15 @@ module.exports = function (eleventyConfig) {
     return title.split(" | ")[0];
   });
 
+  // ─── Tag filters ──────────────────────────────────────────────────────────────
+  eleventyConfig.addFilter("getAllTags", (collection) => {
+    const tagSet = new Set();
+    (collection || []).forEach((item) => {
+      (item.data.tags || []).forEach((tag) => tagSet.add(tag));
+    });
+    return Array.from(tagSet).sort();
+  });
+
   eleventyConfig.addFilter(
     "relatedPosts",
     function (collection, currentUrl, currentCategory) {

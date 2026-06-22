@@ -37,6 +37,7 @@ page_css: post
   }
   {% if description %},"description": "{{ description | replace('"', '\\"') }}"{% endif %}
   {% if open_graph %},"image": "https://amandavilela.me/{{ open_graph.image }}"{% endif %}
+  {% if tags and tags.length %},"keywords": [{% for tag in tags %}"{{ tag | replace('"', '\\"') }}"{% if not loop.last %},{% endif %}{% endfor %}]{% endif %}
 }
 </script>
 
@@ -44,7 +45,16 @@ page_css: post
     <article class="container">
         <header class="header">
             <h1>{{ title }}</h1>
-            <p class="meta"><time datetime="{{ date | htmlDateString }}">{{ date | readableDate }}</time> by <a href="/" rel="author">Amanda Vilela</a></p>
+            <div class="meta-row">
+                <p class="meta"><time datetime="{{ date | htmlDateString }}">{{ date | readableDate }}</time> by <a href="/" rel="author">Amanda Vilela</a></p>
+                {% if tags and tags.length %}
+                    <ul class="tags">
+                        {% for tag in tags %}
+                            <li class="tag"><a href="/tags/{{ tag | slugify }}/">{{ tag }}</a></li>
+                        {% endfor %}
+                    </ul>
+                {% endif %}
+            </div>
         </header>
         <section class="body">
             {{ content | safe }}

@@ -90,6 +90,19 @@
                                 "item": "https://amandavilela.me{{ page.url }}"
                             }
                             {% endif %}
+                        {% elif '/tags/' in page.url %}
+                            ,{
+                                "@type": "ListItem",
+                                "position": 2,
+                                "name": "Blog",
+                                "item": "https://amandavilela.me/blog/"
+                            },
+                            {
+                                "@type": "ListItem",
+                                "position": 3,
+                                "name": "{{ tag }}",
+                                "item": "https://amandavilela.me{{ page.url }}"
+                            }
                         {% elif '/services/' in page.url %}
                             ,{
                                 "@type": "ListItem",
@@ -155,6 +168,11 @@
                                 </li>
                                 <li class="item" aria-current="page">{{ title | breadcrumbTitle }}</li>
                             {% endif %}
+                        {% elif '/tags/' in page.url %}
+                            <li class="item">
+                                <a href="/blog/" class="link u-focus-ring">Blog</a>
+                            </li>
+                            <li class="item" aria-current="page">{{ tag }}</li>
                         {% elif '/services/' in page.url %}
                              <li class="item" aria-current="page">{{ title | breadcrumbTitle }}</li>
                         {% endif %}

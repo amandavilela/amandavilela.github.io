@@ -1,5 +1,9 @@
 .blog {
     padding: 0;
+
+    @media (width >= 768px) {
+        min-height: 65vh;
+    }
 }
 
 @scope (.blog-list) {

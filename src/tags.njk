@@ -1,0 +1,73 @@
+---
+layout: layouts/base.njk
+page_css: blog
+pagination:
+  data: collections
+  size: 1
+  alias: tag
+  filter:
+    - all
+    - posts
+    - featured
+permalink: "/tags/{{ tag | slugify }}/"
+eleventyComputed:
+  title: "Posts tagged “{{ tag }}”"
+---
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "CollectionPage",
+      "@id": "https://amandavilela.me{{ page.url }}",
+      "name": "Posts tagged \"{{ tag }}\"",
+      "url": "https://amandavilela.me{{ page.url }}",
+      "isPartOf": {
+        "@id": "https://amandavilela.me/blog/"
+      }
+    },
+    {
+      "@type": "ItemList",
+      "name": "Posts tagged \"{{ tag }}\"",
+      "itemListElement": [
+        {% for post in collections[tag] %}
+        {
+          "@type": "ListItem",
+          "position": {{ loop.index }},
+          "url": "https://amandavilela.me{{ post.url }}"
+        }{% if not loop.last %},{% endif %}
+        {% endfor %}
+      ]
+    }
+  ]
+}
+</script>
+
+<main id="main-content">
+    <section class="blog">
+        <div class="container">
+            <h1 class="section-title">Posts tagged &ldquo;{{ tag }}&rdquo;</h1>
+
+            <ul class="blog-list">
+                {% for post in collections[tag] %}
+                    <li class="item">
+                        <article class="post-summary">
+                            <h2 class="title">
+                                <a class="link u-slide-hover u-focus-ring" href="{{ post.url }}">{{ post.data.title | breadcrumbTitle }}</a>
+                            </h2>
+                            <p class="meta">
+                                <time class="date" datetime="{{ post.date | htmlDateString }}">
+                                    {{ post.date | readableDate }}
+                                </time> by <a href="/" rel="author">Amanda Vilela</a>
+                            </p>
+                            {% if post.data.description %}
+                                <p class="description">{{ post.data.description }}</p>
+                            {% endif %}
+                        </article>
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
+    </section>
+</main>

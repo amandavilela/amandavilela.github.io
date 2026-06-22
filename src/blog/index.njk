@@ -45,6 +45,15 @@ page_css: blog
             <h1 class="section-title">Blog</h1>
             <p>Technical writing on frontend performance, accessibility, Core Web Vitals, and scalable frontend.</p>
 
+            {% set allTags = collections.posts | getAllTags %}
+            {% if allTags.length %}
+                <nav class="tag-filter" aria-label="Filter posts by tag">
+                    Tags: {% for tag in allTags %}
+                        <a class="tag-filter-button" href="/tags/{{ tag | slugify }}/">{{ tag }}</a>
+                    {% endfor %}
+                </nav>
+            {% endif %}
+
             {% if collections.posts.length %}
                 <ul class="blog-list">
                     {% for post in collections.posts %}

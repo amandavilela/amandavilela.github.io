@@ -1,0 +1,20 @@
+.tag-filter {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: 1.5rem;
+}
+
+.tag-filter-button {
+    background-color: var(--color-light);
+    border-radius: 999px;
+    color: var(--color-green);
+    display: inline-block;
+    font-size: 0.8125rem;
+    padding: 0.35rem 0.9rem;
+    text-decoration: none;
+
+    &:hover {
+        background-color: var(--color-salmon);
+    }
+}

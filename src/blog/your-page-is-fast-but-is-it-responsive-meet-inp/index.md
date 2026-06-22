@@ -4,6 +4,8 @@ title: "Why your UI feels slow: A Practical guide to INP"
 description: "Page load time is not enough, learn about Interaction to Next Paint metric and how to improve it."
 keywords: "core web vitals, js performance optimization, INP"
 date: 2026-04-14
+tags:
+  - core web vitals
 open_graph:
   image: "blog/your-page-is-fast-but-is-it-responsive-meet-inp/og-image-your-page-is-fast-but-is-it-responsive-meet-inp.webp"
 ---
