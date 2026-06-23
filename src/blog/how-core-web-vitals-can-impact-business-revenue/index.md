@@ -1,7 +1,7 @@
 ---
 layout: layouts/post.njk
 title: "How Core Web Vitals can impact your business revenue"
-description: "Discover how optimizing your Core Web Vitals can trigger up to an 8.4% boost in conversions. Learn why milliseconds mean millions and how to claim your lost revenue today."
+description: "Discover how optimizing Core Web Vitals can boost your conversions. Learn why milliseconds mean millions and how to claim your lost revenue today."
 keywords: "core web vitals, seo, business revenue, js performance optimization, INP, CLS, LCP"
 date: 2026-06-23
 tags:
