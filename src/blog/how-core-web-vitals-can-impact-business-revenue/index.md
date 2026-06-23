@@ -66,7 +66,7 @@ Many businesses don't realize they have a Core Web Vitals problem until they not
 
 When you optimize your Core Web Vitals, you aren't just pleasing Google's algorithm, you're removing friction for your customers, maximizing the return on your marketing spend, and making sure your digital storefront operates at its highest possible capacity. In a marketplace where competitors are only a click away, speed isn't just an advantage, it's survival.
 
-## <a href="#reading-recomendations" id="reading-recomendations">Reading recommendations</a>
+## <a href="#reading-recommendations" id="reading-recommendations">Reading recommendations</a>
 
 - <a href="https://web.dev/case-studies/milliseconds-make-millions" target="_blank">Milliseconds make millions - web.dev</a>
 - <a href="https://web.dev/case-studies/vitals-business-impact" target="_blank">The business impact of Core Web Vitals - web.dev</a>

@@ -134,7 +134,7 @@ You won’t improve INP with isolated optimizations, **every decision has a cost
 
 Understanding those trade-offs, and making decisions based on real constraints, is what leads to consistently responsive interfaces.
 
-## <a href="#reading-recomendations" id="reading-recomendations">Reading recomendations</a>
+## <a href="#reading-recommendations" id="reading-recommendations">Reading recommendations</a>
 
 - <a href="https://web.dev/articles/optimize-long-tasks" target="_blank">Optimize long tasks - web.dev</a>
 - <a href="https://web.dev/articles/avoid-large-complex-layouts-and-layout-thrashing" target="_blank">Avoid large, complex layouts and layout thrashing - web.dev</a>

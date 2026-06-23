@@ -48,7 +48,7 @@ In this post, I’ll walk through how to set up the Chrome DevTools MCP Server w
             <a href="#final-thoughts">Final thoughts</a>
         </li>
         <li>
-            <a href="#reading-recomendations">Reading recomendations</a>
+            <a href="#reading-recommendations">Reading recommendations</a>
         </li>
     </ul>
 </nav>
@@ -487,6 +487,6 @@ Is it ready to replace a manual audit? Not quite. Is it a good tool for spotting
 
 I intend to continue using these tools in future case studies and accessibility audits. I recommend you do the same, as the Chrome DevTools MCP receives frequent updates and AI agents continue to advance.
 
-## <a href="#reading-recomendations" id="reading-recomendations">Reading recomendations</a>
+## <a href="#reading-recommendations" id="reading-recommendations">Reading recommendations</a>
 
 - <a href="https://www.a11y-collective.com/blog/aria-in-html/" target="_blank">Implementing ARIA: Avoid Common Pitfalls and Optimise Performance - a11y collective</a>

@@ -498,7 +498,7 @@ Ultimately, while modern CSS allows us to shed heavy tools, it doesn't eliminate
 
 I hope these insights help you decide which tools to keep, and which to leave behind, in your next project 🙂
 
-## <a href="#reading-recomendations" id="reading-recomendations">Reading recomendations</a>
+## <a href="#reading-recommendations" id="reading-recommendations">Reading recommendations</a>
 
 - <a href="https://web.dev/articles/media-query-range-syntax" target="_blank"> New syntax for range media queries - web.dev</a>
 - <a href="https://ishadeed.com/article/css-nesting/" target="_blank"> CSS Nesting -  Ahmad Shadeed</a>
