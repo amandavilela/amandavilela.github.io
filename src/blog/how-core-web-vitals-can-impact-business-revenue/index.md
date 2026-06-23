@@ -32,7 +32,7 @@ If you think your brand is too big or established to be impacted by minor perfor
 
 Vodafone ran an A/B test specifically targeting Core Web Vitals optimizations. They built an optimized version of their landing page that improved Largest Contentful Paint (LCP), the metric for how fast the main content loads, by 31%.
 
-The results were clear: **8% increase in total sales/conversions, 15% improvement in their lead-to-visit ratio, and an 11% increase in cart visits**.
+The results were clear: **a 8% increase in total sales/conversions, a 15% improvement in their lead-to-visit ratio, and an 11% increase in cart visits**.
 
 <h2 id="triple-win-seo-ads-and-bounce-rates"><a href="#triple-win-seo-ads-and-bounce-rates">Triple win: SEO, ads, and bounce rates</a></h2>
 
