@@ -4,6 +4,7 @@
     font-style: italic;
     font-weight: 900;
     src: url("/fonts/merriweather-900italic.woff2") format("woff2");
+    unicode-range: U+0020-007E, U+2013-2014, U+2018-2019, U+201C-201D, U+2026, U+2192, U+2264;
 }
 
 @font-face {
@@ -12,6 +13,7 @@
     font-style: normal;
     font-weight: 400;
     src: url("/fonts/inconsolata-regular.woff2") format("woff2");
+    unicode-range: U+0020-007E, U+2013-2014, U+2018-2019, U+201C-201D, U+2026, U+2192, U+2264;
 }
 
 @font-face {
@@ -20,6 +22,7 @@
     font-style: normal;
     font-weight: 600;
     src: url("/fonts/inconsolata-600.woff2") format("woff2");
+    unicode-range: U+0020-007E, U+2013-2014, U+2018-2019, U+201C-201D, U+2026, U+2192, U+2264;
 }
 
 html {
