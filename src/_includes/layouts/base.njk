@@ -4,7 +4,11 @@
         <title>{{ title }}{% if page.url != '/' %} | Amanda Vilela | Frontend Specialist{% endif %}</title>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta charset="UTF-8" />
-        <link rel="shortcut icon" href="/favicon.ico" />
+        <link rel="icon" href="/favicon.ico" />
+
+        <link rel="preload" href="/fonts/merriweather-900italic.woff2" as="font" type="font/woff2" crossorigin />
+        <link rel="preload" href="/fonts/inconsolata-regular.woff2" as="font" type="font/woff2" crossorigin />
+        <link rel="preload" href="/fonts/inconsolata-600.woff2" as="font" type="font/woff2" crossorigin />
 
         <style>
             {{ "dist/critical.css" | read_file | cssmin | safe }}
@@ -13,7 +17,8 @@
         </style>
 
         {% if page_css %}
-            <link rel="stylesheet" href="/{{ page_css }}.css" />
+            <link rel="stylesheet" href="/{{ page_css }}.css" media="print" onload="this.media='all'" />
+            <noscript><link rel="stylesheet" href="/{{ page_css }}.css" /></noscript>
         {% endif %}
 
         <meta name="description" content="{{ description }}" />
@@ -23,6 +28,9 @@
 
         <meta name="author" content="Amanda Vilela">
 
+        <meta property="og:type" content="{% if '/blog/' in page.url and page.url != '/blog/' %}article{% else %}website{% endif %}" />
+        <meta property="og:title" content="{{ title }}" />
+        <meta property="og:url" content="https://amandavilela.me{{ page.url }}" />
         {% if open_graph %}
             <meta property="og:image" content="https://amandavilela.me/{{ open_graph.image }}" />
         {% endif %}
@@ -118,6 +126,9 @@
         }
         </script>
 
+        <link rel="preconnect" href="https://www.googletagmanager.com" />
+        <link rel="dns-prefetch" href="https://www.google-analytics.com" />
+
         <!-- Google tag (gtag.js) -->
         <script>
             if (window.location.hostname !== 'localhost') {
@@ -134,6 +145,15 @@
 
                 document.head.appendChild(script);
             }
+        </script>
+
+        <script type="speculationrules">
+        {
+            "prerender": [{
+                "where": { "href_matches": "/blog/*" },
+                "eagerness": "moderate"
+            }]
+        }
         </script>
     </head>
     <body>
