@@ -31,7 +31,7 @@ eleventyComputed:
       "@type": "ItemList",
       "name": "Posts tagged \"{{ tag }}\"",
       "itemListElement": [
-        {% for post in collections[tag] %}
+        {% for post in collections[tag] | reverse %}
         {
           "@type": "ListItem",
           "position": {{ loop.index }},
@@ -50,7 +50,7 @@ eleventyComputed:
             <h1 class="section-title">Posts tagged &ldquo;{{ tag }}&rdquo;</h1>
 
             <ul class="blog-list">
-                {% for post in collections[tag] %}
+                {% for post in collections[tag] | reverse %}
                     <li class="item">
                         <article class="post-summary">
                             <h2 class="title">
