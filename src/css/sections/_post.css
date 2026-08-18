@@ -292,4 +292,10 @@
         --box-text-color: #3a7d44;
         --box-label: "🔍 Explore";
     }
+
+    .info-box.note {
+        --box-color: #f4e6ed;
+        --box-text-color: #7d3a5b;
+        --box-label: "📌 Note";
+    }
 }
