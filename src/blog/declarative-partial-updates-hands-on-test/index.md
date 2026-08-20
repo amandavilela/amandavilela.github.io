@@ -178,7 +178,6 @@ From there, the browser itself is entirely responsible for finding each marker a
 - **Reduced JavaScript payload:** No framework runtime is required to reconcile out-of-order content, the parser does it natively.
 - **Streaming-friendly, works with server-rendered content:** No client-side hydration step, the DOM you get is the DOM you wanted, with no diffing pass.
 - **Native XSS sanitization:** The safe method variants sanitize by default, which removes a class of manual work (DOMPurify-style sanitization) that a hand-rolled streaming solution would otherwise need to own.
-- **Works with existing server-rendered HTML:** It layers onto existing server-rendered HTML rather than demanding a new rendering model.
 
 ## <a href="#friction-points" id="friction-points">Friction points</a>
 
