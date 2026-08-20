@@ -11,9 +11,9 @@ open_graph:
   image: "blog/declarative-partial-updates-hands-on-test/og-image-declarative-partial-updates-hands-on-test.webp"
 ---
 
-I've always been an advocate for the web and its capabilities. In 2017, with the rise of JS frameworks, I gave a talk named "You don't need a JS framework" where I presented and explained a set of JS features (modules, template strings, promises, fetch API) that could help people build a robust, lightweight page with dynamic content and templates.
+I've always been an advocate for the web platform and its capabilities. In 2017, with the rise of JS frameworks, I gave a talk named "Maybe you don't need a JS framework", in which I presented and explained a set of JS features (modules, template strings, promises, fetch API) that could help people build a robust, lightweight page with dynamic content and templates.
 
-In May this year, the Chrome team released a preview of Declarative Partial Updates, where you can stream content into any part of a page as it becomes ready. It made me really curious because to get the same result with vanilla JS, we used to play a lot of tricks.
+In May this year, the Chrome team released a preview of Declarative Partial Updates, where you can stream content into any part of a page as it becomes ready. It made me really curious because, with vanilla JS, we've traditionally had to rely on quite a few tricks to achieve the same result.
 
 In this article, I'll explain the Declarative Partial Updates capabilities with a test case and analyze its pros and cons.
 
@@ -51,20 +51,20 @@ In this article, I'll explain the Declarative Partial Updates capabilities with 
 
 ## <a href="#what-are-declarative-partial-updates" id="what-are-declarative-partial-updates">What are Declarative Partial Updates?</a>
 
-Declarative Partial Updates are two new sets of APIs that facilitate HTML delivery, whether out-of-order in the HTML document itself or through easier ways to dynamically insert HTML into existing documents using new JavaScript APIs.
+Declarative Partial Updates is a set of proposed Web Platform APIs that enable out-of-order HTML streaming directly in the browser and provide new JavaScript methods for dynamically updating parts of an existing document.
 
-These are ready for developer testing from Chrome 148 using the `chrome://flags/#enable-experimental-web-platform-features` flag.
+These APIsare ready for developer testing from Chrome 148 using the `chrome://flags/#enable-experimental-web-platform-features` flag.
 
 Currently, we have two ways of rendering HTML on the page:
 
 1. render the whole page server-side;
 2. rely on JS frameworks or play with limited JS features to deliver components asynchronously.
 
-Declarative Partial Updates were released to help us handle HTML content insertion and deliver out-of-order HTML natively, instead of relying on JS. Let's check those capabilities in the following sections.
+Declarative Partial Updates can help us handle HTML content insertion and deliver out-of-order HTML natively, instead of relying on JS. Let's look at how they work.
 
 ## <a href="#out-of-order-streaming" id="out-of-order-streaming">Out-of-order streaming</a>
 
-The first set of changes is new out-of-order streaming APIs using the `<template>` HTML element and processing instruction placeholders. For example:
+The new out-of-order streaming APIs use processing instruction placeholders to mark insertion points in the DOM, allowing late-arriving HTML inside `<template for="...">` elements to automatically target and fill those spots as it streams in.
 
 ```html
 <section>
@@ -75,9 +75,7 @@ This is my HTML template :)
 </template>
 ```
 
-This new API addresses these limitations by introducing processing instructions to HTML. When the browser sees the `<?marker name="template-name">` processing instruction, it doesn't do anything straight away — but it can be referenced later, just like XML.
-
-The `<template>` element looks up the corresponding processing instruction by its `name` attribute and replaces the content. In this case, after being parsed, the DOM ends up as:
+When the browser encounters the `<?marker name="template-name">` processing instruction, holds that spot in the DOM. Once a matching `<template for="template-name">` arrives, the browser replaces the marker with the template’s contents, resulting in the following DOM structure:
 
 ```html
 <section>
@@ -91,9 +89,9 @@ This is my HTML template :)
 
 ## <a href="#html-insertion-and-streaming-methods" id="html-insertion-and-streaming-methods">HTML insertion and streaming methods</a>
 
-There already are multiple ways to dynamically inject HTML into an existing document using JavaScript: `setHTML`, `setHTMLUnsafe`, `innerHTML`, `outerHTML`, `createContextualFragment`, and `insertAdjacentHTML`. But all those native ways of handling it require a lot of effort to implement a good experience that sanitizes HTML, overrides/appends content, etc.
+These new methods provide a way to deliver that HTML incrementally. While JavaScript already offers ways to inject HTML such as `setHTML`, `setHTMLUnsafe`, `innerHTML`, `outerHTML`, `createContextualFragment`, and `insertAdjacentHTML`, they allrequire a lot of effort to implement a good experience that sanitizes HTML, overrides/appends content, etc.
 
-Chrome has proposed a suite of new APIs and extensions to the existing `setHTML` and `setHTMLUnsafe` that cleans this up, as well as introducing streaming functionality:
+To address these inconsistencies, Chrome has proposed expanding the setHTML and setHTMLUnsafe family with a full suite of insertion and streaming APIs:
 
 | Action | Static | Streaming |
 |---|---|---|
@@ -106,7 +104,7 @@ Chrome has proposed a suite of new APIs and extensions to the existing `setHTML`
 
 There are also "unsafe" versions of each of the APIs, but prefer the standard methods (e.g., `setHTML()`) with a `Sanitizer` instance over the `...Unsafe` variants. The `...Unsafe` methods bypass browser sanitization, potentially exposing your application to XSS attacks. Only use `Unsafe` methods when you are certain the source HTML is trustworthy or has been sanitized independently.
 
-When you insert `<template for>` using a non-streaming method like `setHTML()` or `innerHTML`, the browser parses that HTML into an intermediate document fragment first, and reconciliation only happens inside that fragment, it can't reach out and patch a marker that's already live in the DOM. Only the streaming path (`streamHTML()`, `streamHTMLUnsafe()`) skips the intermediate fragment and lets a late-arriving `<template for>` patch a marker that's already rendered on the page. This is exactly why my test case below opens a writer via `streamHTML()` instead of calling `setHTML()` in a loop: with `setHTML()`, the shuffled, out-of-order arrival of each match's data simply wouldn't reach the markers already sitting in the DOM.
+When you insert `<template for>` using a non-streaming method like `setHTML()` or `innerHTML`, the browser parses that HTML into an intermediate document fragment first, and reconciliation only happens inside that fragment, it can't reach out and patch a marker that's already live in the DOM. Only the streaming path (`streamHTML()`, `streamHTMLUnsafe()`) skips the intermediate fragment and lets a late-arriving `<template for>` patch a marker that's already rendered on the page. This is exactly why my test case opens a writer via `streamHTML()` instead of calling `setHTML()` in a loop: with `setHTML()`, the shuffled, out-of-order arrival of each match's data simply wouldn't reach the markers already sitting in the DOM.
 
 <section class="info-box note">
 <strong>The rule of thumb:</strong> if you're inserting a marker and its matching template in the same call, either method works, you're building both in the same parse. But if the marker is already on the page and you're filling it in later, separately (which is the whole point of out-of-order streaming, markers render first, real content trickles in after), you need <code>streamHTML()</code>. The non-streaming methods simply can't reach a marker that already exists outside the fragment they just parsed.
@@ -114,9 +112,7 @@ When you insert `<template for>` using a non-streaming method like `setHTML()` o
 
 ## <a href="#frameworks-vs-platform" id="frameworks-vs-platform">Frameworks vs. Platform</a>
 
-React's streaming SSR, htmx/Turbo, and BigPipe-style script injection are userland patterns that fake out-of-order delivery using inline `<script>` tags and a JS runtime to move content around after the fact.
-
-That's worth sitting with for a second: a pattern the ecosystem has independently reinvented across multiple frameworks for over a decade is a much stronger candidate for becoming a platform primitive than a pattern someone is proposing speculatively. Declarative Partial Updates features are the first attempt to make the browser's own HTML parser do that reconciliation natively, with zero JS.
+React's streaming SSR and other libraries have long relied on userland techniques for out-of-order delivery, using JavaScript to manipulate the DOM as content arrives. Declarative Partial Updates embraces a pattern the ecosystem has independently reinvented for over a decade, shifting that responsibility away from JavaScript and into the HTML parser itself.
 
 ## <a href="#a-test-case" id="a-test-case">A test case</a>
 
@@ -142,7 +138,7 @@ Two pieces work together:
 
 The browser's parser reconciles them regardless of arrival order, that's the "out-of-order" part.
 
-This is the payoff of the renewed HTML insertion and streaming methods (`streamHTML()`, etc.): those methods pipe text through the actual HTML parser (not a plain fragment parse like `innerHTML`), so this marker/template reconciliation kicks in even for a targeted DOM update, not just a full-page navigation.
+This is the primary advantage of the renewed HTML insertion and streaming methods (`streamHTML()`, etc.): they pipe text through the actual HTML parser (not a plain fragment parse like `innerHTML`), so this marker/template reconciliation kicks in even for a targeted DOM update, not just a full-page navigation.
 
 ### Feature detection
 
@@ -182,7 +178,7 @@ From there, the browser itself is entirely responsible for finding each marker a
 - **Reduced JavaScript payload:** No framework runtime is required to reconcile out-of-order content, the parser does it natively.
 - **Streaming-friendly, works with server-rendered content:** No client-side hydration step, the DOM you get is the DOM you wanted, with no diffing pass.
 - **Native XSS sanitization:** The safe method variants sanitize by default, which removes a class of manual work (DOMPurify-style sanitization) that a hand-rolled streaming solution would otherwise need to own.
-- **No rewrite required:** It layers onto existing server-rendered HTML rather than demanding a new rendering model.
+- **Works with existing server-rendered HTML:** It layers onto existing server-rendered HTML rather than demanding a new rendering model.
 
 ## <a href="#friction-points" id="friction-points">Friction points</a>
 
@@ -211,7 +207,7 @@ function watchNativeResolution(container, total) {
 ```
 
 ### Focus loss on replacement
-It's a transplant, not a diff/patch, the old subtree is destroyed and a new one inserted, so a focused element inside the swapped region loses focus, and there's no hook to restore it on the native path.
+Despite the name, "partial update" doesn't mean DOM diffing. The old subtree is destroyed and a new one inserted, so a focused element inside the swapped region loses focus, and there's no hook to restore it on the native path.
 
 <figure>
     <video width="720" height="362" controls loading="lazy">
@@ -223,25 +219,31 @@ It's a transplant, not a diff/patch, the old subtree is destroyed and a new one 
 </figure>
 
 ### No defined announcement semantics
-DPU itself doesn't add anything to tell assistive tech "this content just resolved", developers need to supply an `aria-live` region proactively, same as for any other dynamic content.
+If the newly inserted content represents an important user-facing update that should be announced, developers might need to supply an `aria-live` region proactively, same as for any other dynamic content.
 
 ### No JS hook at the moment of native resolution
 The browser patches markers mid-parse with no callback, so there's no way to wrap that specific swap in a View Transition, or to programmatically compensate scroll/layout at that instant.
 
-All the content insertion issues can be manually patched with a `MutationObserver`, but depending on how complex the UI is, accessibility can be seriously hurt or become very hard to manage manually.
+These insertion and accessibility issues can be handled with a `MutationObserver`, but depending on how complex the UI is, accessibility can be seriously hurt or become very hard to manage manually.
 
 ### Sanitizer API support gap
-The safe `setHTML`/`streamHTML` path depends on the Sanitizer API, which isn't supported in Safari today. If you need the safe variants cross-browser, you're currently blocked outside Chromium, worth knowing before you commit to this for anything shipping soon.
+The safe `setHTML`/`streamHTML` path depends on the Sanitizer API, which isn't supported in Safari today. If you need the safe variants cross-browser, you're currently blocked outside Chromium, which is important to consider before using this for anything shipping soon.
 
 ## <a href="#browser-support-gaps" id="browser-support-gaps">Browser support gaps</a>
 
-Currently, these features are experimental. Developers should feature-detect these APIs, and the Chrome team has released an <a href="https://github.com/GoogleChromeLabs/html-setters-polyfill" target="_blank">html-setters-polyfill</a> for broader compatibility until support is finalized, however, Sanitizer API is a gap for this functionality as it does not work on Safari.
+Currently, these features are experimental. Developers should feature-detect these APIs, and the Chrome team has released an <a href="https://github.com/GoogleChromeLabs/html-setters-polyfill" target="_blank">html-setters-polyfill</a> for broader compatibility until support is finalized, however, Sanitizer API is a gap for this functionality as it does not work in Safari.
 
 ## <a href="#final-thoughts" id="final-thoughts">Final thoughts</a>
 
-As these APIs mature, they're poised to simplify the "islands architecture" approach. By reducing the need for heavy client-side hydration, we can expect faster, more robust web applications built directly on browser primitives.
+Today, streaming server-rendered applications typically rely on JavaScript to find placeholders, reconcile incoming HTML, and move it into the correct position.
 
-In 2017 I argued that maybe people didn't need JS to build their apps. I still believe that, the web has evolved a lot, and many things can now be implemented using native features. But I also think that Declarative Partial Updates won't be a replacement for frameworks, instead, it will potentially influence how frameworks manage partial content updates.
+Declarative Partial Updates move that responsibility to the browser, but that doesn't automatically translate into better performance. Rendering performance still depends on the amount of DOM work being performed, layout costs, CSS, and the rest of the page, however, it does remove a layer of application code that previously existed only to glue streamed content together.
+
+As these APIs mature, I see them fitting naturally into an "islands architecture," particularly for applications where most of the page remains server-rendered.
+
+What initially caught my attention was how much JavaScript could be deleted by offloading this work to browser primitives. Ultimately, though, I view Declarative Partial Updates as a structural architectural improvement with potential performance benefits, rather than a guaranteed performance optimization.
+
+Back in 2017, I argued that we might not need heavy JS frameworks to build robust web applications, I still believe that, the web has evolved a lot, and many complex behaviors can now be handled natively. Even so, Declarative Partial Updates won't be a replacement for frameworks, instead, it will potentially influence how frameworks manage partial content updates.
 
 Special thanks to <a href="https://www.linkedin.com/in/taraojo/" target="_blank">Tara Ojo Agyemang</a> for her clarification and contributions to the demo project in this post.
 
