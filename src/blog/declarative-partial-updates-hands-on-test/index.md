@@ -8,7 +8,7 @@ featured: true
 tags: 
   - frontend
 open_graph:
-  image: "blog/declarative-partial-updates-hands-on-test/og-declarative-partial-updates-hands-on-test.webp"
+  image: "blog/declarative-partial-updates-hands-on-test/og-image-declarative-partial-updates-hands-on-test.webp"
 ---
 
 I've always been an advocate for the web and its capabilities. In 2017, with the rise of JS frameworks, I gave a talk named "You don't need a JS framework" where I presented and explained a set of JS features (modules, template strings, promises, fetch API) that could help people build a robust, lightweight page with dynamic content and templates.
