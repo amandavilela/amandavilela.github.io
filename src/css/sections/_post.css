@@ -229,10 +229,16 @@
         }
     }
 
+    .table-scroll {
+        -webkit-overflow-scrolling: touch;
+        margin-block: 0.5rem 1.25rem;
+        overflow-x: auto;
+    }
+
     table {
         border-collapse: collapse;
-        margin-block: 0.5rem 1.25rem;
-        width: 100%;
+        margin-block: 0;
+        min-width: 100%;
     }
 
     th,

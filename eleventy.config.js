@@ -1,6 +1,7 @@
 "use strict";
 
 const { minify } = require("html-minifier-terser");
+const markdownIt = require("markdown-it");
 
 const minifyOptions = {
   collapseWhitespace: true,
@@ -131,6 +132,26 @@ module.exports = function (eleventyConfig) {
       `</picture>`,
     ].join("\n");
   });
+
+  // ─── Markdown: wrap tables so wide ones scroll instead of breaking mobile layout ──
+  const md = markdownIt({ html: true });
+  const defaultTableOpen =
+    md.renderer.rules.table_open ||
+    function (tokens, idx, options, env, self) {
+      return self.renderToken(tokens, idx, options);
+    };
+  const defaultTableClose =
+    md.renderer.rules.table_close ||
+    function (tokens, idx, options, env, self) {
+      return self.renderToken(tokens, idx, options);
+    };
+  md.renderer.rules.table_open = function (tokens, idx, options, env, self) {
+    return `<div class="table-scroll">${defaultTableOpen(tokens, idx, options, env, self)}`;
+  };
+  md.renderer.rules.table_close = function (tokens, idx, options, env, self) {
+    return `${defaultTableClose(tokens, idx, options, env, self)}</div>`;
+  };
+  eleventyConfig.setLibrary("md", md);
 
   // ─── Ignore compiled CSS / source maps ────────────────────────────────────────
   eleventyConfig.ignores.add("src/style.css");

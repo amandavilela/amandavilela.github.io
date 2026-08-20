@@ -1,7 +1,7 @@
 ---
 layout: layouts/post.njk
 title: "Less JS, more platform: A hands-on test of Declarative Partial Updates"
-description: "A hands-on test of Chrome's Declarative Partial Updates: out-of-order HTML streaming, setHTML/streamHTML, and where it breaks for accessibility."
+description: "A hands-on test of Chrome's Declarative Partial Updates: out-of-order HTML streaming, setHTML/streamHTML, and where it breaks."
 keywords: "Declarative Partial Updates, Chrome DPU API, out-of-order HTML streaming, declarative partial updates accessibility"
 date: 2026-08-20
 featured: true
