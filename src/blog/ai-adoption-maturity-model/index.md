@@ -97,7 +97,7 @@ Reach for a native HTML element or a CSS feature before a library or a framework
 - Styling: design tokens from tokens.css. No inline styles, no magic numbers.
 
 ## Performance budgets (enforced in CI)
-- Field targets (CrUX, not just Lighthouse): LCP < 2.5s, CLS < 0.1, INP < 200ms.
+- Field targets (CrUX, not just Lighthouse): LCP &lt; 2.5s, CLS &lt; 0.1, INP &lt; 200ms.
 - No render-blocking JS. Images use width/height to reserve space; below-the-fold is lazy-loaded.
 
 ## Accessibility (non-negotiable)
