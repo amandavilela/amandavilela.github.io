@@ -6,30 +6,30 @@
     outline-offset: 2px;
 }
 
-/* The "slide-bg-hover" utility */
-.u-slide-hover {
-    position: relative;
-    z-index: 0;
-    transition: color 0.25s ease;
+/* The "slide-bg-hover" utility
+   Painted as a background (not a positioned pseudo-element) so it follows the text
+   line by line when a link wraps. With the default box-decoration-break: slice, the
+   fill runs across the line fragments in reading order. */
+.u-slide-hover,
+.post .body :is(li, p) a {
+    background-image: linear-gradient(
+        var(--m-slide-bg, var(--color-salmon)),
+        var(--m-slide-bg, var(--color-salmon))
+    );
+    background-position: 100% 0;
+    background-repeat: no-repeat;
+    background-size: 0% 100%;
 
-    &::before {
-        content: '';
-        background: var(--m-slide-bg, var(--color-salmon));
-        position: absolute;
-        inset: 0;
-        z-index: -1;
-        transform: scaleX(0);
-        transform-origin: right;
-        transition: transform 0.25s ease-in-out;
+    @media (prefers-reduced-motion: no-preference) {
+        transition:
+            background-size 0.25s ease-in-out,
+            color 0.25s ease;
     }
 
     &:hover {
+        background-position: 0 0;
+        background-size: 100% 100%;
         color: var(--m-slide-text, var(--color-green-dark));
-
-        &::before {
-            transform: scaleX(1);
-            transform-origin: left;
-        }
     }
 }
 
