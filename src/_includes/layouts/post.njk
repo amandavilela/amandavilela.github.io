@@ -48,7 +48,7 @@ page_css: post
             <div class="meta-row">
                 <p class="meta"><time datetime="{{ date | htmlDateString }}">{{ date | readableDate }}</time> by <a href="/" rel="author">Amanda Vilela</a></p>
                 {% if tags and tags.length %}
-                    <ul class="tags">
+                    <ul class="tags" role="list">
                         {% for tag in tags %}
                             <li class="tag"><a href="/tags/{{ tag | slugify }}/">{{ tag }}</a></li>
                         {% endfor %}
@@ -56,9 +56,9 @@ page_css: post
                 {% endif %}
             </div>
         </header>
-        <section class="body">
+        <div class="body">
             {{ content | safe }}
-        </section>
+        </div>
     </article>
 
     {% set related = collections.posts | relatedPosts(page.url, category) %}
@@ -66,7 +66,7 @@ page_css: post
         <section class="related-posts" aria-labelledby="related-posts-title">
             <div class="container">
                 <h2 id="related-posts-title" class="title">Posts you might like</h2>
-                <ul class="list">
+                <ul class="list" role="list">
                     {% for post in related %}
                         <li class="item">
                             <article class="post-summary">

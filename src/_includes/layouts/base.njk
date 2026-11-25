@@ -1,9 +1,9 @@
 <!doctype html>
 <html lang="en">
     <head>
+        <meta charset="UTF-8" />
         <title>{{ title }}{% if page.url != '/' %} | Amanda Vilela | Frontend Specialist{% endif %}</title>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <meta charset="UTF-8" />
         <link rel="icon" href="/favicon.ico" />
 
         <link rel="preload" href="/fonts/merriweather-900italic.woff2" as="font" type="font/woff2" crossorigin />
@@ -13,7 +13,7 @@
         <style>
             {{ "dist/critical.css" | read_file | cssmin | safe }}
             {% if critical_css %}{{ ("dist/" + critical_css + ".css") | read_file | cssmin | safe }}{% endif %}
-            {% if page.url != '/404/' %}{{ "dist/header.css" | read_file | cssmin | safe }}{% endif %}
+            {{ "dist/header.css" | read_file | cssmin | safe }}
         </style>
 
         {% if page_css %}
@@ -44,16 +44,16 @@
                 {% if page.url == '/' %}
                 {
                     "@type": "WebSite",
-                    "@id": "https://amandavilela.me/",
+                    "@id": "https://amandavilela.me/#website",
                     "url": "https://amandavilela.me/",
                     "name": "Amanda Vilela",
                     "publisher": {
-                        "@id": "https://amandavilela.me/"
+                        "@id": "https://amandavilela.me/#person"
                     }
                 },
                 {
                     "@type": "Person",
-                    "@id": "https://amandavilela.me/",
+                    "@id": "https://amandavilela.me/#person",
                     "name": "Amanda Vilela",
                     "url": "https://amandavilela.me/",
                     "jobTitle": "Frontend Specialist",
@@ -66,7 +66,7 @@
                     ],
                     "image": "https://amandavilela.me/imgs/layout/profile.webp"
                 }
-                {% elif page.url != '/404/' %}
+                {% elif page.url != '/404.html' %}
                 {
                     "@type": "BreadcrumbList",
                     "itemListElement": [
@@ -159,22 +159,20 @@
     <body>
         <a class="skip-link u-focus-ring" href="#main-content">Skip to main content</a>
 
-        {% if page.url != '/404/' %}
             <header class="header">
                 <div class="container container--flex">
                     <a class="logo u-focus-ring" href="/">Amanda Vilela</a>
-                    <nav>
+                    <nav aria-label="Main">
                         <ul class="nav">
-                            <li><a class="link u-slide-hover u-focus-ring" href="/">Home</a></li>
-                            <li><a class="link u-slide-hover u-focus-ring" href="/services/">Services</a></li>
-                            <li><a class="link u-slide-hover u-focus-ring" href="/blog/">Blog</a></li>
+                            <li><a class="link u-slide-hover u-focus-ring" href="/"{% if page.url == '/' %} aria-current="page"{% endif %}>Home</a></li>
+                            <li><a class="link u-slide-hover u-focus-ring" href="/services/"{% if page.url == '/services/' %} aria-current="page"{% endif %}>Services</a></li>
+                            <li><a class="link u-slide-hover u-focus-ring" href="/blog/"{% if page.url == '/blog/' %} aria-current="page"{% endif %}>Blog</a></li>
                         </ul>
                     </nav>
                 </div>
             </header>
-        {% endif %}
 
-        {% if page.url != '/' and page.url != '/404/' %}
+        {% if page.url != '/' and page.url != '/404.html' %}
             <nav aria-label="Breadcrumb" class="breadcrumbs">
                 <div class="container">
                     <ol class="list">
@@ -205,60 +203,40 @@
 
         {{ content | safe }}
 
-        {% if page.url != '/404/' %}
-            <footer class="footer" id="find-me">
+        <footer>
+            <div class="footer" id="find-me">
                 <div class="container">
                     <h2 class="title">Find me online</h2>
-                    <ul class="social">
+                    <ul class="social" role="list">
                         <li>
-                            <a
-                                class="link u-slide-hover"
-                                href="https://br.linkedin.com/in/amanda-vilela"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                >LinkedIn</a
+                            <a class="link u-slide-hover" href="https://br.linkedin.com/in/amanda-vilela" target="_blank" rel="noopener noreferrer"
+                                >LinkedIn<span class="u-visually-hidden"> (opens in a new tab)</span></a
                             >
                         </li>
                         <li>
-                            <a
-                                class="link u-slide-hover"
-                                href="https://github.com/amandavilela"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                >GitHub</a
+                            <a class="link u-slide-hover" href="https://github.com/amandavilela" target="_blank" rel="noopener noreferrer"
+                                >GitHub<span class="u-visually-hidden"> (opens in a new tab)</span></a
                             >
                         </li>
                         <li>
-                            <a
-                                class="link u-slide-hover"
-                                href="http://codepen.io/amandavilela/"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                >Codepen</a
+                            <a class="link u-slide-hover" href="http://codepen.io/amandavilela/" target="_blank" rel="noopener noreferrer"
+                                >Codepen<span class="u-visually-hidden"> (opens in a new tab)</span></a
                             >
                         </li>
                         <li>
-                            <a
-                                class="link u-slide-hover"
-                                href="https://speakerdeck.com/amandavilela"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                >Speakerdeck</a
+                            <a class="link u-slide-hover" href="https://speakerdeck.com/amandavilela" target="_blank" rel="noopener noreferrer"
+                                >Speakerdeck<span class="u-visually-hidden"> (opens in a new tab)</span></a
                             >
                         </li>
                         <li>
-                            <a
-                                class="link u-slide-hover"
-                                href="https://medium.com/@amandavilela"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                >Medium</a
+                            <a class="link u-slide-hover" href="https://medium.com/@amandavilela" target="_blank" rel="noopener noreferrer"
+                                >Medium<span class="u-visually-hidden"> (opens in a new tab)</span></a
                             >
                         </li>
                     </ul>
                 </div>
-            </footer>
-        {% endif %}
-        <div class="footer-credit">designed and coded by Amanda Vilela</div>
+            </div>
+            <p class="footer-credit">designed and coded by Amanda Vilela</p>
+        </footer>
     </body>
 </html>

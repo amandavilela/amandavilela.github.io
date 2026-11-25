@@ -17,7 +17,7 @@ page_css: blog
       "url": "https://amandavilela.me/blog/",
       "publisher": {
         "@type": "Person",
-        "@id": "https://amandavilela.me/",
+        "@id": "https://amandavilela.me/#person",
         "name": "Amanda Vilela",
         "url": "https://amandavilela.me/"
       }
@@ -55,7 +55,7 @@ page_css: blog
             {% endif %}
 
             {% if collections.posts.length %}
-                <ul class="blog-list">
+                <ul class="blog-list" role="list">
                     {% for post in collections.posts %}
                         <li class="item">
                             <article class="post-summary">

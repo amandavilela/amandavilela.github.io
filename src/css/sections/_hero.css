@@ -35,7 +35,7 @@
         text-wrap: balance;
     }
 
-    .lead mark {
+    .lead .highlight {
         background-color: unset;
         background-image: linear-gradient(
             100deg,
