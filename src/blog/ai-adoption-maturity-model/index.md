@@ -129,7 +129,7 @@ While mechanical reviews were automated, feature additions still required human 
 - **Testing**: High testing standards remain essential as delivery speeds accelerate. Avoid reliance on superficial coverage metrics. While tools like Playwright and Keploy aid test generation, AI models default to happy paths. Engineers must explicitly define edge cases and non-standard workflows. Additionally, AI assistance lowers the barrier to adopting Test-Driven Development (TDD).
 - **Automated safe approvals**: Configure workflows to evaluate change impact, automatically approving low-risk pull requests to relieve review bottlenecks.
 
-### <a href="##automated-guardrails-targeting-common-failure-modes" id="#automated-guardrails-targeting-common-failure-modes">Automated guardrails targeting common failure modes (failure vs automated check)</a>
+### <a href="#automated-guardrails-targeting-common-failure-modes" id="automated-guardrails-targeting-common-failure-modes">Automated guardrails targeting common failure modes (failure vs automated check)</a>
 
 1. **Hallucinated dependencies**
 
