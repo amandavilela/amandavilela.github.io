@@ -336,7 +336,7 @@ The VWO loader kicks off a nested chain of scripts that stacks up to almost 2 se
 <picture>
     <source srcset="network-dependency-tree-960w.webp" media="(min-width: 640px)" height="346">
     <source srcset="network-dependency-tree-640w.webp" media="(min-width: 320px)" height="237">
-    <img src="network-dependency-tree-320w.webp" width="300" height="151" loading="lazy" alt="">
+    <img src="network-dependency-tree-320w.webp" width="300" height="151" loading="lazy" alt="Chrome DevTools Performance panel for forbes.com showing the network dependency tree insight: a chain from the page to VWO's j.php and nested scripts with a 1.99 s max critical path latency, plus a warning that more than 4 preconnect connections were found.">
 </picture>
 
 That makes it a different kind of problem than the ad scripts. Transfer size is only 11.1 kB, tiny enough that it's not a bandwidth issue, and main-thread time is just 4ms, negligible next to Google CDN's 1,358ms or IAS's 632ms. The real cost here is pure network latency.

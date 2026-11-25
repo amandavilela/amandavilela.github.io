@@ -43,7 +43,7 @@ Below I selected a list of tweaks that can help improve INP metric prioritized b
 <picture>
     <source srcset="inp-960w.webp" media="(min-width: 640px)" height="365">
     <source srcset="inp-640w.webp" media="(min-width: 320px)" height="237">
-    <img src="inp-320w.webp" width="300" height="151" loading="lazy" alt="">
+    <img src="inp-320w.webp" width="300" height="151" loading="lazy" alt="PageSpeed Insights report showing a failed Core Web Vitals assessment: LCP 2.3 s and CLS 0.01 are good, but INP is 418 ms, in the needs-improvement range.">
 </picture>
 
 ### <a href="#reduce-dom-size" id="reduce-dom-size">1. Reduce DOM size</a>
