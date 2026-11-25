@@ -13,7 +13,7 @@
         <style>
             {{ "dist/critical.css" | read_file | cssmin | safe }}
             {% if page.url == '/' %}{{ "dist/home_critical.css" | read_file | cssmin | safe }}{% endif %}
-            {% if page.url != '/' and page.url != '/404/' %}{{ "dist/header.css" | read_file | cssmin | safe }}{% endif %}
+            {% if page.url != '/404/' %}{{ "dist/header.css" | read_file | cssmin | safe }}{% endif %}
         </style>
 
         {% if page_css %}
@@ -159,7 +159,7 @@
     <body>
         <a class="skip-link u-focus-ring" href="#main-content">Skip to main content</a>
 
-        {% if page.url != '/' and page.url != '/404/' %}
+        {% if page.url != '/404/' %}
             <header class="header">
                 <div class="container container--flex">
                     <a class="logo u-focus-ring" href="/">Amanda Vilela</a>
@@ -172,7 +172,9 @@
                     </nav>
                 </div>
             </header>
+        {% endif %}
 
+        {% if page.url != '/' and page.url != '/404/' %}
             <nav aria-label="Breadcrumb" class="breadcrumbs">
                 <div class="container">
                     <ol class="list">

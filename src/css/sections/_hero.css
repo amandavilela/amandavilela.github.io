@@ -9,7 +9,7 @@
 
 @scope (.hero) {
     :scope {
-        padding: 5rem 0 1rem 0;
+        padding: 3rem 0 1rem 0;
     }
 
     .container {
@@ -30,6 +30,11 @@
         flex-direction: column;
     }
 
+    h1 {
+        font-size: clamp(1.85rem, 4vw + .75rem, 2.15rem);
+        text-wrap: balance;
+    }
+
     .lead mark {
         background-color: unset;
         background-image: linear-gradient(
@@ -44,7 +49,6 @@
         border-radius: 1em 0 1em 0;
         color: var(--color-text);
         display: inline;
-        font-size: 1.15rem;
         font-weight: 700;
         line-height: 1.9;
         padding: 0.15em 0.1em;

@@ -3,6 +3,10 @@
         padding-block-start: 0;
     }
 
+    .btn {
+        margin-block-start: 1.5rem;
+    }
+
     .email {
         color: var(--color-green);
         text-decoration: underline;

@@ -23,3 +23,21 @@
         color: var(--color-bg);
     }
 }
+
+.btn--primary {
+    background: var(--color-green);
+    border-color: var(--color-green);
+    color: var(--color-white);
+    font-weight: 600;
+
+    &:hover {
+        background: var(--color-green-dark);
+        border-color: var(--color-green-dark);
+        color: var(--color-white);
+    }
+}
+
+.btn--secondary {
+    background: transparent;
+    border-color: var(--color-green);
+}
