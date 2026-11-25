@@ -1,6 +1,6 @@
 @scope (.core-areas) {
     :scope {
-        padding: 0;
+        padding-block: 0 4rem; /* room before the engagement formats band */
     }
 
     .core-area {

@@ -1,22 +1,24 @@
 @scope (.engagement-details) {
+    /* Full-width pale band to separate this section from the core areas */
     :scope {
-        padding: 0;
+        background-color: var(--color-light);
+        border-block: 1px solid var(--color-salmon);
+        padding-block: 3rem 4rem;
     }
 
-    p + p {
-        margin: 0;
+    .section-title {
+        margin-block-start: 0;
     }
 
-    ul {
-        list-style: inside;
+    .intro {
+        max-width: 60rem;
     }
 
     .grid {
-        margin-block-start: 1.5rem;
-        border-inline-start: 1px solid var(--color-salmon);
-        border-block-start: 1px solid var(--color-salmon);
         display: grid;
+        gap: 1.5rem;
         grid-template-columns: 1fr;
+        margin-block-start: 2rem;
 
         @media (width >= 768px) {
             grid-template-columns: repeat(2, 1fr);
@@ -24,17 +26,45 @@
     }
 
     .engagement-card {
-        border-block-end: 1px solid var(--color-salmon);
-        border-inline-end: 1px solid var(--color-salmon);
+        background-color: var(--color-white);
+        border: 1px solid var(--color-salmon);
+        border-block-start: 3px solid var(--color-green);
+        display: flex;
+        flex-direction: column;
+        gap: 1.25rem;
+        padding: 2rem 1.75rem;
+
+        /* An odd last card spans the full row: text on the left, list on the right */
+        &:last-child:nth-child(odd) {
+            @media (width >= 768px) {
+                align-items: center;
+                display: grid;
+                gap: 2.5rem;
+                grid-column: 1 / -1;
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+    }
+
+    .summary {
         display: flex;
         flex-direction: column;
         gap: 0.75rem;
-        padding: 2rem 1.5rem;
+    }
 
-        &:last-child:nth-child(odd) {
-            @media (width >= 768px) {
-                grid-column: 1 / -1;
-            }
-        }
+    .title {
+        font-size: 1.25rem;
+    }
+
+    /* "Best when…" callout */
+    .best-for {
+        background-color: var(--color-light);
+        border-inline-start: 3px solid var(--color-peach);
+        font-size: 0.95rem;
+        padding: 0.75rem 1rem;
+    }
+
+    .bullet-list {
+        gap: 0.6rem;
     }
 }

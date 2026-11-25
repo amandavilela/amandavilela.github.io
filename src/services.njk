@@ -26,7 +26,8 @@ page_css: services
             "Core Web Vitals",
             "Frontend Architecture",
             "WCAG",
-            "LCP, CLS, INP"
+            "LCP, CLS, INP",
+            "AI Adoption"
         ]
     },
     {
@@ -64,12 +65,20 @@ page_css: services
 </script>
 
 <main id="main-content">
+    <section class="services-intro" aria-labelledby="services-heading">
+        <div class="container">
+            <h1 id="services-heading">How I can help</h1>
+            <p class="lead">I help companies and teams improve performance, accessibility, and architecture, and lead their engineering through change, including adopting AI responsibly, so their products scale efficiently and deliver better user experiences.</p>
+            <p>This includes optimizing Core Web Vitals, addressing usability and compliance issues, and bringing clarity to technical decisions as complexity grows. I also support teams in improving consistency, speed, and overall code quality.</p>
+            <div class="actions">
+                <a href="mailto:hello@amandavilela.me" class="btn btn--primary u-focus-ring">Get in touch →</a>
+                <a href="#engagement-details-heading" class="btn btn--secondary u-focus-ring">See engagement formats ↓</a>
+            </div>
+        </div>
+    </section>
+
     <section class="core-areas" aria-labelledby="core-areas-heading">
         <div class="container">
-            <h1 class="section-title">How I can help</h1>
-            <p>I help companies and teams improve frontend performance, accessibility, and architecture so their products scale efficiently and deliver better user experiences.</p>
-            <p>This includes optimizing Core Web Vitals, addressing usability and compliance issues, and bringing clarity to technical decisions as complexity grows. I also support teams in improving consistency, speed, and overall code quality.</p>
-
             <h2 class="section-title" id="core-areas-heading">Core areas</h2>
 
             <article class="core-area">
@@ -93,13 +102,15 @@ page_css: services
             </article>
 
             <article class="core-area">
-                <h3>Frontend architecture &amp; teams</h3>
-                <p>Improve how your frontend is structured and how your team makes technical decisions.</p>
+                <h3>Technical Leadership &amp; Frontend Architecture</h3>
+                <p>Improve how your product is structured, how your team makes technical decisions, and how it adopts AI in a healthy, sustainable way.</p>
                 <ul class="bullet-list" role="list">
                     <li class="item">Architecture and codebase review</li>
                     <li class="item">Definition of standards and best practices</li>
                     <li class="item">Support for design systems and rendering strategies</li>
                     <li class="item">Guidance for team structure and technical decision-making</li>
+                    <li class="item">AI adoption strategy, with clear guardrails and review practices</li>
+                    <li class="item">Design and implementation of AI-assisted development workflows</li>
                 </ul>
             </article>
         </div>
@@ -108,62 +119,68 @@ page_css: services
     <section class="engagement-details" aria-labelledby="engagement-details-heading">
         <div class="container">
             <h2 class="section-title" id="engagement-details-heading">Engagement formats</h2>
-            <p>The way we work together depends on your goals, context, and the level of support required. These are the most common engagement models:</p>
+            <p class="intro">The way we work together depends on your goals, context, and the level of support required. These are the most common engagement models:</p>
 
             <ul class="grid" role="list">
                 <li class="engagement-card">
-                    <h3>Audit</h3>
-                    <p>A focused evaluation of your product or codebase with clear findings and next steps.</p>
-                    <p>Best when you need to understand what's wrong and what to prioritize.</p>
-                    <ul>
-                        <li>Performance (Core Web Vitals) or accessibility audits</li>
-                        <li>Identification of key issues and risks</li>
-                        <li>Prioritized recommendations for improvement</li>
+                    <div class="summary">
+                        <h3 class="title">Audit</h3>
+                        <p>A focused evaluation of your product or codebase with clear findings and next steps.</p>
+                        <p class="best-for">Best when you need to understand what's wrong and what to prioritize.</p>
+                    </div>
+                    <ul class="bullet-list" role="list">
+                        <li class="item">Performance (Core Web Vitals) or accessibility audits</li>
+                        <li class="item">Identification of key issues and risks</li>
+                        <li class="item">Prioritized recommendations for improvement</li>
                     </ul>
                 </li>
-
                 <li class="engagement-card">
-                    <h3>Project-based work</h3>
-                    <p>Hands-on support for specific initiatives with defined scope and timeline.</p>
-                    <p>Best when you need senior expertise to move something forward or solve a critical problem.</p>
-                    <ul>
-                        <li>Performance optimization</li>
-                        <li>Accessibility improvements</li>
-                        <li>Architecture changes or refactoring</li>
-                        <li>Collaboration with your team to unblock delivery</li>
+                    <div class="summary">
+                        <h3 class="title">Project-based work</h3>
+                        <p>Hands-on support for specific initiatives with defined scope and timeline.</p>
+                        <p class="best-for">Best when you need senior expertise to move something forward or solve a critical problem.</p>
+                    </div>
+                    <ul class="bullet-list" role="list">
+                        <li class="item">Performance optimization</li>
+                        <li class="item">Accessibility improvements</li>
+                        <li class="item">Architecture changes or refactoring</li>
+                        <li class="item">Collaboration with your team to unblock delivery</li>
                     </ul>
                 </li>
-
                 <li class="engagement-card">
-                    <h3>Retainer (ongoing support)</h3>
-                    <p>Continuous support integrated into your team's workflow.</p>
-                    <p>Best when your team needs consistent technical guidance without hiring full-time.</p>
-                    <ul>
-                        <li>Async support (e.g. Slack)</li>
-                        <li>Technical direction and decision support</li>
-                        <li>Ongoing reviews and recommendations</li>
+                    <div class="summary">
+                        <h3 class="title">Retainer (ongoing support)</h3>
+                        <p>Continuous support integrated into your team's workflow.</p>
+                        <p class="best-for">Best when your team needs consistent technical guidance without hiring full-time.</p>
+                    </div>
+                    <ul class="bullet-list" role="list">
+                        <li class="item">Async support (e.g. Slack)</li>
+                        <li class="item">Technical direction and decision support</li>
+                        <li class="item">Ongoing reviews and recommendations</li>
                     </ul>
                 </li>
-
                 <li class="engagement-card">
-                    <h3>Workshops &amp; talks</h3>
-                    <p>Structured sessions for teams or events.</p>
-                    <p>Best when you want to upskill your team or share knowledge at scale.</p>
-                    <ul>
-                        <li>Performance &amp; Core Web Vitals</li>
-                        <li>Accessibility</li>
-                        <li>Frontend architecture and best practices</li>
+                    <div class="summary">
+                        <h3 class="title">Workshops &amp; talks</h3>
+                        <p>Structured sessions for teams or events.</p>
+                        <p class="best-for">Best when you want to upskill your team or share knowledge at scale.</p>
+                    </div>
+                    <ul class="bullet-list" role="list">
+                        <li class="item">Performance &amp; Core Web Vitals</li>
+                        <li class="item">Accessibility</li>
+                        <li class="item">Frontend architecture and best practices</li>
                     </ul>
                 </li>
-
                 <li class="engagement-card">
-                    <h3>1:1 or group sessions</h3>
-                    <p>Flexible sessions focused on your specific context.</p>
-                    <p>Best for quick feedback, problem-solving, or targeted guidance.</p>
-                    <ul>
-                        <li>Technical questions</li>
-                        <li>Project discussions</li>
-                        <li>Career or growth direction</li>
+                    <div class="summary">
+                        <h3 class="title">1:1 or group sessions</h3>
+                        <p>Flexible sessions focused on your specific context.</p>
+                        <p class="best-for">Best for quick feedback, problem-solving, or targeted guidance.</p>
+                    </div>
+                    <ul class="bullet-list" role="list">
+                        <li class="item">Technical questions</li>
+                        <li class="item">Project discussions</li>
+                        <li class="item">Career or growth direction</li>
                     </ul>
                 </li>
             </ul>
@@ -176,7 +193,7 @@ page_css: services
             <p>Share your context and goals, and I'll help you choose the best approach.</p>
             <p>
                 Reach me at
-                <a href="mailto:hello@amandavilela.me" class="email"
+                <a href="mailto:hello@amandavilela.me" class="email u-slide-hover u-focus-ring"
                     >hello@amandavilela.me</a
                 >.
             </p>
