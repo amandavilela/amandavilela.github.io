@@ -11,9 +11,9 @@
         <link rel="preload" href="/fonts/inconsolata-600.woff2" as="font" type="font/woff2" crossorigin />
 
         <style>
-            {{ "dist/critical.css" | read_file | cssmin | safe }}
-            {% if critical_css %}{{ ("dist/" + critical_css + ".css") | read_file | cssmin | safe }}{% endif %}
-            {{ "dist/header.css" | read_file | cssmin | safe }}
+            {{ "dist/critical.css" | read_file | safe }}
+            {% if critical_css %}{{ ("dist/" + critical_css + ".css") | read_file | safe }}{% endif %}
+            {{ "dist/header.css" | read_file | safe }}
         </style>
 
         {% if page_css %}
