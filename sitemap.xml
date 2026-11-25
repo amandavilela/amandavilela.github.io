@@ -1,5 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"><url>
+                <loc>https://amandavilela.me/tags/ai/</loc>
+                <lastmod>2026-11-25</lastmod>
+                <changefreq>monthly</changefreq>
+                <priority>0.8</priority>
+            </url><url>
+                <loc>https://amandavilela.me/services/</loc>
+                <lastmod>2026-11-25</lastmod>
+                <changefreq>monthly</changefreq>
+                <priority>0.8</priority>
+            </url><url>
+                <loc>https://amandavilela.me/</loc>
+                <lastmod>2026-11-25</lastmod>
+                <changefreq>monthly</changefreq>
+                <priority>0.8</priority>
+            </url><url>
+                <loc>https://amandavilela.me/blog/</loc>
+                <lastmod>2026-11-25</lastmod>
+                <changefreq>monthly</changefreq>
+                <priority>0.8</priority>
+            </url><url>
                 <loc>https://amandavilela.me/blog/ai-adoption-maturity-model/</loc>
                 <lastmod>2026-11-24</lastmod>
                 <changefreq>monthly</changefreq>
@@ -10,33 +30,13 @@
                 <changefreq>monthly</changefreq>
                 <priority>0.8</priority>
             </url><url>
-                <loc>https://amandavilela.me/tags/ai/</loc>
-                <lastmod>2026-07-09</lastmod>
-                <changefreq>monthly</changefreq>
-                <priority>0.8</priority>
-            </url><url>
-                <loc>https://amandavilela.me/</loc>
-                <lastmod>2026-07-09</lastmod>
-                <changefreq>monthly</changefreq>
-                <priority>0.8</priority>
-            </url><url>
                 <loc>https://amandavilela.me/blog/chrome-devtools-mcp-core-web-vitals/</loc>
                 <lastmod>2026-07-09</lastmod>
                 <changefreq>monthly</changefreq>
                 <priority>0.8</priority>
             </url><url>
-                <loc>https://amandavilela.me/blog/</loc>
-                <lastmod>2026-06-23</lastmod>
-                <changefreq>monthly</changefreq>
-                <priority>0.8</priority>
-            </url><url>
                 <loc>https://amandavilela.me/blog/how-core-web-vitals-can-impact-business-revenue/</loc>
                 <lastmod>2026-06-23</lastmod>
-                <changefreq>monthly</changefreq>
-                <priority>0.8</priority>
-            </url><url>
-                <loc>https://amandavilela.me/services/</loc>
-                <lastmod>2026-06-16</lastmod>
                 <changefreq>monthly</changefreq>
                 <priority>0.8</priority>
             </url><url>
