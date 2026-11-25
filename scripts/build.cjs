@@ -58,6 +58,7 @@ async function step(label, fn) {
       "post",
       "404",
       "home_critical",
+      "services_critical",
       "header",
     ];
     for (const name of entries) {

@@ -30,9 +30,11 @@
                 box-shadow 0.2s ease;
         }
 
-        &:hover {
-            box-shadow: 3px 3px 0 var(--color-green);
-            translate: 5px 5px;
+        @media (hover: hover) {
+            &:hover {
+                box-shadow: 3px 3px 0 var(--color-green);
+                translate: 5px 5px;
+            }
         }
     }
 

@@ -12,7 +12,7 @@
 
         <style>
             {{ "dist/critical.css" | read_file | cssmin | safe }}
-            {% if page.url == '/' %}{{ "dist/home_critical.css" | read_file | cssmin | safe }}{% endif %}
+            {% if critical_css %}{{ ("dist/" + critical_css + ".css") | read_file | cssmin | safe }}{% endif %}
             {% if page.url != '/404/' %}{{ "dist/header.css" | read_file | cssmin | safe }}{% endif %}
         </style>
 

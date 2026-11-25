@@ -22,6 +22,7 @@ const cssEntries = [
   "post",
   "404",
   "home_critical",
+  "services_critical",
   "header",
 ];
 
