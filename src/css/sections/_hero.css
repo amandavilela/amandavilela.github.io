@@ -9,7 +9,7 @@
 
 @scope (.hero) {
     :scope {
-        padding: 1.5rem 0 1rem 0;
+        padding: 1.75rem 0 1rem 0;
 
         @media (width >= 768px) {
             padding-top: 3rem;

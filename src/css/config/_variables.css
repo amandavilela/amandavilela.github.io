@@ -10,6 +10,6 @@
     --section-spacing: 3rem;
 
     /* Fluid Typography & Spacing */
-    --font-size-h1: clamp(1.5rem, 3vw + 0.75rem, 2.75rem);
+    --font-size-h1: clamp(1.65rem, 3vw + 0.75rem, 2.75rem);
     --margin-section-v: clamp(1.5rem, 2vw + 1rem, 2rem);
 }

@@ -1,6 +1,6 @@
 @scope (body > .header) {
     :scope {
-        padding: 0.75rem 0;
+        padding: 1rem 0;
         box-shadow: 0 0 10px #0000001a;
 
         @media (width >= 768px) {
