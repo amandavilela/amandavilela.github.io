@@ -1,9 +1,15 @@
 @scope (body > .header) {
     :scope {
-        padding: 1rem 0;
         box-shadow: 0 0 10px #0000001a;
 
+        /* Mobile: fixed height (content centered) so the hero can subtract it exactly */
+        align-items: center;
+        display: flex;
+        min-height: var(--header-height-mobile);
+
         @media (width >= 768px) {
+            display: block;
+            min-height: auto;
             padding: 1.75rem 0;
         }
     }

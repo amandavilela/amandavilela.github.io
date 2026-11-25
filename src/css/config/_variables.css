@@ -9,6 +9,9 @@
     --color-white: #ffffff;
     --section-spacing: 3rem;
 
+    /* Mobile header height. Used by the header itself and by the hero (to fill the rest of the screen). */
+    --header-height-mobile: 4rem;
+
     /* Fluid Typography & Spacing */
     --font-size-h1: clamp(1.65rem, 3vw + 0.75rem, 2.75rem);
     --margin-section-v: clamp(1.5rem, 2vw + 1rem, 2rem);

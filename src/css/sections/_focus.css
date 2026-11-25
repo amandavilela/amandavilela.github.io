@@ -1,4 +1,13 @@
 @scope (.focus) {
+    :scope {
+        /* Mobile: the full-height hero above already leaves space below its content */
+        padding-block-start: 0;
+
+        @media (width >= 768px) {
+            padding-block-start: var(--section-spacing);
+        }
+    }
+
     .grid {
         display: grid;
         grid-template-columns: 1fr;

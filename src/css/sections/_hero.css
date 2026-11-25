@@ -9,10 +9,18 @@
 
 @scope (.hero) {
     :scope {
-        padding: 1.75rem 0 1rem 0;
+        /* Mobile: fill the visible screen below the header and center the content vertically.
+           svh = viewport height with browser toolbars shown, so the CTAs are never hidden behind them. */
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        min-height: calc(100svh - var(--header-height-mobile));
+        padding: 0; /* overrides the global section padding */
 
         @media (width >= 768px) {
-            padding-top: 3rem;
+            display: block;
+            min-height: auto;
+            padding: 3rem 0 1rem 0;
         }
     }
 
@@ -38,6 +46,13 @@
         /* Capped below the global h1 max so the headline stays on one line on desktop */
         font-size: min(var(--font-size-h1), 2.15rem);
         text-wrap: balance;
+
+        /* No top margin on mobile so the vertical centering isn't skewed */
+        margin-block-start: 0;
+
+        @media (width >= 768px) {
+            margin-block-start: 0.75rem;
+        }
     }
 
     .lead .highlight {
