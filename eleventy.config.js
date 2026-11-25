@@ -135,6 +135,16 @@ module.exports = function (eleventyConfig) {
 
   // ─── Markdown: wrap tables so wide ones scroll instead of breaking mobile layout ──
   const md = markdownIt({ html: true });
+
+  // ─── Markdown: make every fenced code block copyable (picked up by /js/copy-code.js) ──
+  const defaultFence = md.renderer.rules.fence;
+  md.renderer.rules.fence = function (tokens, idx, options, env, self) {
+    return defaultFence(tokens, idx, options, env, self).replace(
+      /^<pre>/,
+      "<pre data-copy-code>",
+    );
+  };
+
   const defaultTableOpen =
     md.renderer.rules.table_open ||
     function (tokens, idx, options, env, self) {
