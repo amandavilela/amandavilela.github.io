@@ -13,12 +13,14 @@
            svh = viewport height with browser toolbars shown, so the CTAs are never hidden behind them. */
         display: flex;
         flex-direction: column;
+        gap: .25rem;
         justify-content: center;
         min-height: calc(100svh - var(--header-height-mobile));
         padding: 0; /* overrides the global section padding */
 
         @media (width >= 768px) {
             display: block;
+            gap: 0;
             min-height: auto;
             padding: 3rem 0 1rem 0;
         }
