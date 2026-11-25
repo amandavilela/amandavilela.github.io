@@ -16,6 +16,11 @@ html {
     overflow-x: clip;
 }
 
+/* Leave breathing room above any element reached through an in-page anchor */
+[id] {
+    scroll-margin-block-start: 1.5rem;
+}
+
 @media (prefers-reduced-motion: no-preference) {
     html {
         scroll-behavior: smooth;
