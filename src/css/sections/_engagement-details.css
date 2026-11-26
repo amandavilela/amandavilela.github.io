@@ -1,7 +1,6 @@
 @scope (.engagement-details) {
     /* Full-width pale band to separate this section from the core areas */
     :scope {
-        background-color: var(--color-light);
         border-block: 1px solid var(--color-salmon);
         padding-block: 3rem 4rem;
     }
